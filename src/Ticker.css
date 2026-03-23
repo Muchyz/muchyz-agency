@@ -1,0 +1,5 @@
+@keyframes tickerScroll{from{transform:translateX(0)}to{transform:translateX(-33.333%)}}
+.ticker{background:var(--blue-600);overflow:hidden;padding:15px 0;position:relative;z-index:10;width:100%}
+.ticker__track{display:flex;width:max-content;animation:tickerScroll 28s linear infinite}
+.ticker__item{display:inline-flex;align-items:center;gap:18px;padding:0 20px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:#fff;letter-spacing:0.5px;text-transform:uppercase;white-space:nowrap}
+.ticker__dot{font-size:6px;opacity:0.6}

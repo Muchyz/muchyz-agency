@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="3.5" result="blur1"/>
+      <feGaussianBlur stdDeviation="7" result="blur2"/>
+      <feMerge><feMergeNode in="blur2"/><feMergeNode in="blur1"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="letterGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur1"/>
+      <feGaussianBlur stdDeviation="9" result="blur2"/>
+      <feMerge><feMergeNode in="blur2"/><feMergeNode in="blur1"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="ambientGlow" x="-60%" y="-60%" width="220%" height="220%">
+      <feGaussianBlur stdDeviation="14" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="cyanGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a8f0ff"/>
+      <stop offset="40%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#0891b2"/>
+    </linearGradient>
+    <linearGradient id="steelGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4a5568"/>
+      <stop offset="40%" stop-color="#2d3748"/>
+      <stop offset="100%" stop-color="#1a202c"/>
+    </linearGradient>
+    <linearGradient id="innerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1117"/>
+      <stop offset="60%" stop-color="#060a12"/>
+      <stop offset="100%" stop-color="#020408"/>
+    </linearGradient>
+    <linearGradient id="edgeGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#0891b2" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#22d3ee" stop-opacity="0.8"/>
+    </linearGradient>
+    <radialGradient id="bgGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0e7490" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#0c4a6e" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+    <style>
+      @keyframes pulse { 0%,100%{opacity:0.7} 50%{opacity:1.0} }
+      @keyframes pulse2 { 0%,100%{opacity:0.6} 50%{opacity:0.95} }
+      .pulse { animation: pulse 3s ease-in-out infinite; }
+      .pulse2 { animation: pulse2 3s 1.5s ease-in-out infinite; }
+    </style>
+  </defs>
+  <circle cx="100" cy="95" r="62" fill="url(#bgGlow)" filter="url(#ambientGlow)" class="pulse"/>
+  <polygon points="63,38 68,30 73,38" fill="#22d3ee" opacity="0.85" filter="url(#glow)" class="pulse2"/>
+  <polygon points="127,38 132,30 137,38" fill="#22d3ee" opacity="0.85" filter="url(#glow)" class="pulse2"/>
+  <polygon points="38,80 28,95 38,110" fill="#22d3ee" opacity="0.7" filter="url(#glow)" class="pulse"/>
+  <polygon points="162,80 172,95 162,110" fill="#22d3ee" opacity="0.7" filter="url(#glow)" class="pulse"/>
+  <polygon points="63,152 68,160 73,152" fill="#22d3ee" opacity="0.85" filter="url(#glow)" class="pulse2"/>
+  <polygon points="127,152 132,160 137,152" fill="#22d3ee" opacity="0.85" filter="url(#glow)" class="pulse2"/>
+  <polygon points="100,28 158,61 158,129 100,162 42,129 42,61" fill="url(#steelGrad)" stroke="#22d3ee" stroke-width="1.2" stroke-opacity="0.5"/>
+  <polygon points="100,28 158,61 158,129 100,162 42,129 42,61" fill="none" stroke="url(#edgeGlow)" stroke-width="2.5" filter="url(#glow)" class="pulse"/>
+  <polygon points="100,36 151,64.5 151,125.5 100,154 49,125.5 49,64.5" fill="#0d1117" stroke="#2d3748" stroke-width="1"/>
+  <polygon points="100,44 144,68 144,122 100,146 56,122 56,68" fill="url(#innerGrad)"/>
+  <line x1="58" y1="78" x2="68" y2="78" stroke="#22d3ee" stroke-width="0.6" opacity="0.4"/>
+  <line x1="58" y1="83" x2="65" y2="83" stroke="#22d3ee" stroke-width="0.6" opacity="0.3"/>
+  <line x1="58" y1="88" x2="70" y2="88" stroke="#22d3ee" stroke-width="0.6" opacity="0.4"/>
+  <line x1="132" y1="78" x2="142" y2="78" stroke="#22d3ee" stroke-width="0.6" opacity="0.4"/>
+  <line x1="135" y1="83" x2="142" y2="83" stroke="#22d3ee" stroke-width="0.6" opacity="0.3"/>
+  <line x1="130" y1="88" x2="142" y2="88" stroke="#22d3ee" stroke-width="0.6" opacity="0.4"/>
+  <circle cx="100" cy="95" r="3" fill="#ffffff" opacity="0.9" filter="url(#letterGlow)" class="pulse"/>
+  <line x1="60" y1="95" x2="140" y2="95" stroke="#a8f0ff" stroke-width="0.5" opacity="0.5" filter="url(#glow)" class="pulse2"/>
+  <path d="M66,118 L66,70 L81,95 L96,70 L96,118 L90,118 L90,84 L81,101 L72,84 L72,118 Z" fill="url(#cyanGrad)" filter="url(#letterGlow)"/>
+  <path d="M87,118 L87,112 L114,76 L87,76 L87,70 L133,70 L133,76 L106,112 L133,112 L133,118 Z" fill="url(#cyanGrad)" filter="url(#letterGlow)"/>
+</svg>

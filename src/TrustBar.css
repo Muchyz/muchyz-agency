@@ -1,0 +1,7 @@
+@keyframes trustScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.trust-bar{background:var(--slate-900);padding:22px 0;overflow:hidden;position:relative;z-index:10;width:100%;border-top:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06)}
+.trust-bar__track-wrap{overflow:hidden;width:100%}
+.trust-bar__track{display:flex;width:max-content;animation:trustScroll 22s linear infinite}
+.trust-bar__item{display:inline-flex;align-items:center;gap:10px;padding:0 36px;white-space:nowrap;border-right:1px solid rgba(255,255,255,0.08)}
+.trust-bar__icon{font-size:20px}
+.trust-bar__name{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:700;color:rgba(255,255,255,0.45);letter-spacing:0.5px;text-transform:uppercase}

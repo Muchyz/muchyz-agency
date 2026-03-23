@@ -1,0 +1,341 @@
+/* ================================================================
+   MUCHYZ DIGITAL AGENCY — Testimonials
+   Style : Left-aligned editorial header + Glass morphism cards
+   Font  : Plus Jakarta Sans
+   ================================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600;1,700&display=swap');
+
+/* ── Tokens ──────────────────────────────────────────────────── */
+:root {
+  --ts-bg:        #070d1e;
+  --ts-blue:      #2563eb;
+  --ts-blue-b:    #3b82f6;
+  --ts-blue-p:    #93c5fd;
+  --ts-blue-pp:   #bfdbfe;
+  --ts-gold:      #fbbf24;
+  --ts-white:     #ffffff;
+  --ts-w88:       rgba(255,255,255,.88);
+  --ts-w50:       rgba(255,255,255,.50);
+  --ts-w38:       rgba(255,255,255,.38);
+  --ts-w10:       rgba(255,255,255,.10);
+  --ts-w07:       rgba(255,255,255,.07);
+  --ts-radius:    20px;
+  --ts-ease:      cubic-bezier(.22,1,.36,1);
+}
+
+/* ── Section ─────────────────────────────────────────────────── */
+.ts {
+  position: relative;
+  padding: 90px 24px 100px;
+  overflow: hidden;
+  isolation: isolate;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: linear-gradient(135deg, #070d1e 0%, #0b1a3e 40%, #071226 70%, #040a18 100%);
+}
+
+/* Dot grid texture */
+.ts::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: 26px 26px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Colour blobs — glass needs these to show through ── */
+.ts__blobs { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+.ts__blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+}
+.ts__blob--1 {
+  width: 650px; height: 450px;
+  background: radial-gradient(ellipse, rgba(29,78,216,.52) 0%, transparent 70%);
+  top: -150px; left: -100px;
+}
+.ts__blob--2 {
+  width: 500px; height: 400px;
+  background: radial-gradient(ellipse, rgba(14,165,233,.35) 0%, transparent 70%);
+  bottom: -100px; right: -80px;
+}
+.ts__blob--3 {
+  width: 350px; height: 300px;
+  background: radial-gradient(ellipse, rgba(99,102,241,.22) 0%, transparent 70%);
+  top: 45%; left: 50%;
+}
+
+/* ── Wrapper ─────────────────────────────────────────────────── */
+.ts__wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Header — left-aligned editorial style ───────────────────── */
+.ts__hd {
+  max-width: 600px;
+  margin-bottom: 60px;
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .75s var(--ts-ease), transform .75s var(--ts-ease);
+}
+.ts__hd--in { opacity: 1; transform: none; }
+
+.ts__eyebrow {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+  color: var(--ts-blue-p);
+  margin-bottom: 12px;
+}
+
+.ts__eyebrow-line {
+  display: block;
+  width: 48px; height: 3px;
+  background: var(--ts-blue);
+  border-radius: 2px;
+  margin-bottom: 28px;
+}
+
+.ts__title {
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  color: var(--ts-white);
+  line-height: 1.12;
+  letter-spacing: -.02em;
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+}
+.ts__title em {
+  font-style: italic;
+  font-weight: 700;
+  color: var(--ts-blue-b);
+}
+
+.ts__sub {
+  font-size: 15px;
+  color: var(--ts-w50);
+  max-width: 440px;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+/* ── Grid ────────────────────────────────────────────────────── */
+.ts__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+/* ── Glass Card ──────────────────────────────────────────────── */
+.tc {
+  position: relative;
+  border-radius: var(--ts-radius);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  /* Glass */
+  background: rgba(255,255,255,.11);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+
+  /* Glass borders */
+  border: 1px solid rgba(255,255,255,.10);
+  border-top: 1px solid rgba(255,255,255,.28);
+
+  box-shadow:
+    0 8px 32px rgba(0,0,0,.35),
+    0 2px 8px rgba(0,0,0,.2),
+    inset 0 1px 0 rgba(255,255,255,.2);
+
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    transform .45s var(--ts-ease),
+    box-shadow .45s var(--ts-ease),
+    background .45s var(--ts-ease),
+    border-color .45s var(--ts-ease);
+}
+
+.ts__grid--in .tc {
+  animation: tcIn .65s calc(var(--i,0) * .12s) var(--ts-ease) both;
+}
+@keyframes tcIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.tc:hover {
+  transform: translateY(-7px);
+  background: rgba(255,255,255,.14);
+  border-top-color: rgba(255,255,255,.45);
+  box-shadow:
+    0 24px 64px rgba(0,0,0,.45),
+    0 0 48px rgba(29,78,216,.2),
+    inset 0 1px 0 rgba(255,255,255,.3);
+}
+
+/* Animated shimmer top bar */
+.tc__accent {
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #3b82f6, #93c5fd, #3b82f6, transparent);
+  background-size: 200% 100%;
+  animation: shine 3s linear infinite;
+  flex-shrink: 0;
+}
+@keyframes shine {
+  0%   { background-position: 200%; }
+  100% { background-position: -200%; }
+}
+
+/* Card body */
+.tc__body {
+  padding: 26px 24px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Badge + Stars */
+.tc__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.tc__badge {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ts-blue-pp);
+  background: rgba(37,99,235,.25);
+  border: 1px solid rgba(96,165,250,.28);
+  padding: 4px 12px;
+  border-radius: 100px;
+}
+.tc__stars { display: flex; gap: 2px; color: var(--ts-gold); }
+.tc__star {
+  display: inline-flex;
+  filter: drop-shadow(0 0 3px rgba(251,191,36,.5));
+}
+
+/* Quote block with left border */
+.tc__qblock {
+  border-left: 3px solid rgba(96,165,250,.65);
+  padding-left: 14px;
+  flex: 1;
+}
+.tc__quote {
+  font-size: 14.5px;
+  line-height: 1.78;
+  color: var(--ts-w88);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Footer strip */
+.tc__foot {
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  background: rgba(0,0,0,.22);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--ts-w07);
+  gap: 0;
+  flex-shrink: 0;
+  min-height: 0;
+}
+
+.tc__metric {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding-right: 14px;
+  border-right: 1px solid rgba(255,255,255,.1);
+  flex-shrink: 0;
+  min-width: 0;
+}
+.tc__mval {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: var(--ts-blue-p);
+  line-height: 1;
+  letter-spacing: -.03em;
+  text-shadow: 0 0 18px rgba(147,197,253,.4);
+  flex-shrink: 0;
+}
+.tc__mlbl {
+  font-size: 8.5px;
+  font-weight: 700;
+  color: var(--ts-w38);
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+
+.tc__author {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-left: 14px;
+  min-width: 0;
+  flex: 1;
+}
+.tc__av {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1d4ed8, #60a5fa);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #fff;
+  border: 1.5px solid rgba(255,255,255,.22);
+  box-shadow: 0 0 12px rgba(37,99,235,.5);
+  flex-shrink: 0;
+  letter-spacing: .03em;
+  transition: box-shadow .3s var(--ts-ease);
+}
+.tc:hover .tc__av { box-shadow: 0 0 22px rgba(37,99,235,.75); }
+
+.tc__name {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ts-white);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tc__role {
+  display: block;
+  font-size: 10.5px;
+  color: var(--ts-w38);
+  margin-top: 1px;
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Responsive ──────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .ts__grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .ts { padding: 72px 20px 80px; }
+  .ts__grid { grid-template-columns: 1fr; }
+  .ts__title { font-size: 2rem; }
+  .ts__hd { max-width: 100%; }
+}
