@@ -1,4 +1,5 @@
 import "./App.css";
+import { Helmet } from "react-helmet-async";
 import Navbar       from "./Navbar";
 import Hero         from "./Hero";
 import Services     from "./Services";
@@ -16,6 +17,16 @@ import WAFab        from "./WAFab";
 export default function App() {
   return (
     <div className="app">
+      <Helmet>
+        <title>Muchyz Agency | Web Design & Software Development in Kenya</title>
+        <meta name="description" content="Muchyz Agency builds stunning websites, mobile apps, AI systems and custom software for businesses in Kenya and worldwide. Get a free quote today." />
+        <meta name="keywords" content="web design Kenya, software development Nairobi, mobile app development Kenya, digital agency Kenya, website design Nairobi" />
+        <meta property="og:title" content="Muchyz Agency | Web Design & Software Development in Kenya" />
+        <meta property="og:description" content="We design and build websites, apps and AI systems that turn visitors into revenue." />
+        <meta property="og:url" content="https://muchyz.com" />
+        <meta property="og:type" content="website" />
+        <link rel="canonical" href="https://muchyz.com" />
+      </Helmet>
       <Navbar /><Hero />
       <Services /><Process /><Work /><Pricing />
       <WhyUs /><Testimonials /><FAQ /><ContactForm />
