@@ -36,6 +36,17 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ""; };
   }, [menuOpen]);
 
+  /* ── Prime Tawk API — hide widget bubble, keep API ready ── */
+  useEffect(() => {
+    window.Tawk_API = window.Tawk_API || {};
+    const prev = window.Tawk_API.onLoad;
+    window.Tawk_API.onLoad = function () {
+      window.tawkReady = true;
+      window.Tawk_API.hideWidget();
+      if (typeof prev === "function") prev();
+    };
+  }, []);
+
   /* ── Magnetic CTA effect (desktop only) ── */
   useEffect(() => {
     const btn = ctaRef.current;
@@ -56,6 +67,16 @@ export default function Navbar() {
   }, []);
 
   const closeMenu = () => setMenuOpen(false);
+
+  /* ── Open Tawk chat; fallback to WhatsApp if not ready ── */
+  const handleTawk = (e) => {
+    e.preventDefault();
+    if (typeof window.Tawk_API?.maximize === "function") {
+      window.Tawk_API.maximize();
+    } else {
+      window.open("https://wa.me/254705427449", "_blank");
+    }
+  };
 
   return (
     <>
@@ -98,12 +119,14 @@ export default function Navbar() {
           {/* ── Mobile right: slim chip + burger ── */}
           <div className="nav__mobile-right">
 
+            {/* "Let's Talk" chip — opens Tawk.to, fallback to WhatsApp */}
             <a
               href="https://wa.me/254705427449"
               className="nav__cta-chip"
               target="_blank"
               rel="noreferrer"
-              aria-label="Start a project on WhatsApp"
+              aria-label="Open live chat"
+              onClick={handleTawk}
             >
               <span className="nav__cta-chip-bg"  aria-hidden="true" />
               <span className="nav__cta-chip-dot" aria-hidden="true" />
@@ -168,7 +191,7 @@ export default function Navbar() {
             className="sheet__cta"
             target="_blank"
             rel="noreferrer"
-            onClick={closeMenu}
+            onClick={(e) => { closeMenu(); handleTawk(e); }}
           >
             <span className="sheet__cta-bg"    aria-hidden="true" />
             <span className="sheet__cta-shine" aria-hidden="true" />

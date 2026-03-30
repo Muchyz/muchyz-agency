@@ -151,9 +151,6 @@
 
 /* ══════════════════════════════════════
    LOGO IMAGE
-   — screen blend: white/dark disappear
-   — no drop-shadow, just natural cyan glow
-     from the logo's own colors
    ══════════════════════════════════════ */
 .nav__logo {
   display: flex;
