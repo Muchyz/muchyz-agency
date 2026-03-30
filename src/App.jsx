@@ -28,7 +28,7 @@ export default function App() {
         <link rel="canonical" href="https://muchyz.com" />
       </Helmet>
       <Navbar /><Hero />
-      <Services /><Process /><Work /><Pricing />
+      <Services /><Process /><Pricing />
       <WhyUs /><Testimonials /><FAQ /><ContactForm />
       <CTA /><Footer /><WAFab />
     </div>
