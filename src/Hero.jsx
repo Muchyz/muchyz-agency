@@ -315,110 +315,133 @@ export default function MuchyzHero() {
           .Mloghdr{padding:18px 32px 0}
         }
 
-        /* ── MOBILE: everything in one screen ── */
+        /* ── MOBILE: natural layout, no clipping ── */
         @media(max-width:640px){
-          /* Shell fills exactly the screen */
-          .M{height:100svh;min-height:0;display:flex;flex-direction:column;overflow:hidden}
 
-          /* Body: single column, fills remaining height, split between left+right */
+          /* Push content below fixed navbar */
+          .M{ overflow:visible; padding-top:72px; }
+
           .Mbody{
-            grid-template-columns:1fr !important;
-            padding:12px 18px 12px !important;
-            flex:1;display:flex !important;flex-direction:column;
-            gap:10px;min-height:0;overflow:hidden;
+            display:flex !important;
+            flex-direction:column !important;
+            grid-template-columns:unset !important;
+            padding:14px 18px 14px !important;
+            gap:0;
+            max-width:100%;
             align-items:stretch;
           }
 
-          /* LEFT column */
-          .Mleft{padding-right:0 !important;margin-bottom:0 !important;flex-shrink:0}
+          /* ── LEFT ── */
+          .Mleft{
+            padding-right:0 !important;
+            margin-bottom:14px !important;
+          }
 
-          .Mtag{margin-bottom:8px;font-size:9px;padding:3px 10px;line-height:1.4}
-          .Mtdot{width:5px;height:5px}
+          .Mtag{ display:none }
 
-          .Mhlight{font-size:24px;line-height:1.1}
-          .Mhword{font-size:24px;line-height:1.1}
-          .Mcursor{height:20px}
-          .Mhtyped{min-height:28px;margin-bottom:6px}
+          .Mhlight{font-size:28px;line-height:1.1;letter-spacing:-.025em}
+          .Mhword{ font-size:28px;line-height:1.1;letter-spacing:-.025em}
+          .Mcursor{height:24px;width:2px}
+          .Mhtyped{min-height:32px;margin-bottom:8px}
 
-          .Mdesc{font-size:12.5px;line-height:1.55;margin-bottom:10px;
-            display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+          .Mdesc{
+            font-size:13px;line-height:1.55;margin-bottom:12px;
+            display:-webkit-box;-webkit-line-clamp:2;
+            -webkit-box-orient:vertical;overflow:hidden;
+            max-width:100%;
+          }
 
-          .Mctarow{flex-direction:row;gap:7px;margin-bottom:10px;flex-wrap:nowrap;align-items:stretch}
+          /* CTAs — two side by side */
+          .Mctarow{
+            display:flex;flex-direction:row;
+            gap:8px;margin-bottom:10px;
+            flex-wrap:nowrap;align-items:stretch;
+          }
           .Mctarow-sub{display:contents}
-          .Mbtn1{flex:1;justify-content:center;padding:11px 10px;font-size:12.5px;border-radius:9px}
-          .Mbtn2{flex:1;justify-content:center;padding:10px 10px;font-size:12px;border-radius:9px}
+          .Mbtn1{flex:1;justify-content:center;padding:11px 10px;font-size:12.5px;border-radius:10px}
+          .Mbtn2{flex:1;justify-content:center;padding:10px 10px;font-size:12px;border-radius:10px}
           .Mbtn3{display:none}
 
-          .Mproof{width:100%;padding:9px 12px;display:flex;flex-direction:row;align-items:center;
-            gap:0;border-radius:10px;margin-bottom:0}
+          /* Proof — single row */
+          .Mproof{
+            width:100%;padding:9px 12px;
+            display:flex;flex-direction:row;align-items:center;
+            gap:0;border-radius:12px;margin-bottom:0;
+          }
           .Mpsec{padding:0 9px;flex-direction:column;align-items:center;text-align:center;gap:2px}
-          .Mpsec:first-child{flex-direction:row;text-align:left;gap:7px;flex:1;
-            border-right:1px solid var(--bd)!important;padding:0 10px 0 0;margin-bottom:0}
+          .Mpsec:first-child{
+            flex-direction:row;text-align:left;gap:7px;flex:1;
+            border-right:1px solid var(--bd)!important;padding:0 10px 0 0;
+          }
           .Mpsec:nth-child(2){border-right:1px solid var(--bd)!important}
           .Mpsec:last-child{border-right:none!important}
           .Msval{font-size:16px}
           .Mskey{font-size:8.5px}
           .Mplabel{font-size:10.5px}
           .Mav{width:24px;height:24px}
-          .Mstars{margin-bottom:1px}
           .Mstar{font-size:9px}
 
-          /* RIGHT: image area fills remaining space */
+          /* ── RIGHT ── natural height */
           .Mright{
-            flex:1;min-height:0;
-            display:flex !important;flex-direction:column;
-            position:relative;height:auto !important;padding-bottom:0;
-            gap:8px;
+            display:flex !important;
+            flex-direction:column;
+            position:relative;
+            height:auto !important;
+            gap:7px;
           }
 
-          /* Main image fills the flex space */
+          /* Main image — reduced to fit logos in view */
           .Mimgmain{
-            flex:1;min-height:0;
             position:relative !important;
-            top:auto !important;left:auto !important;right:auto !important;bottom:auto !important;
-            border-radius:14px;overflow:hidden;
-            box-shadow:0 8px 24px rgba(0,0,0,.12);
+            top:auto !important;left:auto !important;
+            right:auto !important;bottom:auto !important;
+            height:160px;
+            border-radius:16px;overflow:hidden;
+            box-shadow:0 8px 28px rgba(0,0,0,.13);
           }
           .Mimgmain img{transform:none !important}
-          .Mimgcap{bottom:10px;left:10px;font-size:10px;padding:5px 10px}
+          .Mimgcap{bottom:10px;left:10px;font-size:10px;padding:5px 11px}
 
-          /* Secondary: corner overlay on main image */
+          /* Secondary image — corner of main */
           .Mimgsec{
             position:absolute;bottom:8px;right:8px;
-            width:80px;height:66px;border-radius:9px;border-width:3px;
+            width:82px;height:68px;border-radius:10px;border-width:3px;
           }
 
-          /* Feed: compact strip at bottom of right */
+          /* Hide heavy widgets */
           .Mcmetric{display:none !important}
           .Mpill{display:none !important}
+
+          /* Feed card — full width strip */
           .Mcfeed{
-            flex-shrink:0;
-            position:relative !important;bottom:auto !important;left:auto !important;
+            position:relative !important;
+            bottom:auto !important;left:auto !important;
             animation:none !important;
-            width:100%;min-width:0;border-radius:11px;padding:10px 12px;
-            white-space:normal;
+            width:100%;min-width:0;
+            border-radius:12px;padding:11px 13px;
+            white-space:normal;flex-shrink:0;
           }
-          .Mfinner{gap:9px}
-          .Mficon{width:30px;height:30px;font-size:14px;border-radius:7px;flex-shrink:0}
-          .Mftitle{font-size:11.5px}
+          .Mfinner{gap:10px}
+          .Mficon{width:32px;height:32px;font-size:15px;border-radius:8px;flex-shrink:0}
+          .Mftitle{font-size:12px}
           .Mfmeta{font-size:10px;margin-top:1px}
           .Mftime{display:none}
-          .Mflive{top:9px;right:10px;width:6px;height:6px}
+          .Mflive{top:10px;right:12px;width:6px;height:6px}
 
-          /* Logos: slim strip */
-          .Mlogos{flex-shrink:0}
-          .Mloghdr{padding:8px 18px 0}
+          /* Logos */
+          .Mloghdr{padding:12px 18px 0}
           .Mloglbl{font-size:8.5px}
-          .Mlogscroll{padding:6px 0 10px}
-          .Mlogitem{padding:0 20px;font-size:12.5px}
+          .Mlogscroll{padding:8px 0 12px}
+          .Mlogitem{padding:0 22px;font-size:13px}
         }
 
-        @media(max-width:390px){
-          .Mbody{padding:10px 16px 10px !important}
-          .Mhlight{font-size:22px}
-          .Mhword{font-size:22px}
-          .Mcursor{height:18px}
-          .Mhtyped{min-height:26px}
+        @media(max-width:375px){
+          .Mbody{padding:16px 16px 14px !important}
+          .Mhlight{font-size:25px}
+          .Mhword{font-size:25px}
+          .Mcursor{height:21px}
+          .Mhtyped{min-height:28px}
+          .Mimgmain{height:170px}
         }
       `}</style>
 
