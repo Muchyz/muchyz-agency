@@ -123,12 +123,10 @@ export default function MuchyzHero() {
           background:linear-gradient(to bottom,transparent 0%,var(--bd) 30%,var(--bd) 70%,transparent 100%);
           transform:rotate(8deg);transform-origin:top left}
 
-        /* body grid */
         .Mbody{display:grid;grid-template-columns:1fr 1fr;align-items:center;
           max-width:1360px;margin:0 auto;width:100%;padding:88px 56px 80px;
           position:relative;z-index:1}
 
-        /* left */
         .Mleft{padding-right:80px}
 
         .Mtag{display:inline-flex;align-items:center;gap:8px;
@@ -181,7 +179,6 @@ export default function MuchyzHero() {
           transition:background .15s,color .15s,border-color .15s}
         .Mbtn3:hover{background:var(--bg2);color:var(--ink2);border-color:var(--bd)}
 
-        /* proof bar */
         .Mproof{display:flex;align-items:center;flex-wrap:wrap;
           padding:16px 20px;background:#fff;border:1px solid var(--bd);border-radius:16px;
           width:fit-content;box-shadow:0 2px 8px rgba(0,0,0,.04)}
@@ -201,13 +198,12 @@ export default function MuchyzHero() {
           color:var(--ink);letter-spacing:-.04em;line-height:1}
         .Mskey{font-size:10.5px;color:var(--muted);margin-top:2px;font-family:var(--mono);letter-spacing:.04em}
 
-        /* right */
         .Mright{position:relative;height:600px}
 
+        /* ── MAIN IMAGE — uses Img1.jpeg from /public ── */
         .Mimgmain{position:absolute;top:0;left:0;right:64px;bottom:64px;
           border-radius:28px;overflow:hidden;box-shadow:var(--sheavy)}
         .Mimgmain img{width:100%;height:100%;object-fit:cover;display:block;
-          transform:translateY(VAR_SCROLL) scale(1.05);
           transition:transform .08s linear;will-change:transform}
         .Mimgmain::after{content:'';position:absolute;inset:0;
           background:linear-gradient(160deg,rgba(26,86,219,.04) 0%,transparent 40%,rgba(13,13,11,.18) 100%)}
@@ -222,7 +218,6 @@ export default function MuchyzHero() {
           border-radius:20px;overflow:hidden;box-shadow:var(--sfloat);border:4px solid var(--bg)}
         .Mimgsec img{width:100%;height:100%;object-fit:cover;display:block}
 
-        /* metric card */
         .Mcmetric{position:absolute;top:24px;right:-4px;
           background:#fff;border:1px solid var(--bd);border-radius:20px;padding:18px 22px;
           min-width:196px;box-shadow:var(--sfloat);animation:floatA 5.5s ease-in-out infinite}
@@ -253,7 +248,6 @@ export default function MuchyzHero() {
         .Mdlegrow{display:flex;align-items:center;gap:6px;font-size:10.5px;color:var(--ink3)}
         .Mddot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
 
-        /* feed card */
         .Mcfeed{position:absolute;bottom:72px;left:-44px;
           background:var(--ink);color:#fff;border-radius:16px;padding:14px 16px;
           display:flex;align-items:center;gap:12px;
@@ -273,7 +267,6 @@ export default function MuchyzHero() {
         .Mflive{position:absolute;top:12px;right:14px;width:7px;height:7px;border-radius:50%;
           background:#4ADE80;animation:gpulse 2s infinite}
 
-        /* pill */
         .Mpill{position:absolute;top:48%;right:-6px;transform:translateY(-50%);
           background:var(--aclt);border:1px solid var(--acmd);color:var(--accent);
           border-radius:100px;padding:7px 14px;
@@ -283,7 +276,6 @@ export default function MuchyzHero() {
           box-shadow:0 4px 20px rgba(26,86,219,.14);white-space:nowrap}
         .Mpill svg{width:13px;height:13px}
 
-        /* logos */
         .Mlogos{border-top:1px solid var(--bd);background:var(--bg2);position:relative;z-index:1}
         .Mloghdr{display:flex;align-items:center;gap:16px;padding:18px 56px 0}
         .Mloglbl{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap;flex-shrink:0}
@@ -305,7 +297,6 @@ export default function MuchyzHero() {
         @keyframes floatC{0%,100%{transform:translateY(-50%) translateX(0)}50%{transform:translateY(-50%) translateX(-7px)}}
         @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-        /* ── TABLET ── */
         @media(max-width:1060px) and (min-width:641px){
           .Mbody{grid-template-columns:1fr;padding:52px 32px 48px}
           .Mleft{padding-right:0;margin-bottom:44px}
@@ -315,64 +306,30 @@ export default function MuchyzHero() {
           .Mloghdr{padding:18px 32px 0}
         }
 
-        /* ── MOBILE: natural layout, no clipping ── */
         @media(max-width:640px){
-
-          /* Push content below fixed navbar */
-          .M{ overflow:visible; padding-top:72px; }
-
-          .Mbody{
-            display:flex !important;
-            flex-direction:column !important;
-            grid-template-columns:unset !important;
-            padding:14px 18px 14px !important;
-            gap:0;
-            max-width:100%;
-            align-items:stretch;
-          }
-
-          /* ── LEFT ── */
-          .Mleft{
-            padding-right:0 !important;
-            margin-bottom:14px !important;
-          }
-
-          .Mtag{ display:none }
-
+          .M{height:100svh;overflow:hidden;display:flex;flex-direction:column;padding-top:88px}
+          .Mlogos{flex-shrink:0}
+          .Mbody{display:flex !important;flex-direction:column !important;
+            grid-template-columns:unset !important;padding:12px 18px 0 !important;
+            gap:0;max-width:100%;align-items:stretch;flex:1;min-height:0;overflow:hidden}
+          .Mleft{padding-right:0 !important;margin-bottom:10px !important;flex-shrink:0}
+          .Mtag{display:none}
           .Mhlight{font-size:28px;line-height:1.1;letter-spacing:-.025em}
-          .Mhword{ font-size:28px;line-height:1.1;letter-spacing:-.025em}
+          .Mhword{font-size:28px;line-height:1.1;letter-spacing:-.025em}
           .Mcursor{height:24px;width:2px}
-          .Mhtyped{min-height:32px;margin-bottom:8px}
-
-          .Mdesc{
-            font-size:13px;line-height:1.55;margin-bottom:12px;
-            display:-webkit-box;-webkit-line-clamp:2;
-            -webkit-box-orient:vertical;overflow:hidden;
-            max-width:100%;
-          }
-
-          /* CTAs — two side by side */
-          .Mctarow{
-            display:flex;flex-direction:row;
-            gap:8px;margin-bottom:10px;
-            flex-wrap:nowrap;align-items:stretch;
-          }
+          .Mhtyped{min-height:32px;margin-bottom:6px}
+          .Mdesc{font-size:13px;line-height:1.55;margin-bottom:10px;
+            display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-width:100%}
+          .Mctarow{display:flex;flex-direction:row;gap:8px;margin-bottom:8px;flex-wrap:nowrap;align-items:stretch}
           .Mctarow-sub{display:contents}
           .Mbtn1{flex:1;justify-content:center;padding:11px 10px;font-size:12.5px;border-radius:10px}
           .Mbtn2{flex:1;justify-content:center;padding:10px 10px;font-size:12px;border-radius:10px}
           .Mbtn3{display:none}
-
-          /* Proof — single row */
-          .Mproof{
-            width:100%;padding:9px 12px;
-            display:flex;flex-direction:row;align-items:center;
-            gap:0;border-radius:12px;margin-bottom:0;
-          }
+          .Mproof{width:100%;padding:9px 12px;display:flex;flex-direction:row;
+            align-items:center;gap:0;border-radius:12px;margin-bottom:0}
           .Mpsec{padding:0 9px;flex-direction:column;align-items:center;text-align:center;gap:2px}
-          .Mpsec:first-child{
-            flex-direction:row;text-align:left;gap:7px;flex:1;
-            border-right:1px solid var(--bd)!important;padding:0 10px 0 0;
-          }
+          .Mpsec:first-child{flex-direction:row;text-align:left;gap:7px;flex:1;
+            border-right:1px solid var(--bd)!important;padding:0 10px 0 0}
           .Mpsec:nth-child(2){border-right:1px solid var(--bd)!important}
           .Mpsec:last-child{border-right:none!important}
           .Msval{font-size:16px}
@@ -380,68 +337,38 @@ export default function MuchyzHero() {
           .Mplabel{font-size:10.5px}
           .Mav{width:24px;height:24px}
           .Mstar{font-size:9px}
-
-          /* ── RIGHT ── natural height */
-          .Mright{
-            display:flex !important;
-            flex-direction:column;
-            position:relative;
-            height:auto !important;
-            gap:7px;
-          }
-
-          /* Main image — reduced to fit logos in view */
-          .Mimgmain{
-            position:relative !important;
-            top:auto !important;left:auto !important;
-            right:auto !important;bottom:auto !important;
-            height:160px;
-            border-radius:16px;overflow:hidden;
-            box-shadow:0 8px 28px rgba(0,0,0,.13);
-          }
+          .Mright{flex:1;min-height:0;display:flex !important;flex-direction:column;
+            position:relative;height:auto !important;gap:6px;padding-top:10px}
+          .Mimgmain{flex:1;min-height:0;position:relative !important;
+            top:auto !important;left:auto !important;right:auto !important;bottom:auto !important;
+            border-radius:16px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,.13)}
           .Mimgmain img{transform:none !important}
           .Mimgcap{bottom:10px;left:10px;font-size:10px;padding:5px 11px}
-
-          /* Secondary image — corner of main */
-          .Mimgsec{
-            position:absolute;bottom:8px;right:8px;
-            width:82px;height:68px;border-radius:10px;border-width:3px;
-          }
-
-          /* Hide heavy widgets */
+          .Mimgsec{position:absolute;bottom:8px;right:8px;width:82px;height:68px;border-radius:10px;border-width:3px}
           .Mcmetric{display:none !important}
           .Mpill{display:none !important}
-
-          /* Feed card — full width strip */
-          .Mcfeed{
-            position:relative !important;
-            bottom:auto !important;left:auto !important;
-            animation:none !important;
-            width:100%;min-width:0;
-            border-radius:12px;padding:11px 13px;
-            white-space:normal;flex-shrink:0;
-          }
+          .Mcfeed{position:relative !important;bottom:auto !important;left:auto !important;
+            animation:none !important;width:100%;min-width:0;border-radius:12px;
+            padding:8px 12px;white-space:normal;flex-shrink:0}
           .Mfinner{gap:10px}
-          .Mficon{width:32px;height:32px;font-size:15px;border-radius:8px;flex-shrink:0}
-          .Mftitle{font-size:12px}
-          .Mfmeta{font-size:10px;margin-top:1px}
+          .Mficon{width:28px;height:28px;font-size:13px;border-radius:7px;flex-shrink:0}
+          .Mftitle{font-size:11.5px}
+          .Mfmeta{font-size:9.5px;margin-top:1px}
           .Mftime{display:none}
-          .Mflive{top:10px;right:12px;width:6px;height:6px}
-
-          /* Logos */
-          .Mloghdr{padding:12px 18px 0}
+          .Mflive{top:9px;right:11px;width:6px;height:6px}
+          .Mloghdr{padding:8px 18px 0}
           .Mloglbl{font-size:8.5px}
-          .Mlogscroll{padding:8px 0 12px}
-          .Mlogitem{padding:0 22px;font-size:13px}
+          .Mlogscroll{padding:5px 0 8px}
+          .Mlogitem{padding:0 20px;font-size:12.5px}
         }
 
         @media(max-width:375px){
-          .Mbody{padding:16px 16px 14px !important}
+          .M{padding-top:84px}
+          .Mbody{padding:10px 16px 0 !important}
           .Mhlight{font-size:25px}
           .Mhword{font-size:25px}
           .Mcursor{height:21px}
           .Mhtyped{min-height:28px}
-          .Mimgmain{height:170px}
         }
       `}</style>
 
@@ -530,10 +457,11 @@ export default function MuchyzHero() {
           {/* ── RIGHT ── */}
           <div className="Mright" style={s(2, { transitionDelay: '.4s' })}>
 
+            {/* ✅ Your custom image — place Img1.jpeg in your /public folder */}
             <div className="Mimgmain">
               <img
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=960&h=760&fit=crop&crop=center"
-                alt="Muchyz office"
+                src="/Img2.jpeg"
+                alt="Muchyz — Websites, AI Chatbots & Custom Software"
                 style={{ transform: `translateY(${-scrollY * 0.032}px) scale(1.05)` }}
               />
               <div className="Mimgcap">
@@ -542,10 +470,11 @@ export default function MuchyzHero() {
               </div>
             </div>
 
+            {/* Secondary image — still uses Unsplash, swap if you have a 2nd image */}
             <div className="Mimgsec">
               <img
                 src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=440&h=360&fit=crop&crop=center"
-                alt="workspace"
+                alt="workspace detail"
               />
             </div>
 
