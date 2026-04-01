@@ -12,8 +12,8 @@ const SERVICES = [
     stat: "3×",
     statLabel: "faster load",
     wide: true,
-    accent: "#2563eb",
-    accentRgb: "37,99,235",
+    accent: "#3b82f6",
+    accentRgb: "59,130,246",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
@@ -28,8 +28,8 @@ const SERVICES = [
     tag: "Commerce",
     stat: "+68%",
     statLabel: "conversions",
-    accent: "#0891b2",
-    accentRgb: "8,145,178",
+    accent: "#06b6d4",
+    accentRgb: "6,182,212",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
@@ -44,8 +44,8 @@ const SERVICES = [
     tag: "AI",
     stat: "24/7",
     statLabel: "active",
-    accent: "#7c3aed",
-    accentRgb: "124,58,237",
+    accent: "#a855f7",
+    accentRgb: "168,85,247",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2a8 8 0 0 1 8 8v4a8 8 0 0 1-16 0v-4a8 8 0 0 1 8-8z"/><path d="M9 10h.01M15 10h.01M9.5 15a3.5 3.5 0 0 0 5 0"/>
@@ -60,8 +60,8 @@ const SERVICES = [
     tag: "Dev",
     stat: "100%",
     statLabel: "custom",
-    accent: "#059669",
-    accentRgb: "5,150,105",
+    accent: "#10b981",
+    accentRgb: "16,185,129",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/>
@@ -76,8 +76,8 @@ const SERVICES = [
     tag: "Automation",
     stat: "−80%",
     statLabel: "manual work",
-    accent: "#d97706",
-    accentRgb: "217,119,6",
+    accent: "#f59e0b",
+    accentRgb: "245,158,11",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
@@ -92,8 +92,8 @@ const SERVICES = [
     tag: "Design",
     stat: "2×",
     statLabel: "engagement",
-    accent: "#e11d48",
-    accentRgb: "225,29,72",
+    accent: "#f43f5e",
+    accentRgb: "244,63,94",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
@@ -106,15 +106,21 @@ const LOGOS = [
   { name: "Shopify", icon: (<svg viewBox="0 0 109.5 124.5" width="24" height="24"><path fill="#95BF47" d="M95.5 23.7c-.1-.7-.7-1.1-1.2-1.1s-10.1-.7-10.1-.7-6.7-6.6-7.4-7.3c-.7-.7-2.1-.5-2.6-.3l-3.6 1.1c-.4-1.3-1.1-2.9-2-4.4-2.9-5.5-7.1-8.4-12.2-8.4h-.6c-.2-.2-.4-.5-.6-.7-2.4-2.6-5.4-3.8-9-3.7-7 .2-14 5.2-19.6 14.2-4 6.2-7 14-7.9 20.1l-13.5 4.2c-4 1.2-4.1 1.3-4.6 5.1C4.6 45 0 80.2 0 80.2l64 11.4 34.7-7.5s-3.1-59.7-3.2-60.4z"/><path fill="#5E8E3E" d="M94.3 22.6c-.5 0-10.1-.7-10.1-.7s-6.7-6.6-7.4-7.3c-.3-.3-.6-.4-.9-.4l-4.7 96.4 34.7-7.5S94.8 23.3 94.7 23c-.2-.3-.3-.4-.4-.4z"/><path fill="#FFF" d="M56.2 43.1l-4.3 12.8s-3.7-2-8.3-2c-6.7 0-7 4.2-7 5.2 0 5.7 14.9 7.9 14.9 21.3 0 10.6-6.7 17.4-15.7 17.4-10.8 0-16.3-6.7-16.3-6.7l2.9-9.6s5.7 4.9 10.5 4.9c3.1 0 4.4-2.5 4.4-4.3 0-7.5-12.2-7.8-12.2-20.1 0-10.3 7.4-20.3 22.4-20.3 5.7 0 8.7 1.4 8.7 1.4z"/></svg>) },
   { name: "WordPress", icon: (<svg viewBox="0 0 122.5 122.5" width="24" height="24"><path fill="#21759B" d="M61.25 0C27.43 0 0 27.43 0 61.25s27.43 61.25 61.25 61.25 61.25-27.43 61.25-61.25S95.07 0 61.25 0zM8.5 61.25c0-8.64 1.9-16.83 5.3-24.2l29.2 80c-20.2-9.6-34.5-30.3-34.5-55.8zm52.75 52.75c-5.84 0-11.47-.85-16.8-2.42l17.84-51.82 18.28 50.1a9.3 9.3 0 01.18.37c-6.2 2.4-12.9 3.77-19.5 3.77zm7.35-78.17c3.2-.17 6.1-.5 6.1-.5 2.86-.34 2.53-4.54-.34-4.37 0 0-8.63.68-14.2.68-5.23 0-14.03-.68-14.03-.68-2.87-.17-3.2 4.2-.34 4.37 0 0 2.73.33 5.6.5l8.32 22.8-11.7 35.1-19.45-57.9c3.2-.17 6.1-.5 6.1-.5 2.86-.34 2.53-4.54-.34-4.37 0 0-8.63.68-14.2.68-.99 0-2.16-.02-3.4-.07C24.22 17.95 41.75 8.5 61.25 8.5c14.6 0 27.9 5.6 37.9 14.76-.24-.02-.48-.05-.74-.05-5.23 0-8.94 4.54-8.94 9.43 0 4.37 2.53 8.07 5.22 12.44 2.02 3.54 4.37 8.07 4.37 14.63 0 4.54-1.74 9.8-4.04 17.15l-5.3 17.7-19.12-56.78zm34.1 11.52c4.05 7.4 6.36 15.85 6.36 24.9 0 19.18-10.38 35.97-25.9 45.1l18.17-52.5c3.4-8.5 4.54-15.3 4.54-21.35 0-2.2-.15-4.24-.42-6.1l-2.75 9.95z"/></svg>) },
   { name: "React", icon: (<svg viewBox="-11.5 -10.23 23 20.46" width="28" height="28"><circle r="2.05" fill="#61DAFB"/><g stroke="#61DAFB" strokeWidth="1" fill="none"><ellipse rx="11" ry="4.2"/><ellipse rx="11" ry="4.2" transform="rotate(60)"/><ellipse rx="11" ry="4.2" transform="rotate(120)"/></g></svg>) },
-  { name: "OpenAI", icon: (<svg viewBox="0 0 24 24" width="24" height="24" fill="#000"><path d="M22.28 9.78a5.88 5.88 0 00-.52-4.86 6.06 6.06 0 00-6.52-2.91A5.88 5.88 0 0011.27 0a6.06 6.06 0 00-5.78 4.2 5.88 5.88 0 00-3.93 2.86 6.06 6.06 0 00.75 7.1 5.88 5.88 0 00.52 4.87 6.06 6.06 0 006.52 2.9A5.88 5.88 0 0012.73 24a6.06 6.06 0 005.79-4.2 5.88 5.88 0 003.93-2.86 6.06 6.06 0 00-.17-7.16z"/></svg>) },
+  { name: "OpenAI", icon: (<svg viewBox="0 0 24 24" width="24" height="24" fill="#fff"><path d="M22.28 9.78a5.88 5.88 0 00-.52-4.86 6.06 6.06 0 00-6.52-2.91A5.88 5.88 0 0011.27 0a6.06 6.06 0 00-5.78 4.2 5.88 5.88 0 00-3.93 2.86 6.06 6.06 0 00.75 7.1 5.88 5.88 0 00.52 4.87 6.06 6.06 0 006.52 2.9A5.88 5.88 0 0012.73 24a6.06 6.06 0 005.79-4.2 5.88 5.88 0 003.93-2.86 6.06 6.06 0 00-.17-7.16z"/></svg>) },
   { name: "Google", icon: (<svg viewBox="0 0 48 48" width="24" height="24"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>) },
   { name: "AWS", icon: (<svg viewBox="0 0 60 36" width="34" height="20"><path fill="#F90" d="M16.7 13.9c0 .7.1 1.3.2 1.7.2.4.4.9.7 1.4.1.2.2.4.2.5 0 .2-.1.4-.4.6l-1.2.8c-.2.1-.4.2-.5.2-.2 0-.4-.1-.6-.3-.3-.3-.5-.6-.7-1-.2-.4-.4-.8-.6-1.4-1.5 1.8-3.4 2.7-5.6 2.7-1.6 0-2.9-.5-3.8-1.4-.9-.9-1.4-2.2-1.4-3.7 0-1.6.6-3 1.7-4 1.1-1 2.6-1.5 4.5-1.5.6 0 1.2.1 1.9.2.7.1 1.4.3 2.1.5V8.5c0-1.4-.3-2.4-.9-3-.6-.6-1.6-.9-3-.9-.6 0-1.3.1-2 .3-.7.2-1.4.4-2 .7-.3.1-.5.2-.6.2H4.1c-.2 0-.3-.2-.3-.5v-.9c0-.2.1-.4.2-.5.1-.1.3-.2.6-.3.6-.3 1.4-.6 2.3-.8.9-.2 1.9-.3 2.9-.3 2.2 0 3.8.5 4.9 1.5 1 1 1.6 2.5 1.6 4.5v5.9h.4zm-7.7 2.9c.6 0 1.2-.1 1.9-.4.6-.2 1.2-.7 1.7-1.3.3-.3.5-.7.6-1.1.1-.4.2-1 .2-1.6v-.8c-.5-.1-1.1-.3-1.7-.3-.6-.1-1.2-.1-1.7-.1-1.2 0-2.1.2-2.7.7-.6.5-.9 1.2-.9 2 0 .8.2 1.4.6 1.8.4.5.9.9 2 1.1zm14.6 2c-.2 0-.4 0-.5-.1-.1-.1-.2-.3-.3-.5L19.3 5.6c-.1-.3-.1-.5-.1-.6 0-.2.1-.4.4-.4h1.9c.2 0 .4 0 .5.1.1.1.2.3.3.5l2.8 11 2.6-11c.1-.3.2-.5.3-.5.1-.1.3-.1.5-.1h1.5c.2 0 .4 0 .5.1.1.1.2.3.3.5l2.6 11.2L35.4 5.2c.1-.3.2-.5.3-.5.1-.1.3-.1.5-.1H38c.3 0 .4.1.4.4 0 .1 0 .2-.1.3l-4.6 13.6c-.1.3-.2.5-.3.5-.1.1-.3.1-.5.1H31c-.2 0-.4 0-.5-.1-.1-.1-.2-.3-.3-.5l-2.6-10.8-2.5 10.8c-.1.3-.2.5-.3.5-.1.1-.3.1-.5.1h-1.7zm23.5.5c-1.1 0-2.2-.1-3.2-.4-1-.3-1.8-.6-2.3-1-.3-.2-.4-.4-.4-.6v-.9c0-.3.1-.5.4-.5.1 0 .2 0 .4.1.1.1.3.1.4.2.6.3 1.3.5 2 .7.8.2 1.5.3 2.3.3 1.2 0 2.1-.2 2.8-.6.6-.4 1-.9 1-1.7 0-.5-.2-.9-.5-1.2-.4-.3-1-.6-2-.9l-2.9-.9c-1.4-.4-2.5-1.1-3.1-1.9-.7-.8-1-1.8-1-2.8 0-.8.2-1.5.5-2.1.4-.6.8-1.1 1.4-1.6.6-.4 1.3-.7 2-.9.8-.2 1.6-.3 2.5-.3.4 0 .9 0 1.3.1.4.1.9.2 1.3.3.4.1.8.2 1.1.4.3.1.6.3.7.4.2.1.4.3.5.5.1.2.1.4.1.6v.8c0 .3-.1.5-.4.5-.1 0-.4-.1-.7-.3-.9-.4-1.9-.6-3-.6-1.1 0-1.9.2-2.5.5-.6.3-.9.9-.9 1.6 0 .5.2.9.6 1.3.4.3 1.1.7 2.2 1l2.8.9c1.4.4 2.4 1.1 3 1.8.6.8.9 1.7.9 2.7 0 .8-.2 1.6-.5 2.2-.3.6-.8 1.2-1.4 1.6-.6.4-1.3.8-2.1 1-.9.3-1.8.4-2.8.4z"/><path fill="#F90" d="M54.3 29.5c-6.3 4.7-15.5 7.1-23.4 7.1-11.1 0-21.1-4.1-28.6-10.9-.6-.5-.1-1.2.6-.8 8.1 4.7 18.2 7.6 28.6 7.6 7 0 14.7-1.5 21.8-4.5.9-.5 1.8.6.9 1.5z"/><path fill="#F90" d="M56.9 26.5c-.8-1.1-5.4-.5-7.5-.2-.6.1-.7-.5-.2-.8 3.7-2.6 9.7-1.8 10.4-.9.7.9-.2 6.9-3.6 9.8-.5.4-1 .2-.8-.4.8-1.9 2.5-6.3 1.7-7.5z"/></svg>) },
-  { name: "Stripe", icon: (<svg viewBox="0 0 60 25" width="38" height="16"><path fill="#635BFF" d="M59.6 13c0-4.4-2.1-7.8-6.2-7.8-4.1 0-6.6 3.4-6.6 7.7 0 5.1 2.9 7.7 7.1 7.7 2 0 3.6-.5 4.7-1.2v-3.3c-1.1.6-2.4 1-4 1-1.6 0-3-.6-3.2-2.6h8.1c0-.2.1-.9.1-1.5zm-8.2-1.6c0-1.9 1.2-2.7 2.3-2.7 1.1 0 2.2.8 2.2 2.7h-4.5zM37 5.2c-1.6 0-2.6.7-3.2 1.3l-.2-1h-3.6v19.8l4.1-.9V19c.6.4 1.4 1 2.8 1 2.9 0 5.5-2.3 5.5-7.5C42.4 7.6 39.8 5.2 37 5.2zm-1 11.5c-.9 0-1.5-.3-1.9-.8V9.6c.4-.5 1-.8 1.9-.8 1.5 0 2.5 1.6 2.5 3.9 0 2.4-1 4-2.5 4zm-10.9-13l4.1-.9V0l-4.1.9v2.8zm0 1.8h4.1V20h-4.1V5.5zm-4.5 1.3l-.3-1.3H17v14.5h4.1V9.9c1-1.3 2.6-1.1 3.1-.9V5.5c-.5-.2-2.4-.5-3.6 1.3zm-8.6-2.6L9.1 16.4l-2.8-12h-4.4L6 20h3.9l5.2-13.8h-3.1z"/></svg>) },
+  { name: "Stripe", icon: (<svg viewBox="0 0 60 25" width="38" height="16"><path fill="#635BFF" d="M59.6 13c0-4.4-2.1-7.8-6.2-7.8-4.1 0-6.6 3.4-6.6 7.7 0 5.1 2.9 7.7 7.1 7.7 2 0 3.6-.5 4.7-1.2v-3.3c-1.1.6-2.4 1-4 1-1.6 0-3-.6-3.2-2.6h8.1c0-.2.1-.9.1-1.5zm-8.2-1.6c0-1.9 1.2-2.7 2.3-2.7 1.1 0 2.2.8 2.2 2.7h-4.5zM37 5.2c-1.6 0-2.6.7-3.2 1.3l-.2-1h-3.6v19.8l4.1-.9V19c.6.4 1.4 1 2.8 1 2.9 0 5.5-2.3 5.5-7.5C42.4 7.6 39.8 5.2 37 5.2zm-1 11.5c-.9 0-1.5-.3-1.9-.8V9.6c.4-.5 1-.8 1.9-.8 1.5 0 2.5 1.6 2.5 3.9 0 2.4-1 4-2.5 4zm-10.9-13l4.1-.9V0l-4.1.9v2.8zm0 1.8h4.1V20h-4.1V5.5zm-4.5 1.3l-.3-1.3H17v14.5h4.1V9.9c1-1.3 2.6-1.1 3.1-.9V5.5c-.5-.2-2.4-.5-3.6 1.3zm-8.6-2.6L9.1 16.4l-2.8-12H1.9L6 20h3.9l5.2-13.8h-3.1z"/></svg>) },
   { name: "Figma", icon: (<svg viewBox="0 0 38 57" width="16" height="24"><path fill="#F24E1E" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z"/><path fill="#FF7262" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 0 1-19 0z"/><path fill="#1ABCFE" d="M19 0v19h9.5a9.5 9.5 0 0 0 0-19H19z"/><path fill="#0ACF83" d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5z"/><path fill="#A259FF" d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5z"/></svg>) },
 ];
 
-/* ── Count-up hook ── */
-function useCountUp(target, started, duration = 1400) {
+const TRUST_BADGES = [
+  { icon: "🏆", label: "Award Winning", sub: "Agency 2024" },
+  { icon: "⚡", label: "50+ Projects", sub: "Delivered On Time" },
+  { icon: "🌍", label: "Global Clients", sub: "12+ Countries" },
+  { icon: "🔒", label: "100% Secure", sub: "Enterprise Grade" },
+];
+
+function useCountUp(target, started, duration = 1600) {
   const [val, setVal] = useState(0);
   useEffect(() => {
     if (!started) return;
@@ -136,17 +142,16 @@ function useCountUp(target, started, duration = 1400) {
   return val || target;
 }
 
-function StatBadge({ stat, statLabel, started, accent }) {
+function StatBadge({ stat, statLabel, started, accent, accentRgb }) {
   const display = useCountUp(stat, started);
   return (
-    <span className="sv__stat">
+    <div className="sv__stat" style={{ "--a-rgb": accentRgb }}>
       <span className="sv__stat-num" style={{ color: accent }}>{display}</span>
       <span className="sv__stat-lbl">{statLabel}</span>
-    </span>
+    </div>
   );
 }
 
-/* ── 3D tilt + spotlight card ── */
 function ServiceCard({ s, i, hovered, setHovered, statsStarted }) {
   const [loaded, setLoaded] = useState(false);
   const cardRef = useRef(null);
@@ -160,32 +165,25 @@ function ServiceCard({ s, i, hovered, setHovered, statsStarted }) {
     const r = card.getBoundingClientRect();
     const x = e.clientX - r.left;
     const y = e.clientY - r.top;
-    const cx = r.width / 2;
-    const cy = r.height / 2;
-    const rotX = ((y - cy) / cy) * -6;
-    const rotY = ((x - cx) / cx) * 6;
+    const cx = r.width / 2, cy = r.height / 2;
+    const rotX = ((y - cy) / cy) * -5;
+    const rotY = ((x - cx) / cx) * 5;
 
     if (tiltRaf.current) cancelAnimationFrame(tiltRaf.current);
     tiltRaf.current = requestAnimationFrame(() => {
-      card.style.transform = `perspective(900px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-10px) scale(1.01)`;
+      card.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateY(-8px) scale(1.012)`;
     });
 
     if (spotRef.current) {
-      spotRef.current.style.background = `radial-gradient(380px circle at ${x}px ${y}px, rgba(${s.accentRgb},0.12) 0%, transparent 70%)`;
+      spotRef.current.style.background = `radial-gradient(420px circle at ${x}px ${y}px, rgba(${s.accentRgb},0.1) 0%, transparent 65%)`;
       spotRef.current.style.opacity = '1';
     }
-
-    // Magnetic CTA
     if (ctaRef.current) {
       const cr = ctaRef.current.getBoundingClientRect();
       const ctaX = e.clientX - (cr.left + cr.width / 2);
       const ctaY = e.clientY - (cr.top + cr.height / 2);
       const dist = Math.sqrt(ctaX ** 2 + ctaY ** 2);
-      if (dist < 130) {
-        ctaRef.current.style.transform = `translate(${ctaX * 0.3}px, ${ctaY * 0.3}px)`;
-      } else {
-        ctaRef.current.style.transform = '';
-      }
+      ctaRef.current.style.transform = dist < 140 ? `translate(${ctaX * 0.28}px, ${ctaY * 0.28}px)` : '';
     }
   }, [s.accentRgb]);
 
@@ -193,11 +191,11 @@ function ServiceCard({ s, i, hovered, setHovered, statsStarted }) {
     setHovered(null);
     const card = cardRef.current;
     if (card) {
-      card.style.transition = 'transform 0.5s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s, border-color 0.3s, opacity 0.3s';
+      card.style.transition = 'transform 0.6s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s, border-color 0.4s, opacity 0.4s';
       card.style.transform = '';
-      setTimeout(() => { if (card) card.style.transition = ''; }, 500);
+      setTimeout(() => { if (card) card.style.transition = ''; }, 600);
     }
-    if (spotRef.current) { spotRef.current.style.opacity = '0'; }
+    if (spotRef.current) spotRef.current.style.opacity = '0';
     if (ctaRef.current) ctaRef.current.style.transform = '';
     if (tiltRaf.current) cancelAnimationFrame(tiltRaf.current);
   }, [setHovered]);
@@ -205,7 +203,7 @@ function ServiceCard({ s, i, hovered, setHovered, statsStarted }) {
   const onMouseEnter = useCallback(() => {
     setHovered(i);
     const card = cardRef.current;
-    if (card) card.style.transition = 'box-shadow 0.4s, border-color 0.3s, opacity 0.3s';
+    if (card) card.style.transition = 'box-shadow 0.4s, border-color 0.4s, opacity 0.4s';
   }, [i, setHovered]);
 
   return (
@@ -219,53 +217,53 @@ function ServiceCard({ s, i, hovered, setHovered, statsStarted }) {
       onMouseMove={onMouseMove}
       onMouseLeave={onMouseLeave}
     >
-      {/* Spotlight layer */}
       <div className="sv__spot" ref={spotRef} />
-
-      {/* Watermark number */}
       <span className="sv__wm">{s.num}</span>
 
-      {/* Photo */}
       <div className="sv__photo">
         {!loaded && <div className="sv__skeleton" />}
         <img src={s.img} alt={s.title} loading="lazy"
           onLoad={() => setLoaded(true)}
           style={{ opacity: loaded ? 1 : 0 }} />
         <div className="sv__photo-overlay" />
-        <span className="sv__photo-tag">{s.tag}</span>
-        <span className="sv__photo-num">{s.num}</span>
+        <div className="sv__photo-badges">
+          <span className="sv__photo-tag">{s.tag}</span>
+          <span className="sv__photo-num">{s.num}</span>
+        </div>
+        {/* Floating accent orb on photo */}
+        <div className="sv__photo-orb" style={{ background: `rgba(${s.accentRgb},0.35)` }} />
       </div>
 
-      {/* Body */}
       <div className="sv__body">
         <div className="sv__body-top">
           <div className="sv__title-row">
-            <span className="sv__icon" style={{ color: s.accent, background: `rgba(${s.accentRgb},0.1)` }}>
+            <span className="sv__icon" style={{ color: s.accent, background: `rgba(${s.accentRgb},0.12)`, borderColor: `rgba(${s.accentRgb},0.25)` }}>
               {s.icon}
             </span>
             <h3 className="sv__title">{s.title}</h3>
           </div>
-          <StatBadge stat={s.stat} statLabel={s.statLabel} started={statsStarted} accent={s.accent} />
+          <StatBadge stat={s.stat} statLabel={s.statLabel} started={statsStarted} accent={s.accent} accentRgb={s.accentRgb} />
         </div>
+
         <p className="sv__desc">{s.desc}</p>
-        <div className="sv__cta-wrap">
-          <div
-            className="sv__cta"
-            ref={ctaRef}
-            style={{ "--btn-bg": s.accent }}
-          >
-            Get a Quote
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+
+        <div className="sv__footer-row">
+          <div className="sv__cta-wrap">
+            <div className="sv__cta" ref={ctaRef} style={{ "--btn-bg": s.accent, "--btn-rgb": s.accentRgb }}>
+              <span>Get a Quote</span>
+              <span className="sv__cta-arrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+            </div>
           </div>
+          <span className="sv__card-line" style={{ background: `linear-gradient(90deg, rgba(${s.accentRgb},0.6), transparent)` }} />
         </div>
       </div>
 
-      {/* Accent sweep */}
-      <div className="sv__sweep" style={{ "--sweep-color": s.accent }} />
+      <div className="sv__sweep" style={{ "--sweep-rgb": s.accentRgb }} />
 
-      {/* Traced border */}
       <svg className="sv__border-trace" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <rect x="0.75" y="0.75" width="98.5" height="98.5" rx="5" ry="5" />
+        <rect x="0.5" y="0.5" width="99" height="99" rx="4" ry="4" />
       </svg>
     </a>
   );
@@ -291,21 +289,26 @@ export default function Services() {
   const scrollRef = useRef(null);
   const [activeSlide, setActiveSlide] = useState(0);
   const [statsStarted, setStatsStarted] = useState(false);
+  const [titleVisible, setTitleVisible] = useState(false);
+  const titleRef = useRef(null);
 
   useEffect(() => {
     if (v && !statsStarted) {
-      const t = setTimeout(() => setStatsStarted(true), 400);
+      const t = setTimeout(() => setStatsStarted(true), 500);
       return () => clearTimeout(t);
     }
   }, [v]);
 
   useEffect(() => {
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setTitleVisible(true); }, { threshold: 0.2 });
+    if (titleRef.current) obs.observe(titleRef.current);
+    return () => obs.disconnect();
+  }, []);
+
+  useEffect(() => {
     const lerp = (a, b, t) => a + (b - a) * t;
     const loop = () => {
-      setPos(p => ({
-        x: lerp(p.x, posRef.current.x, 0.11),
-        y: lerp(p.y, posRef.current.y, 0.11),
-      }));
+      setPos(p => ({ x: lerp(p.x, posRef.current.x, 0.1), y: lerp(p.y, posRef.current.y, 0.1) }));
       rafRef.current = requestAnimationFrame(loop);
     };
     rafRef.current = requestAnimationFrame(loop);
@@ -322,7 +325,7 @@ export default function Services() {
     const el = scrollRef.current;
     if (!el) return;
     const onScroll = () => {
-      const idx = Math.round(el.scrollLeft / (el.offsetWidth * 0.82));
+      const idx = Math.round(el.scrollLeft / (el.offsetWidth * 0.84));
       setActiveSlide(Math.min(idx, SERVICES.length - 1));
     };
     el.addEventListener('scroll', onScroll, { passive: true });
@@ -331,27 +334,40 @@ export default function Services() {
 
   return (
     <section className="sv" id="services" ref={sectionRef} onMouseMove={onMove}>
-
-      {/* Grain overlay */}
       <div className="sv__grain" aria-hidden="true" />
 
-      {/* Custom cursor preview */}
-      <div
-        className={`sv__cursor${hovered !== null ? " sv__cursor--show" : ""}`}
-        style={{ transform: `translate(${pos.x}px,${pos.y}px)` }}
-      >
+      {/* Animated background orbs */}
+      <div className="sv__orb sv__orb--1" aria-hidden="true" />
+      <div className="sv__orb sv__orb--2" aria-hidden="true" />
+      <div className="sv__orb sv__orb--3" aria-hidden="true" />
+
+      {/* Custom cursor */}
+      <div className={`sv__cursor${hovered !== null ? " sv__cursor--show" : ""}`}
+        style={{ transform: `translate(${pos.x}px,${pos.y}px)` }}>
         {hovered !== null && (
           <>
             <img src={SERVICES[hovered].img} alt="" />
-            <span className="sv__cursor-tag"
-              style={{ background: `rgba(${SERVICES[hovered].accentRgb},0.82)` }}>
-              {SERVICES[hovered].tag}
-            </span>
+            <div className="sv__cursor-overlay" style={{ background: `rgba(${SERVICES[hovered].accentRgb},0.4)` }} />
+            <span className="sv__cursor-tag">{SERVICES[hovered].tag}</span>
+            <span className="sv__cursor-icon">{SERVICES[hovered].icon}</span>
           </>
         )}
       </div>
 
       <div className="sv__wrap" ref={ref}>
+
+        {/* ── Trust badges bar ── */}
+        <div className={`sv__trust-bar${titleVisible ? " sv__trust-bar--in" : ""}`} ref={titleRef}>
+          {TRUST_BADGES.map((b, i) => (
+            <div className="sv__trust-badge" key={i} style={{ "--bi": i }}>
+              <span className="sv__trust-badge-icon">{b.icon}</span>
+              <div>
+                <p className="sv__trust-badge-label">{b.label}</p>
+                <p className="sv__trust-badge-sub">{b.sub}</p>
+              </div>
+            </div>
+          ))}
+        </div>
 
         {/* ── Header ── */}
         <header className="sv__hd">
@@ -359,38 +375,67 @@ export default function Services() {
             <div className="sv__badge">
               <span className="sv__badge-dot" />
               Our Services
-              <span className="sv__badge-count">06</span>
+              <span className="sv__badge-divider">·</span>
+              <span className="sv__badge-count">06 Specialisations</span>
             </div>
+
             <h2 className="sv__h2">
-              <span>We Build</span>
-              <span className="sv__h2-b">
+              <span className="sv__h2-thin">We Build</span>
+              <span className="sv__h2-serif">
                 <em>Things</em>
                 <span className="sv__h2-rule" />
                 <em>That</em>
               </span>
-              <span className="sv__h2-last">
+              <span className="sv__h2-bold">
                 Win.
-                <svg className="sv__h2-underline" viewBox="0 0 160 14" preserveAspectRatio="none" aria-hidden="true">
-                  <path d="M2 10 Q40 3 80 10 Q120 17 158 10" stroke="#2563eb" strokeWidth="3.5" fill="none" strokeLinecap="round"/>
+                <svg className="sv__h2-underline" viewBox="0 0 200 16" preserveAspectRatio="none" aria-hidden="true">
+                  <path d="M2 12 Q50 4 100 12 Q150 20 198 12" stroke="url(#uGrad)" strokeWidth="3" fill="none" strokeLinecap="round"/>
+                  <defs>
+                    <linearGradient id="uGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#3b82f6"/>
+                      <stop offset="50%" stopColor="#a855f7"/>
+                      <stop offset="100%" stopColor="#06b6d4"/>
+                    </linearGradient>
+                  </defs>
                 </svg>
               </span>
             </h2>
-          </div>
 
-          <div className="sv__hd-r">
-            <div className="sv__hd-stats">
-              {[{ n: "6+", l: "Services" }, { n: "50+", l: "Projects" }, { n: "98%", l: "Happy Clients" }].map(s => (
-                <div className="sv__hd-stat" key={s.l}>
-                  <span className="sv__hd-stat-n">{s.n}</span>
-                  <span className="sv__hd-stat-l">{s.l}</span>
+            {/* Horizontal metric strip */}
+            <div className="sv__metric-strip">
+              {[
+                { n: "50+", l: "Projects Shipped" },
+                { n: "98%", l: "Client Satisfaction" },
+                { n: "12+", l: "Countries" },
+                { n: "6yr", l: "In Business" },
+              ].map(m => (
+                <div className="sv__metric" key={m.l}>
+                  <span className="sv__metric-n">{m.n}</span>
+                  <span className="sv__metric-l">{m.l}</span>
                 </div>
               ))}
             </div>
+          </div>
+
+          <div className="sv__hd-r">
             <p className="sv__hd-body">
-              Six battle-tested specialisations. One obsessive focus on outcomes that move the needle for your business.
+              Six battle-tested specialisations. One obsessive focus on outcomes that move the needle for your business. We don't just build — we engineer growth.
             </p>
+
+            <div className="sv__hd-quote">
+              <div className="sv__hd-quote-mark">"</div>
+              <p>They didn't just deliver a website — they delivered results. Revenue up 140% in 3 months.</p>
+              <div className="sv__hd-quote-author">
+                <div className="sv__hd-quote-avatar">JM</div>
+                <div>
+                  <strong>James M.</strong>
+                  <span>CEO, NovaTech Ltd</span>
+                </div>
+              </div>
+            </div>
+
             <a href="https://wa.me/254705427449" className="sv__hd-btn" target="_blank" rel="noreferrer">
-              <span>Start a Project</span>
+              <span className="sv__hd-btn-text">Start a Project</span>
               <span className="sv__hd-btn-icon">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </span>
@@ -413,9 +458,13 @@ export default function Services() {
         </div>
         <ScrollDots total={SERVICES.length} active={activeSlide} />
 
-        {/* ── Trusted logos ── */}
-        <div className="sv__trust">
-          <p className="sv__trust-label">Technologies we build with</p>
+        {/* ── Tech strip ── */}
+        <div className="sv__tech">
+          <div className="sv__tech-label">
+            <span className="sv__tech-line" />
+            <span>Technologies we build with</span>
+            <span className="sv__tech-line" />
+          </div>
           <div className="sv__logos-track-wrap">
             <div className="sv__logos-track">
               {[...LOGOS, ...LOGOS].map((l, i) => (
@@ -430,16 +479,23 @@ export default function Services() {
 
         {/* ── Footer CTA ── */}
         <div className="sv__foot">
-          <div className="sv__foot-l">
-            <p className="sv__foot-copy">Not sure where to start?</p>
-            <p className="sv__foot-sub">Let's figure it out together — no pressure, just clarity.</p>
+          <div className="sv__foot-glow" aria-hidden="true" />
+          <div className="sv__foot-inner">
+            <div className="sv__foot-l">
+              <p className="sv__foot-eyebrow">Ready to grow?</p>
+              <h3 className="sv__foot-copy">Not sure <em>where to start?</em></h3>
+              <p className="sv__foot-sub">Let's figure it out together — no pressure, just clarity.</p>
+            </div>
+            <div className="sv__foot-r">
+              <a href="https://wa.me/254705427449" className="sv__foot-btn" target="_blank" rel="noreferrer">
+                <span>Let's talk through it</span>
+                <span className="sv__foot-btn-icon">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+              </a>
+              <p className="sv__foot-note">Free consultation · No commitment</p>
+            </div>
           </div>
-          <a href="https://wa.me/254705427449" className="sv__foot-btn" target="_blank" rel="noreferrer">
-            <span>Let's talk through it</span>
-            <span className="sv__foot-btn-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
-          </a>
         </div>
 
       </div>
