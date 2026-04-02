@@ -5,7 +5,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap');
 
-:root {
+.faq-section {
   --pearl:          #f8faff;
   --pearl-2:        #eef3fc;
   --pearl-3:        #e2eaf8;
@@ -36,9 +36,7 @@
 
   --ease:           cubic-bezier(0.16, 1, 0.3, 1);
   --spring:         cubic-bezier(0.34, 1.56, 0.64, 1);
-}
 
-.faq-section {
   position: relative;
   background: var(--pearl);
   padding: 72px 40px 40px;
@@ -95,10 +93,10 @@
     transparent 100%
   );
   background-size: 300% 100%;
-  animation: topBar 5s ease-in-out infinite;
+  animation: faqTopBar 5s ease-in-out infinite;
   z-index: 10;
 }
-@keyframes topBar {
+@keyframes faqTopBar {
   0%   { background-position: 0% 0%; opacity: 0.7; }
   50%  { background-position: 100% 0%; opacity: 1; }
   100% { background-position: 0% 0%; opacity: 0.7; }
@@ -145,9 +143,9 @@
   border-radius: 50%;
   background: linear-gradient(135deg, #1a5cf8, #60a5fa);
   box-shadow: 0 0 0 4px rgba(26,92,248,0.12);
-  animation: ringPulse 2.5s ease-in-out infinite;
+  animation: faqRingPulse 2.5s ease-in-out infinite;
 }
-@keyframes ringPulse {
+@keyframes faqRingPulse {
   0%, 100% { box-shadow: 0 0 0 4px rgba(26,92,248,0.12); }
   50%       { box-shadow: 0 0 0 8px rgba(26,92,248,0.06); }
 }
@@ -274,7 +272,6 @@
   background: var(--white);
   border: 1.5px solid var(--pearl-3);
   border-radius: var(--radius-card);
-  /* CRITICAL: clip all children so nothing bleeds out */
   overflow: hidden;
   cursor: pointer;
   opacity: 0;
@@ -285,9 +282,9 @@
     transform 0.25s var(--spring);
 }
 .faq-item--in {
-  animation: itemIn 0.6s calc(var(--i, 0) * 0.07s) var(--ease) both;
+  animation: faqItemIn 0.6s calc(var(--i, 0) * 0.07s) var(--ease) both;
 }
-@keyframes itemIn {
+@keyframes faqItemIn {
   from { opacity: 0; transform: translateY(22px); }
   to   { opacity: 1; transform: translateY(0); }
 }
@@ -334,16 +331,16 @@
 }
 .faq-item--open .faq-item__glow { opacity: 1; }
 
-/* Head row — always visible */
+/* Head row */
 .faq-item__head {
   display: flex;
   align-items: center;
   gap: 16px;
   padding: 22px 22px 22px 20px;
-  /* No bottom padding leak — body is separate */
 }
 
 /* Index chip */
+.faq-item__meta { display: flex; align-items: center; }
 .faq-item__idx {
   display: flex;
   align-items: center;
@@ -409,13 +406,13 @@
   box-shadow: 0 6px 20px rgba(26,92,248,0.35);
 }
 
-/* Answer body — only injected into DOM when isOpen === true */
+/* Answer body */
 .faq-item__body {
   padding: 0 22px 22px 68px;
   border-top: 1px solid var(--pearl-2);
-  animation: answerIn 0.35s var(--ease) both;
+  animation: faqAnswerIn 0.35s var(--ease) both;
 }
-@keyframes answerIn {
+@keyframes faqAnswerIn {
   from { opacity: 0; transform: translateY(-6px); }
   to   { opacity: 1; transform: translateY(0); }
 }

@@ -115,10 +115,10 @@ const Ico = {
    DATA
 ══════════════════════════════════════════════ */
 const INFO = [
-  { Icon: Ico.Phone, label: "Phone & WhatsApp", val: "+254 705 427 449",        href: "tel:+254705427449" },
-  { Icon: Ico.Mail,  label: "Email",            val: "Muchyzdigital@gmail.com",  href: "mailto:Muchyzdigital@gmail.com" },
-  { Icon: Ico.Pin,   label: "Location",         val: "Nairobi, Kenya",           href: "https://maps.google.com/?q=Nairobi,Kenya" },
-  { Icon: Ico.Clock, label: "Response Time",    val: "Within 2 hours",           href: null },
+  { Icon: Ico.Phone, label: "Phone & WhatsApp", val: "+254 705 427 449",        href: "tel:+254705427449",                        highlight: true  },
+  { Icon: Ico.Mail,  label: "Email",            val: "Muchyzdigital@gmail.com",  href: "mailto:Muchyzdigital@gmail.com",           highlight: false },
+  { Icon: Ico.Pin,   label: "Location",         val: "Nairobi, Kenya",           href: "https://maps.google.com/?q=Nairobi,Kenya", highlight: true  },
+  { Icon: Ico.Clock, label: "Response Time",    val: "Within 2 hours",           href: null,                                       highlight: false },
 ];
 
 const SERVICES = ["Business Website","E-Commerce Store","Landing Page","Website Redesign","Custom Web App","Other"];
@@ -196,7 +196,6 @@ export default function Contact() {
   const typed = useTypewriter(PHRASES);
   const set = useCallback((k) => (e) => setForm(f => ({ ...f, [k]: e.target.value })), []);
 
-  // Auto-rotate testimonials
   useEffect(() => {
     const t = setInterval(() => setTIdx(i => (i + 1) % TESTIMONIALS.length), 4800);
     return () => clearInterval(t);
@@ -222,7 +221,6 @@ export default function Contact() {
     }
   };
 
-  // stagger animation helper
   const reveal = (delay = 0) => ({
     opacity: visible ? 1 : 0,
     transform: visible ? "translateY(0)" : "translateY(36px)",
@@ -234,13 +232,8 @@ export default function Contact() {
   return (
     <section id="contact" className="cs">
 
-      {/* — Noise overlay — */}
       <div className="cs__noise" />
-
-      {/* — Diagonal gold stripe — */}
       <div className="cs__stripe" />
-
-      {/* — Orbs — */}
       <div className="cs__orb cs__orb--a" />
       <div className="cs__orb cs__orb--b" />
 
@@ -253,7 +246,6 @@ export default function Contact() {
             <span className="cs__eyebrow-text">Get In Touch</span>
             <span className="cs__eyebrow-rule" />
           </div>
-
           <h2 className="cs__h2">
             <span className="cs__h2-plain">Let's Build</span>
             <br />
@@ -262,11 +254,9 @@ export default function Contact() {
               <span className="cs__caret" />
             </span>
           </h2>
-
-          <p className="cs__sub" style={reveal(0.12)}>
-            Nairobi-based web studio crafting fast, beautiful, results-driven digital experiences.
-            Drop a message — we respond within 2 hours.
-          </p>
+         <p className="cs__sub" style={reveal(0.12)}>
+  Kenya's premier digital agency delivering world-class web experiences — built to convert, designed to impress, engineered to last.
+</p>
         </header>
 
         {/* ════ GRID ════ */}
@@ -275,9 +265,14 @@ export default function Contact() {
           {/* — LEFT — */}
           <div className="cs__left" style={reveal(0.3)}>
 
-            {/* Info rows */}
             <ul className="cs__info">
-              {INFO.map((item, i) => {
+              {INFO.map((item) => {
+                const rowClass = [
+                  "cs__info-row",
+                  item.href ? "cs__info-row--link" : "",
+                  item.highlight ? "cs__info-row--highlight" : "",
+                ].filter(Boolean).join(" ");
+
                 const inner = (
                   <>
                     <span className="cs__info-ico"><item.Icon /></span>
@@ -288,19 +283,19 @@ export default function Contact() {
                     {item.href && <span className="cs__info-arr"><Ico.Arrow /></span>}
                   </>
                 );
+
                 return item.href ? (
                   <li key={item.label}>
-                    <a href={item.href} className="cs__info-row cs__info-row--link">{inner}</a>
+                    <a href={item.href} className={rowClass}>{inner}</a>
                   </li>
                 ) : (
                   <li key={item.label}>
-                    <div className="cs__info-row">{inner}</div>
+                    <div className={rowClass}>{inner}</div>
                   </li>
                 );
               })}
             </ul>
 
-            {/* Stars */}
             <div className="cs__stars">
               {[...Array(5)].map((_, i) => (
                 <span key={i} className="cs__star" style={{ animationDelay: `${0.5 + i * 0.1}s` }}>
@@ -310,14 +305,12 @@ export default function Contact() {
               <span className="cs__stars-txt">5.0 — Rated by 50+ clients</span>
             </div>
 
-            {/* Divider */}
             <div className="cs__divider">
               <span />
               <span className="cs__divider-txt">or reach us directly</span>
               <span />
             </div>
 
-            {/* WhatsApp magnetic button */}
             <a
               ref={waRef}
               href="https://wa.me/254705427449?text=Hi%2C+I%27d+like+a+quote+for+a+website."
@@ -335,7 +328,6 @@ export default function Contact() {
               <span className="cs__wa-arrow"><Ico.Arrow /></span>
             </a>
 
-            {/* Live dot */}
             <div className="cs__live">
               <span className="cs__live-dot" />
               <span>Available for new projects · Starting from KES 15,000</span>
@@ -345,7 +337,6 @@ export default function Contact() {
           {/* — RIGHT — */}
           <div className="cs__right" style={reveal(0.4)}>
 
-            {/* Testimonial rotator */}
             <div className="cs__testi" key={tIdx}>
               <div className="cs__testi-top">
                 <div className="cs__testi-av">{testi.init}</div>
@@ -370,7 +361,6 @@ export default function Contact() {
               </div>
             </div>
 
-            {/* Form / Success */}
             {sent ? (
               <div className="cs__success">
                 <div className="cs__success-circle">
@@ -378,33 +368,20 @@ export default function Contact() {
                 </div>
                 <h3 className="cs__success-h">Message Received!</h3>
                 <p className="cs__success-p">We'll be in touch within 2 hours.<br />You can also continue on WhatsApp.</p>
-                <a
-                  href="https://wa.me/254705427449"
-                  target="_blank" rel="noreferrer"
-                  className="cs__success-wa"
-                >
+                <a href="https://wa.me/254705427449" target="_blank" rel="noreferrer" className="cs__success-wa">
                   <Ico.Wa s={15} /> Continue on WhatsApp
                 </a>
               </div>
             ) : (
               <form onSubmit={submit} className="cs__form" noValidate>
-
-                <Field id="cf-name"  label="Your Name *"      value={form.name}    onChange={set("name")} />
-                <Field id="cf-email" label="Email Address *"  value={form.email}   onChange={set("email")} type="email" />
-
-                <Field id="cf-svc" label="Select a Service" value={form.service} onChange={set("service")} full select>
+                <Field id="cf-name"  label="Your Name *"     value={form.name}    onChange={set("name")} />
+                <Field id="cf-email" label="Email Address *" value={form.email}   onChange={set("email")} type="email" />
+                <Field id="cf-svc"   label="Select a Service" value={form.service} onChange={set("service")} full select>
                   <option value="" disabled hidden />
                   {SERVICES.map(s => <option key={s} value={s}>{s}</option>)}
                 </Field>
-
                 <Field id="cf-msg" label="Tell us about your project…" value={form.msg} onChange={set("msg")} full textarea maxLength={500} />
-
-                <button
-                  ref={submitRef}
-                  type="submit"
-                  className="cs__submit"
-                  disabled={submitting}
-                >
+                <button ref={submitRef} type="submit" className="cs__submit" disabled={submitting}>
                   <span className="cs__submit-bg" />
                   <span className="cs__submit-content">
                     {submitting
@@ -413,7 +390,6 @@ export default function Contact() {
                     }
                   </span>
                 </button>
-
                 <div className="cs__form-trust">
                   {["Free consultation", "No obligation", "2-hour response"].map(t => (
                     <span key={t} className="cs__trust-chip">
@@ -421,7 +397,6 @@ export default function Contact() {
                     </span>
                   ))}
                 </div>
-
               </form>
             )}
 
