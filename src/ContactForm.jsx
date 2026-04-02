@@ -4,7 +4,6 @@ import "./ContactForm.css";
 /* ══════════════════════════════════════════════
    HOOKS
 ══════════════════════════════════════════════ */
-
 function useInView(threshold = 0.06) {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
@@ -47,10 +46,8 @@ function useMagneticCursor() {
     if (!el) return;
     const onMove = (e) => {
       const r = el.getBoundingClientRect();
-      const cx = r.left + r.width / 2;
-      const cy = r.top + r.height / 2;
-      const dx = (e.clientX - cx) * 0.28;
-      const dy = (e.clientY - cy) * 0.28;
+      const cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+      const dx = (e.clientX - cx) * 0.28, dy = (e.clientY - cy) * 0.28;
       el.style.transform = `translate(${dx}px, ${dy}px)`;
     };
     const onLeave = () => { el.style.transform = ""; };
@@ -115,15 +112,14 @@ const Ico = {
    DATA
 ══════════════════════════════════════════════ */
 const INFO = [
-  { Icon: Ico.Phone, label: "Phone & WhatsApp", val: "+254 705 427 449",        href: "tel:+254705427449",                        highlight: true  },
-  { Icon: Ico.Mail,  label: "Email",            val: "Muchyzdigital@gmail.com",  href: "mailto:Muchyzdigital@gmail.com",           highlight: false },
-  { Icon: Ico.Pin,   label: "Location",         val: "Nairobi, Kenya",           href: "https://maps.google.com/?q=Nairobi,Kenya", highlight: true  },
-  { Icon: Ico.Clock, label: "Response Time",    val: "Within 2 hours",           href: null,                                       highlight: false },
+  { Icon: Ico.Phone, label: "Phone & WhatsApp", val: "+254 705 427 449",       href: "tel:+254705427449",                        highlight: true  },
+  { Icon: Ico.Mail,  label: "Email",            val: "Muchyzdigital@gmail.com", href: "mailto:Muchyzdigital@gmail.com",           highlight: false },
+  { Icon: Ico.Pin,   label: "Location",         val: "Nairobi, Kenya",          href: "https://maps.google.com/?q=Nairobi,Kenya", highlight: true  },
+  { Icon: Ico.Clock, label: "Response Time",    val: "Within 2 hours",          href: null,                                       highlight: false },
 ];
 
 const SERVICES = ["Business Website","E-Commerce Store","Landing Page","Website Redesign","Custom Web App","Other"];
-
-const PHRASES = ["Something Incredible","Your Dream Website","An Online Store","A Stunning Brand","Your Digital Future"];
+const PHRASES   = ["Something Incredible","Your Dream Website","An Online Store","A Stunning Brand","Your Digital Future"];
 
 const TESTIMONIALS = [
   { init: "AZ", quote: "Muchyz delivered our site ahead of schedule — clean, fast, and exactly what we envisioned.", name: "Amina Z.", role: "CEO, StartupKE" },
@@ -149,22 +145,17 @@ function Field({ id, label, value, onChange, type = "text", full, children, text
   return (
     <div className={cls}>
       {textarea ? (
-        <textarea
-          id={id} placeholder=" " rows={4} value={value}
-          onChange={onChange} maxLength={maxLength || 500}
-          onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
-        />
+        <textarea id={id} placeholder=" " rows={4} value={value} onChange={onChange}
+          maxLength={maxLength || 500}
+          onFocus={() => setFocused(true)} onBlur={() => setFocused(false)} />
       ) : select ? (
         <select id={id} value={value} onChange={onChange}
           onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}>
           {children}
         </select>
       ) : (
-        <input
-          id={id} type={type} placeholder=" " value={value}
-          onChange={onChange}
-          onFocus={() => setFocused(true)} onBlur={() => setFocused(false)}
-        />
+        <input id={id} type={type} placeholder=" " value={value} onChange={onChange}
+          onFocus={() => setFocused(true)} onBlur={() => setFocused(false)} />
       )}
       <label htmlFor={id}>{label}</label>
       <div className="cfield__bar" />
@@ -173,9 +164,7 @@ function Field({ id, label, value, onChange, type = "text", full, children, text
           <svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round"/></svg>
         </div>
       )}
-      {textarea && (
-        <div className="cfield__count">{value.length}/{maxLength || 500}</div>
-      )}
+      {textarea && <div className="cfield__count">{value.length}/{maxLength || 500}</div>}
     </div>
   );
 }
@@ -185,16 +174,16 @@ function Field({ id, label, value, onChange, type = "text", full, children, text
 ══════════════════════════════════════════════ */
 export default function Contact() {
   const [sectionRef, visible] = useInView();
-  const waRef = useMagneticCursor();
+  const waRef     = useMagneticCursor();
   const submitRef = useMagneticCursor();
 
-  const [form, setForm] = useState({ name: "", email: "", service: "", msg: "" });
-  const [sent, setSent] = useState(false);
-  const [submitting, setSubmitting] = useState(false);
-  const [tIdx, setTIdx] = useState(0);
+  const [form, setForm]         = useState({ name: "", email: "", service: "", msg: "" });
+  const [sent, setSent]         = useState(false);
+  const [submitting, setSubmit] = useState(false);
+  const [tIdx, setTIdx]         = useState(0);
 
   const typed = useTypewriter(PHRASES);
-  const set = useCallback((k) => (e) => setForm(f => ({ ...f, [k]: e.target.value })), []);
+  const set   = useCallback((k) => (e) => setForm(f => ({ ...f, [k]: e.target.value })), []);
 
   useEffect(() => {
     const t = setInterval(() => setTIdx(i => (i + 1) % TESTIMONIALS.length), 4800);
@@ -203,7 +192,7 @@ export default function Contact() {
 
   const submit = async (e) => {
     e.preventDefault();
-    setSubmitting(true);
+    setSubmit(true);
     try {
       const res = await fetch("https://formspree.io/f/mdapdbdr", {
         method: "POST",
@@ -217,7 +206,7 @@ export default function Contact() {
     } catch {
       alert("Something went wrong. Please try WhatsApp instead.");
     } finally {
-      setSubmitting(false);
+      setSubmit(false);
     }
   };
 
@@ -232,38 +221,50 @@ export default function Contact() {
   return (
     <section id="contact" className="cs">
 
-      <div className="cs__noise" />
-      <div className="cs__stripe" />
-      <div className="cs__orb cs__orb--a" />
-      <div className="cs__orb cs__orb--b" />
+      {/* Background — matches Services exactly */}
+      <div className="cs__noise" aria-hidden="true" />
+      <div className="cs__stripe" aria-hidden="true" />
+      <div className="cs__orb cs__orb--a" aria-hidden="true" />
+      <div className="cs__orb cs__orb--b" aria-hidden="true" />
+      <div className="cs__orb cs__orb--c" aria-hidden="true" />
 
       <div className="cs__inner" ref={sectionRef}>
 
-        {/* ════ HEADER ════ */}
+        {/* ════ HEADER — two-column Services style ════ */}
         <header className="cs__hdr" style={reveal(0)}>
-          <div className="cs__eyebrow">
-            <span className="cs__eyebrow-pulse" />
-            <span className="cs__eyebrow-text">Get In Touch</span>
-            <span className="cs__eyebrow-rule" />
+
+          {/* Left — eyebrow + giant heading */}
+          <div>
+            <div className="cs__eyebrow">
+              <span className="cs__eyebrow-pulse" aria-hidden="true" />
+              <span className="cs__eyebrow-text">Get In Touch</span>
+              <span className="cs__eyebrow-count">04</span>
+            </div>
+
+            <h2 className="cs__h2">
+              <span className="cs__h2-plain">Let's Build</span>
+              <span className="cs__typed-wrap">
+                <em className="cs__typed">{typed}</em>
+                <span className="cs__caret" aria-hidden="true" />
+              </span>
+            </h2>
           </div>
-          <h2 className="cs__h2">
-            <span className="cs__h2-plain">Let's Build</span>
-            <br />
-            <span className="cs__typed-wrap">
-              <em className="cs__typed">{typed}</em>
-              <span className="cs__caret" />
-            </span>
-          </h2>
-         <p className="cs__sub" style={reveal(0.12)}>
-  Kenya's premier digital agency delivering world-class web experiences — built to convert, designed to impress, engineered to last.
-</p>
+
+          {/* Right — body copy */}
+          <div className="cs__hdr-right">
+            <p className="cs__sub">
+              Kenya's premier digital agency delivering world-class web experiences —
+              built to convert, designed to impress, engineered to last.
+            </p>
+          </div>
+
         </header>
 
         {/* ════ GRID ════ */}
         <div className="cs__grid">
 
-          {/* — LEFT — */}
-          <div className="cs__left" style={reveal(0.3)}>
+          {/* ── LEFT ── */}
+          <div className="cs__left" style={reveal(0.18)}>
 
             <ul className="cs__info">
               {INFO.map((item) => {
@@ -272,7 +273,6 @@ export default function Contact() {
                   item.href ? "cs__info-row--link" : "",
                   item.highlight ? "cs__info-row--highlight" : "",
                 ].filter(Boolean).join(" ");
-
                 const inner = (
                   <>
                     <span className="cs__info-ico"><item.Icon /></span>
@@ -283,15 +283,10 @@ export default function Contact() {
                     {item.href && <span className="cs__info-arr"><Ico.Arrow /></span>}
                   </>
                 );
-
                 return item.href ? (
-                  <li key={item.label}>
-                    <a href={item.href} className={rowClass}>{inner}</a>
-                  </li>
+                  <li key={item.label}><a href={item.href} className={rowClass}>{inner}</a></li>
                 ) : (
-                  <li key={item.label}>
-                    <div className={rowClass}>{inner}</div>
-                  </li>
+                  <li key={item.label}><div className={rowClass}>{inner}</div></li>
                 );
               })}
             </ul>
@@ -306,18 +301,12 @@ export default function Contact() {
             </div>
 
             <div className="cs__divider">
-              <span />
-              <span className="cs__divider-txt">or reach us directly</span>
-              <span />
+              <span /><span className="cs__divider-txt">or reach us directly</span><span />
             </div>
 
-            <a
-              ref={waRef}
+            <a ref={waRef}
               href="https://wa.me/254705427449?text=Hi%2C+I%27d+like+a+quote+for+a+website."
-              target="_blank"
-              rel="noreferrer"
-              className="cs__wa"
-            >
+              target="_blank" rel="noreferrer" className="cs__wa">
               <span className="cs__wa-ripple" />
               <span className="cs__wa-ripple cs__wa-ripple--2" />
               <span className="cs__wa-ico"><Ico.Wa s={22} /></span>
@@ -332,10 +321,11 @@ export default function Contact() {
               <span className="cs__live-dot" />
               <span>Available for new projects · Starting from KES 15,000</span>
             </div>
+
           </div>
 
-          {/* — RIGHT — */}
-          <div className="cs__right" style={reveal(0.4)}>
+          {/* ── RIGHT ── */}
+          <div className="cs__right" style={reveal(0.3)}>
 
             <div className="cs__testi" key={tIdx}>
               <div className="cs__testi-top">
@@ -351,12 +341,8 @@ export default function Contact() {
               <p className="cs__testi-q">"{testi.quote}"</p>
               <div className="cs__testi-dots">
                 {TESTIMONIALS.map((_, i) => (
-                  <button
-                    key={i}
-                    className={`cs__tdot ${i === tIdx ? "cs__tdot--on" : ""}`}
-                    onClick={() => setTIdx(i)}
-                    aria-label={`Review ${i + 1}`}
-                  />
+                  <button key={i} className={`cs__tdot${i === tIdx ? " cs__tdot--on" : ""}`}
+                    onClick={() => setTIdx(i)} aria-label={`Review ${i + 1}`} />
                 ))}
               </div>
             </div>
@@ -374,13 +360,13 @@ export default function Contact() {
               </div>
             ) : (
               <form onSubmit={submit} className="cs__form" noValidate>
-                <Field id="cf-name"  label="Your Name *"     value={form.name}    onChange={set("name")} />
-                <Field id="cf-email" label="Email Address *" value={form.email}   onChange={set("email")} type="email" />
-                <Field id="cf-svc"   label="Select a Service" value={form.service} onChange={set("service")} full select>
+                <Field id="cf-name"  label="Your Name *"          value={form.name}    onChange={set("name")} />
+                <Field id="cf-email" label="Email Address *"       value={form.email}   onChange={set("email")} type="email" />
+                <Field id="cf-svc"   label="Select a Service"      value={form.service} onChange={set("service")} full select>
                   <option value="" disabled hidden />
                   {SERVICES.map(s => <option key={s} value={s}>{s}</option>)}
                 </Field>
-                <Field id="cf-msg" label="Tell us about your project…" value={form.msg} onChange={set("msg")} full textarea maxLength={500} />
+                <Field id="cf-msg"   label="Tell us about your project…" value={form.msg} onChange={set("msg")} full textarea maxLength={500} />
                 <button ref={submitRef} type="submit" className="cs__submit" disabled={submitting}>
                   <span className="cs__submit-bg" />
                   <span className="cs__submit-content">
@@ -392,9 +378,7 @@ export default function Contact() {
                 </button>
                 <div className="cs__form-trust">
                   {["Free consultation", "No obligation", "2-hour response"].map(t => (
-                    <span key={t} className="cs__trust-chip">
-                      <Ico.Check s={11} />{t}
-                    </span>
+                    <span key={t} className="cs__trust-chip"><Ico.Check s={11} />{t}</span>
                   ))}
                 </div>
               </form>
@@ -403,7 +387,6 @@ export default function Contact() {
           </div>
         </div>
       </div>
-
     </section>
   );
 }
