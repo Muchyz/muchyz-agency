@@ -282,7 +282,12 @@ export default function Pricing() {
           </p>
 
           <div className="p-toggle">
-            {!loading && country && <span className="p-toggle__loc">📍 {country}</span>}
+            {!loading && country && (
+              <span className="p-toggle__loc">
+                <span className="p-toggle__loc-dot" />
+                {country}
+              </span>
+            )}
             <div className="p-toggle__wrap">
               <button className={`p-toggle__btn${currency === "USD" ? " p-toggle__btn--on" : ""}`} onClick={() => setCurrency("USD")}>🇺🇸 USD</button>
               <button className={`p-toggle__btn${currency === "KES" ? " p-toggle__btn--on" : ""}`} onClick={() => setCurrency("KES")}>🇰🇪 KES</button>
