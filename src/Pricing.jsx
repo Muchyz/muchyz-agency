@@ -62,7 +62,7 @@ const GUARANTEES = [
 const KES_RATE = 130;
 
 function formatPrice(amount, currency) {
-  if (currency === "KES") return { sym: "KSh", val: (amount * KES_RATE).toLocaleString("en-KE") };
+  if (currency === "KES") return { sym: "KSh", val: (amount * KES_RATE).toLocaleString("en-US") };
   return { sym: "$", val: amount.toString() };
 }
 
@@ -88,27 +88,32 @@ function useCurrency() {
   return { currency, setCurrency, country, loading };
 }
 
-/* Count-up hook */
+/* ── Count-up hook (fixed) ── */
 function useCountUp(target, started, duration = 1600) {
   const [val, setVal] = useState("0");
+
   useEffect(() => {
     if (!started) return;
-    const match = String(target).replace(/,/g, "").match(/[\d.]+/);
-    if (!match) { setVal(String(target)); return; }
-    const end = parseFloat(match[0]);
-    const prefix = String(target).slice(0, String(target).replace(/,/g, "").indexOf(match[0]));
-    const suffix = String(target).slice(String(target).replace(/,/g, "").indexOf(match[0]) + match[0].length);
+
+    // Strip commas so "16,900" → 16900 parses correctly
+    const raw = String(target).replace(/,/g, "");
+    const end = parseFloat(raw);
+
+    if (isNaN(end)) { setVal(String(target)); return; }
+
     let startTs = null;
     const step = ts => {
       if (!startTs) startTs = ts;
       const prog = Math.min((ts - startTs) / duration, 1);
       const ease = 1 - Math.pow(1 - prog, 3);
       const cur = Math.round(ease * end);
-      setVal(`${prefix}${cur.toLocaleString()}${suffix}`);
+      // toLocaleString re-adds commas correctly (e.g. 16,900 not 16,9000)
+      setVal(cur.toLocaleString("en-US"));
       if (prog < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
   }, [started, target, duration]);
+
   return val;
 }
 
@@ -254,22 +259,57 @@ export default function Pricing() {
 
       {/* ══ HEADER ══ */}
       <header className="p-hd">
-        <div className="p-kicker">
-          <span className="p-kicker__dot" />
-          Transparent Pricing
-        </div>
-        <h2 className="p-h2">
-          Simple prices.<br />
-          <em className="p-h2__em">Serious results.</em>
-        </h2>
-        <p className="p-lead">No hidden fees. No contracts. Pay only when you're happy.</p>
-        <div className="p-toggle">
-          {!loading && country && <span className="p-toggle__loc">📍 {country}</span>}
-          <div className="p-toggle__wrap">
-            <button className={`p-toggle__btn${currency === "USD" ? " p-toggle__btn--on" : ""}`} onClick={() => setCurrency("USD")}>🇺🇸 USD</button>
-            <button className={`p-toggle__btn${currency === "KES" ? " p-toggle__btn--on" : ""}`} onClick={() => setCurrency("KES")}>🇰🇪 KES</button>
+
+        {/* LEFT — eyebrow + giant heading */}
+        <div className="p-hd__left">
+          <div className="p-kicker">
+            <span className="p-kicker__rule" />
+            <span>Transparent Pricing</span>
+            <span className="p-kicker__dot">03</span>
           </div>
+
+          <h2 className="p-h2">
+            <span className="p-h2__pre">Simple prices.</span>
+            <em className="p-h2__em">Serious<br/>results.</em>
+          </h2>
         </div>
+
+        {/* RIGHT — body copy, toggle, trust list, CTA */}
+        <div className="p-hd__right">
+          <p className="p-lead">
+            No hidden fees. No contracts. Pay only when you're happy —
+            we don't get paid until your site is live and you love it.
+          </p>
+
+          <div className="p-toggle">
+            {!loading && country && <span className="p-toggle__loc">📍 {country}</span>}
+            <div className="p-toggle__wrap">
+              <button className={`p-toggle__btn${currency === "USD" ? " p-toggle__btn--on" : ""}`} onClick={() => setCurrency("USD")}>🇺🇸 USD</button>
+              <button className={`p-toggle__btn${currency === "KES" ? " p-toggle__btn--on" : ""}`} onClick={() => setCurrency("KES")}>🇰🇪 KES</button>
+            </div>
+          </div>
+
+          <ul className="p-hd__trust">
+            {["Pay on completion — zero risk", "Live in 3 days guaranteed", "Free consultation, no commitment"].map(t => (
+              <li key={t}>
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                {t}
+              </li>
+            ))}
+          </ul>
+
+          <a href="https://wa.me/254705427449" className="p-hd__cta" target="_blank" rel="noreferrer">
+            <span>Get a Free Quote</span>
+            <span className="p-hd__cta-arrow">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </a>
+        </div>
+
       </header>
 
       {/* ══ CARDS ══ */}
@@ -314,7 +354,7 @@ export default function Pricing() {
             <strong className="p-addon__name">AI Chatbot Integration</strong>
             <span className="p-addon__sub">
               24/7 intelligent lead capture — from{" "}
-              <b>{currency === "KES" ? `KSh ${(150 * KES_RATE).toLocaleString()}` : "$150"}</b>
+              <b>{currency === "KES" ? `KSh ${(150 * KES_RATE).toLocaleString("en-US")}` : "$150"}</b>
             </span>
           </div>
         </div>
