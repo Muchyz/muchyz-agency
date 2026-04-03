@@ -63,10 +63,9 @@ const STEPS = [
 const TRUST = [
   "Built with modern technologies",
   "Mobile optimized",
-  "SEO ready",
+  "SEO ready from day one",
 ];
 
-// Spine node positions as % of the spine height
 const NODE_PCTS = [12, 37, 62, 88];
 
 const CheckSVG = () => (
@@ -115,40 +114,61 @@ function Process() {
   return (
     <section className="prc" id="process">
 
-      {/* Top wave */}
-      <div className="prc__wave-top" aria-hidden="true">
-        <svg viewBox="0 0 1440 56" preserveAspectRatio="none" fill="none">
-          <path d="M0,28 C480,56 960,0 1440,28 L1440,0 L0,0 Z" fill="#eef2ff"/>
-        </svg>
-      </div>
+      {/* Light ambient orbs */}
+      <div className="prc__orb prc__orb--a" aria-hidden="true" />
+      <div className="prc__orb prc__orb--b" aria-hidden="true" />
+      <div className="prc__orb prc__orb--c" aria-hidden="true" />
 
       <div className="prc__wrap" ref={ref}>
 
-        {/* Header */}
+        {/* ══ HEADER — two-column Services style ══ */}
         <header className={`prc__head ${visible ? "is-in" : ""}`}>
-          <div className="prc__badge">
-            <span className="prc__badge-dot" />
-            Live in 3 Days — Faster Than Any Agency
+
+          {/* Left — eyebrow + giant heading */}
+          <div className="prc__head-left">
+            <div className="prc__badge">
+              <span className="prc__badge-dot" aria-hidden="true" />
+              <span>How We Work</span>
+              <span className="prc__badge-live" aria-hidden="true" />
+              <span className="prc__badge-count">04</span>
+            </div>
+
+            <span className="prc__eyebrow">Your Website Live in</span>
+            <h2 className="prc__h2">
+              3 Days —<br />
+              <em>Or You Don't Pay.</em>
+            </h2>
           </div>
-          <p className="prc__eyebrow">How We Work</p>
-          <h2 className="prc__h2">
-            Your Website Live in <em>3 Days</em> — Or You Don't Pay.
-          </h2>
-          <p className="prc__lead">
-            Most agencies take weeks. We take days. Four sharp steps — from
-            your first message to a live, professional product.
-          </p>
-          <ul className="prc__trust">
-            {TRUST.map((t, i) => (
-              <li key={i} className="prc__trust-item" style={{ "--d": `${0.65 + i * 0.1}s` }}>
-                <span className="prc__trust-icon"><CheckSVG /></span>
-                {t}
-              </li>
-            ))}
-          </ul>
+
+          {/* Right — body + trust + CTA */}
+          <div className="prc__head-right">
+            <p className="prc__lead">
+              Most agencies take weeks. We take days. Four sharp steps — from
+              your first message to a live, professional product.
+            </p>
+
+            <ul className="prc__trust">
+              {TRUST.map((t, i) => (
+                <li key={i} className="prc__trust-item" style={{ "--d": `${0.65 + i * 0.1}s` }}>
+                  <span className="prc__trust-icon"><CheckSVG /></span>
+                  {t}
+                </li>
+              ))}
+            </ul>
+
+            <a href="#contact" className="prc__head-cta">
+              <span>Book a Free Call</span>
+              <span className="prc__head-cta-arrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </a>
+          </div>
+
         </header>
 
-        {/* Step tracker */}
+        {/* ══ TRACKER ══ */}
         <div className={`prc__tracker ${visible ? "is-in" : ""}`}>
           <div className="prc__tracker-rail">
             <div className="prc__tracker-fill" style={{ width: `${spinePct}%` }} />
@@ -167,16 +187,12 @@ function Process() {
           ))}
         </div>
 
-        {/* Spine + cards grid */}
+        {/* ══ SPINE + CARDS ══ */}
         <div className="prc__layout">
 
-          {/* Spine — completely outside cards */}
           <div className="prc__spine" aria-hidden="true">
             <div className="prc__spine-bg" />
-            <div
-              className="prc__spine-fg"
-              style={{ height: `${spinePct}%` }}
-            />
+            <div className="prc__spine-fg" style={{ height: `${spinePct}%` }} />
             {STEPS.map((_, i) => (
               <div
                 key={i}
@@ -186,7 +202,6 @@ function Process() {
             ))}
           </div>
 
-          {/* Cards */}
           <div className="prc__cards">
             {STEPS.map((s, i) => (
               <div
@@ -195,27 +210,24 @@ function Process() {
                 className={`prc__card ${visible ? "is-in" : ""} ${i === active ? "is-active" : ""}`}
                 style={{ "--i": i }}
               >
-                {/* Navy left panel */}
+                {/* Left panel — dark navy */}
                 <div className="prc__left">
                   <div className="prc__left-glow" aria-hidden="true" />
-
                   <div className="prc__left-top">
                     <span className="prc__step-lbl">Step {s.num}</span>
                     <span className="prc__day-badge">{s.day}</span>
                   </div>
-
                   <div className="prc__icon-wrap">
                     <div className="prc__icon-shine" aria-hidden="true" />
                     <span className="prc__icon-inner">{s.icon}</span>
                   </div>
-
                   <div className="prc__left-bot">
                     <span className="prc__meta">{s.meta}</span>
                     <span className="prc__ghost" aria-hidden="true">{s.num}</span>
                   </div>
                 </div>
 
-                {/* White right panel */}
+                {/* Right panel — white */}
                 <div className="prc__right">
                   <div className="prc__bar" aria-hidden="true" />
                   <div className="prc__body">
@@ -223,37 +235,29 @@ function Process() {
                     <p className="prc__desc">{s.desc}</p>
                   </div>
                   <div className="prc__foot">
-                    <span className="prc__chip">
-                      <CalSVG />{s.day}
-                    </span>
+                    <span className="prc__chip"><CalSVG />{s.day}</span>
                     <div className="prc__arrow"><ArrowSVG /></div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+
         </div>
 
-        {/* CTA */}
+        {/* ══ CTA ══ */}
         <div className={`prc__cta ${visible ? "is-in" : ""}`}>
           <div className="prc__cta-copy">
             <strong>Get your project live in 3 days.</strong>
             <span>Book a free call today — we can start tomorrow.</span>
           </div>
           <a href="#contact" className="prc__cta-btn">
-            Book a Free Call <ArrowSVG />
+            <span>Book a Free Call</span>
+            <span className="prc__cta-btn-arrow"><ArrowSVG /></span>
           </a>
         </div>
 
       </div>
-
-      {/* Bottom wave */}
-      <div className="prc__wave-bot" aria-hidden="true">
-        <svg viewBox="0 0 1440 56" preserveAspectRatio="none" fill="none">
-          <path d="M0,28 C480,0 960,56 1440,28 L1440,56 L0,56 Z" fill="#eef2ff"/>
-        </svg>
-      </div>
-
     </section>
   );
 }
