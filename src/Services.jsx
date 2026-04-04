@@ -7,7 +7,7 @@ const SERVICES = [
     num: "01",
     title: "Website Development",
     desc: "Fast, modern websites engineered to turn every visitor into a paying customer. We obsess over speed, structure, and conversion at every pixel.",
-    img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=90",
+    img: "/website-dev.jpg",
     tag: "Web",
     stat: "3×",
     statLabel: "Faster Load",
@@ -25,7 +25,7 @@ const SERVICES = [
     num: "02",
     title: "E-commerce Stores",
     desc: "Conversion-obsessed shops that make buying irresistible at every step of the journey.",
-    img: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=900&q=90",
+    img: "/ecommerce.jpg",
     tag: "Commerce",
     stat: "+68%",
     statLabel: "Conversions",
@@ -42,7 +42,7 @@ const SERVICES = [
     num: "03",
     title: "AI Chatbots",
     desc: "24/7 intelligent agents that capture every lead and never miss a sale while you sleep.",
-    img: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=900&q=90",
+    img: "/ai-chatbots.jpg",
     tag: "AI",
     stat: "24/7",
     statLabel: "Always On",
@@ -59,7 +59,7 @@ const SERVICES = [
     num: "04",
     title: "Custom Software",
     desc: "Bespoke platforms built around your exact operations — no templates, no shortcuts.",
-    img: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=900&q=90",
+    img: "/custom-software.jpg",
     tag: "Dev",
     stat: "100%",
     statLabel: "Custom Built",
@@ -76,7 +76,7 @@ const SERVICES = [
     num: "05",
     title: "Business Automation",
     desc: "Eliminate repetitive work, reclaim hours and scale without adding headcount.",
-    img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&q=90",
+    img: "/automation.jpg",
     tag: "Automation",
     stat: "−80%",
     statLabel: "Manual Work",
@@ -93,7 +93,7 @@ const SERVICES = [
     num: "06",
     title: "Website Redesign",
     desc: "Gut your outdated site. Replace it with something sharp that earns trust on first look.",
-    img: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=900&q=90",
+    img: "/redesign.jpg",
     tag: "Design",
     stat: "2×",
     statLabel: "Engagement",
@@ -103,6 +103,40 @@ const SERVICES = [
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
+      </svg>
+    ),
+  },
+  {
+    num: "07",
+    title: "Google SEO",
+    desc: "Dominate search rankings and pull in ready-to-buy traffic without paying per click.",
+    img: "/seo.jpg",
+    tag: "SEO",
+    stat: "#1",
+    statLabel: "Rankings",
+    hue: "142",
+    accent: "#22c55e",
+    accentRgb: "34,197,94",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35M11 8v6M8 11h6"/>
+      </svg>
+    ),
+  },
+  {
+    num: "08",
+    title: "Mobile Apps",
+    desc: "Sleek iOS & Android apps your users will actually open — built for speed, retention and revenue.",
+    img: "/mobile-apps.jpg",
+    tag: "Mobile",
+    stat: "5★",
+    statLabel: "App Rating",
+    hue: "271",
+    accent: "#a855f7",
+    accentRgb: "168,85,247",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/>
       </svg>
     ),
   },
@@ -292,7 +326,7 @@ export default function Services() {
             <div className="sv__eyebrow">
               <span className="sv__eyebrow-rule" />
               <span>Our Services</span>
-              <span className="sv__eyebrow-count">06</span>
+              <span className="sv__eyebrow-count">08</span>
             </div>
 
             <h2 className="sv__heading">
@@ -320,7 +354,7 @@ export default function Services() {
 
           <div className="sv__header-right">
             <p className="sv__header-body">
-              Six battle-tested specialisations. One obsessive focus on outcomes
+              Eight battle-tested specialisations. One obsessive focus on outcomes
               that move the needle for your business. We don't just build —
               we engineer growth.
             </p>

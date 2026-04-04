@@ -19,11 +19,11 @@ function useInView(threshold = 0.05) {
 const SERVICES = ["Web Design","E-Commerce","Brand Identity","AI Solutions","Custom Software","Mobile First","SEO Strategy","Business Automation"];
 
 const SLIDES = [
-  { url: "/slide-open.jpeg",    label: "Open",     tag: "Available", accent: "#22c55e", category: "STUDIO", year: "2025", stat: "12 active projects" },
-  { url: "/slide-chat.jpeg",    label: "Chat",     tag: "Instant",   accent: "#3b82f6", category: "COMMS",  year: "2025", stat: "< 2hr response" },
-  { url: "/slide-deliver.jpeg", label: "Deliver",  tag: "Commerce",  accent: "#f59e0b", category: "STORE",  year: "2025", stat: "3-day delivery" },
-  { url: "/slide-build.jpeg",   label: "Build",    tag: "Code",      accent: "#a855f7", category: "DEV",    year: "2025", stat: "Clean codebase" },
-  { url: "/slide-modern.jpeg",  label: "Modern",   tag: "Design",    accent: "#ef4444", category: "DESIGN", year: "2025", stat: "Award-winning UI" },
+  { url: "/slide-open.jpeg",    label: "Open",     tag: "Available", accent: "#22c55e", category: "STUDIO", year: "2025" },
+  { url: "/slide-chat.jpeg",    label: "Chat",     tag: "Instant",   accent: "#3b82f6", category: "COMMS",  year: "2025" },
+  { url: "/slide-deliver.jpeg", label: "Deliver",  tag: "Commerce",  accent: "#f59e0b", category: "STORE",  year: "2025" },
+  { url: "/slide-build.jpeg",   label: "Build",    tag: "Code",      accent: "#a855f7", category: "DEV",    year: "2025" },
+  { url: "/slide-modern.jpeg",  label: "Modern",   tag: "Design",    accent: "#ef4444", category: "DESIGN", year: "2025" },
 ];
 
 const INTERVAL = 4800;
@@ -503,8 +503,6 @@ export default function CTA() {
 
       <section className="x" ref={rootRef}>
 
-
-
         {/* ── Main body ── */}
         <div className="x__body">
 
@@ -708,11 +706,6 @@ export default function CTA() {
                   <div className="x__meta-item">
                     <span className="x__meta-key">Year</span>
                     <span className="x__meta-val">{cur.year}</span>
-                  </div>
-                  <div className="x__meta-sep" />
-                  <div className="x__meta-item">
-                    <span className="x__meta-key">Status</span>
-                    <span className="x__meta-val">{cur.stat}</span>
                   </div>
                 </div>
 
