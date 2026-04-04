@@ -140,6 +140,57 @@ const SERVICES = [
       </svg>
     ),
   },
+  {
+    num: "09",
+    title: "Branding & Logo Design",
+    desc: "Memorable identities that make your brand impossible to ignore — from logo to full visual system.",
+    img: "/branding.jpg",
+    tag: "Branding",
+    stat: "∞",
+    statLabel: "Brand Value",
+    hue: "24",
+    accent: "#f97316",
+    accentRgb: "249,115,22",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/>
+      </svg>
+    ),
+  },
+  {
+    num: "10",
+    title: "Web Hosting & Maintenance",
+    desc: "Your site stays fast, secure and online 24/7 — we handle updates, backups and everything in between.",
+    img: "/hosting.jpg",
+    tag: "Hosting",
+    stat: "99.9%",
+    statLabel: "Uptime",
+    hue: "174",
+    accent: "#14b8a6",
+    accentRgb: "20,184,166",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/>
+      </svg>
+    ),
+  },
+  {
+    num: "11",
+    title: "UI/UX Design",
+    desc: "Interfaces so intuitive your users never get lost — crafted with research, wireframes and pixel-perfect prototypes.",
+    img: "/ui-ux.jpg",
+    tag: "UI/UX",
+    stat: "4×",
+    statLabel: "Retention",
+    hue: "328",
+    accent: "#ec4899",
+    accentRgb: "236,72,153",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2z"/><path d="M7 7h.01"/>
+      </svg>
+    ),
+  },
 ];
 
 const LOGOS = [
@@ -326,7 +377,7 @@ export default function Services() {
             <div className="sv__eyebrow">
               <span className="sv__eyebrow-rule" />
               <span>Our Services</span>
-              <span className="sv__eyebrow-count">08</span>
+              <span className="sv__eyebrow-count">11</span>
             </div>
 
             <h2 className="sv__heading">
@@ -354,7 +405,7 @@ export default function Services() {
 
           <div className="sv__header-right">
             <p className="sv__header-body">
-              Eight battle-tested specialisations. One obsessive focus on outcomes
+              Eleven battle-tested specialisations. One obsessive focus on outcomes
               that move the needle for your business. We don't just build —
               we engineer growth.
             </p>
