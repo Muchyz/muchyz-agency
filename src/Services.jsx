@@ -250,7 +250,7 @@ function ServiceCard({ s, i, activeCard, setActiveCard, statsStarted }) {
       card.style.transform = `perspective(1200px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(8px)`;
     });
     if (glowRef.current) {
-      glowRef.current.style.background = `radial-gradient(480px circle at ${x}px ${y}px, rgba(${s.accentRgb},0.18) 0%, transparent 60%)`;
+      glowRef.current.style.background = `radial-gradient(480px circle at ${x}px ${y}px, rgba(${s.accentRgb},0.13) 0%, transparent 60%)`;
       glowRef.current.style.opacity = '1';
     }
   }, [s.accentRgb]);
@@ -292,32 +292,21 @@ function ServiceCard({ s, i, activeCard, setActiveCard, statsStarted }) {
         {!loaded && <div className="sv__img-skeleton" />}
         <img src={s.img} alt={s.title} loading="lazy"
           onLoad={() => setLoaded(true)} style={{ opacity: loaded ? 1 : 0 }} />
-        {/* Colour wash that tints image toward the card's accent */}
-        <div className="sv__img-wash" />
         <div className="sv__img-vignette" />
         <div className="sv__img-tag">
           <span className="sv__tag-dot" />
           {s.tag}
         </div>
-        {/* Stat overlay on image for wide card */}
-        {s.wide && (
-          <div className="sv__img-stat-overlay">
-            <span className="sv__img-stat-val">{display}</span>
-            <span className="sv__img-stat-key">{s.statLabel}</span>
-          </div>
-        )}
       </div>
 
       <div className="sv__card-body">
         <div className="sv__card-top">
           <div className="sv__card-icon">{s.icon}</div>
           <h3 className="sv__card-title">{s.title}</h3>
-          {!s.wide && (
-            <div className="sv__card-stat">
-              <span className="sv__stat-val">{display}</span>
-              <span className="sv__stat-key">{s.statLabel}</span>
-            </div>
-          )}
+          <div className="sv__card-stat">
+            <span className="sv__stat-val">{display}</span>
+            <span className="sv__stat-key">{s.statLabel}</span>
+          </div>
         </div>
         <p className="sv__card-desc">{s.desc}</p>
         <div className="sv__card-foot">
