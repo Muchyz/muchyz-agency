@@ -403,12 +403,17 @@ export default function MuchyzHero() {
             </p>
 
             <div className="Mctarow" style={s(4)}>
-              <button className="Mbtn1">
-                Start a Project
-                <svg className="arr" viewBox="0 0 15 15" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M3 7.5h9M9 3.5l4 4-4 4"/>
-                </svg>
-              </button>
+<a
+  href="https://wa.me/254104272476?text=Hi%20Muchyz,%20I%20want%20to%20start%20a%20project"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="Mbtn1"
+>
+  Start a Project
+  <svg className="arr" viewBox="0 0 15 15" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3 7.5h9M9 3.5l4 4-4 4"/>
+  </svg>
+</a>
               <div className="Mctarow-sub">
 
                 <a href="#" className="Mbtn3">
