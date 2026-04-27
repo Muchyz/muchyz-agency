@@ -410,12 +410,7 @@ export default function MuchyzHero() {
                 </svg>
               </button>
               <div className="Mctarow-sub">
-                <a href="#" className="Mbtn2">
-                  See our work
-                  <svg className="arr" viewBox="0 0 14 14" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M2 7h10M8 3l4 4-4 4"/>
-                  </svg>
-                </a>
+
                 <a href="#" className="Mbtn3">
                   <svg viewBox="0 0 14 14" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
                     <polygon points="2,2 12,7 2,12"/>
