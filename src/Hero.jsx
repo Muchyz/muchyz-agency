@@ -415,7 +415,7 @@ export default function MuchyzHero() {
               </a>
 
               <div className="Mctarow-sub">
-                {/* ── VIEW OUR WORK BUTTON — links to /work 
+                {/* ── VIEW OUR WORK BUTTON — links to /work── */}
                 <a href="/work" className="Mbtn2">
                   <svg viewBox="0 0 15 15" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="1.5" y="3" width="12" height="9" rx="2"/>
@@ -426,7 +426,7 @@ export default function MuchyzHero() {
                     <path d="M3 7.5h9M9 3.5l4 4-4 4"/>
                   </svg>
                 </a>
-                ── */}
+
 
                 <a href="#" className="Mbtn3">
                   <svg viewBox="0 0 14 14" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
