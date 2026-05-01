@@ -1,5 +1,6 @@
 import "./App.css";
 import { Helmet } from "react-helmet-async";
+import { Routes, Route } from "react-router-dom";
 import Navbar       from "./Navbar";
 import Hero         from "./Hero";
 import Services     from "./Services";
@@ -14,7 +15,7 @@ import CTA          from "./CTA";
 import Footer       from "./Footer";
 import WAFab        from "./WAFab";
 
-export default function App() {
+function HomePage() {
   return (
     <div className="app">
       <Helmet>
@@ -32,5 +33,14 @@ export default function App() {
       <WhyUs /><Testimonials /><FAQ /><ContactForm />
       <CTA /><Footer /><WAFab />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/"     element={<HomePage />} />
+      <Route path="/work" element={<Work />} />
+    </Routes>
   );
 }

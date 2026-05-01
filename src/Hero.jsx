@@ -158,7 +158,7 @@ export default function MuchyzHero() {
         .Mbtn1{display:inline-flex;align-items:center;gap:9px;
           font-family:var(--sans);font-size:13.5px;font-weight:600;letter-spacing:-.01em;
           color:#fff;background:var(--ink);border:none;border-radius:12px;padding:13px 26px;cursor:pointer;
-          position:relative;overflow:hidden;transition:transform .15s,box-shadow .15s}
+          position:relative;overflow:hidden;transition:transform .15s,box-shadow .15s;text-decoration:none}
         .Mbtn1::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.08) 0%,transparent 55%)}
         .Mbtn1:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(13,13,11,.25)}
         .Mbtn1:active{transform:translateY(0)}
@@ -200,7 +200,6 @@ export default function MuchyzHero() {
 
         .Mright{position:relative;height:600px}
 
-        /* ── MAIN IMAGE — uses Img1.jpeg from /public ── */
         .Mimgmain{position:absolute;top:0;left:0;right:64px;bottom:64px;
           border-radius:28px;overflow:hidden;box-shadow:var(--sheavy)}
         .Mimgmain img{width:100%;height:100%;object-fit:cover;display:block;
@@ -403,18 +402,30 @@ export default function MuchyzHero() {
             </p>
 
             <div className="Mctarow" style={s(4)}>
-<a
-  href="https://wa.me/254104272476?text=Hi%20Muchyz,%20I%20want%20to%20start%20a%20project"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="Mbtn1"
->
-  Start a Project
-  <svg className="arr" viewBox="0 0 15 15" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M3 7.5h9M9 3.5l4 4-4 4"/>
-  </svg>
-</a>
+              <a
+                href="https://wa.me/254104272476?text=Hi%20Muchyz,%20I%20want%20to%20start%20a%20project"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="Mbtn1"
+              >
+                Start a Project
+                <svg className="arr" viewBox="0 0 15 15" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 7.5h9M9 3.5l4 4-4 4"/>
+                </svg>
+              </a>
+
               <div className="Mctarow-sub">
+                {/* ── VIEW OUR WORK BUTTON — links to /work ── */}
+                <a href="/work" className="Mbtn2">
+                  <svg viewBox="0 0 15 15" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="1.5" y="3" width="12" height="9" rx="2"/>
+                    <path d="M5 3V2M10 3V2M1.5 7h12"/>
+                  </svg>
+                  View Our Work
+                  <svg className="arr" viewBox="0 0 15 15" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 7.5h9M9 3.5l4 4-4 4"/>
+                  </svg>
+                </a>
 
                 <a href="#" className="Mbtn3">
                   <svg viewBox="0 0 14 14" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
@@ -457,7 +468,6 @@ export default function MuchyzHero() {
           {/* ── RIGHT ── */}
           <div className="Mright" style={s(2, { transitionDelay: '.4s' })}>
 
-            {/* ✅ Your custom image — place Img1.jpeg in your /public folder */}
             <div className="Mimgmain">
               <img
                 src="/Img2.jpeg"
@@ -470,7 +480,6 @@ export default function MuchyzHero() {
               </div>
             </div>
 
-            {/* Secondary image — still uses Unsplash, swap if you have a 2nd image */}
             <div className="Mimgsec">
               <img
                 src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=440&h=360&fit=crop&crop=center"
