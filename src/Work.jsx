@@ -8,7 +8,7 @@ const PROJECTS = [
     category: "E-commerce",
     tags: ["React", "E-commerce", "Online Store"],
     desc: "Online store for baby products in Kenya, featuring a clean product showcase and smooth checkout experience.",
-    img: "https://images.unsplash.com/photo-1590080877249-7c6f5b68b12b?w=900&h=600&fit=crop&crop=center",
+    img: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=900&h=600&fit=crop&crop=center",
     live: "https://peekaboo.ke",
     year: "2026",
     stat: "95%", statLabel: "Customer Satisfaction",
@@ -20,7 +20,7 @@ const PROJECTS = [
     category: "E-commerce",
     tags: ["React", "Beauty Store", "Online Shopping"],
     desc: "Beauty and personal care e-commerce store with clean UI and smooth checkout, optimized for mobile users.",
-    img: "https://images.unsplash.com/photo-1590080877249-7c6f5b68b12b?w=900&h=600&fit=crop&crop=center",
+    img: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=900&h=600&fit=crop&crop=center",
     live: "https://purpink.co.ke",
     year: "2026",
     stat: "90%", statLabel: "Conversion Rate",
@@ -32,7 +32,7 @@ const PROJECTS = [
     category: "E-commerce",
     tags: ["React", "Cosmetics", "Online Store"],
     desc: "Kenyan beauty products online store with landing pages, product catalog, and smooth payment flow.",
-    img: "https://images.unsplash.com/photo-1590080877249-7c6f5b68b12b?w=900&h=600&fit=crop&crop=center",
+    img: "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=900&h=600&fit=crop&crop=center",
     live: "https://beautyhub.co.ke",
     year: "2026",
     stat: "85%", statLabel: "Repeat Customers",
@@ -44,7 +44,7 @@ const PROJECTS = [
     category: "E-commerce",
     tags: ["React", "Online Shopping", "Marketplace"],
     desc: "Online marketplace for Kenyan shoppers featuring multiple categories, clean UI, and smooth checkout.",
-    img: "https://images.unsplash.com/photo-1590080877249-7c6f5b68b12b?w=900&h=600&fit=crop&crop=center",
+    img: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=900&h=600&fit=crop&crop=center",
     live: "https://zuricart.co.ke",
     year: "2026",
     stat: "80%", statLabel: "Customer Engagement",
@@ -56,7 +56,7 @@ const PROJECTS = [
     category: "E-commerce",
     tags: ["React", "Retail", "Online Store"],
     desc: "Kenyan online store selling electronics and gadgets with modern landing pages and easy navigation.",
-    img: "https://images.unsplash.com/photo-1590080877249-7c6f5b68b12b?w=900&h=600&fit=crop&crop=center",
+    img: "https://images.unsplash.com/photo-1468495244123-6c6c332eeece?w=900&h=600&fit=crop&crop=center",
     live: "https://baki.co.ke",
     year: "2026",
     stat: "88%", statLabel: "Customer Engagement",
@@ -68,7 +68,7 @@ const PROJECTS = [
     category: "E-commerce",
     tags: ["React", "Food Delivery", "Online Store"],
     desc: "Online store for healthy meals and groceries in Kenya, featuring product categories and smooth checkout.",
-    img: "https://images.unsplash.com/photo-1590080877249-7c6f5b68b12b?w=900&h=600&fit=crop&crop=center",
+    img: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=900&h=600&fit=crop&crop=center",
     live: "https://greenspoon.co.ke",
     year: "2026",
     stat: "92%", statLabel: "On-Time Delivery",
@@ -80,7 +80,7 @@ const PROJECTS = [
     category: "E-commerce",
     tags: ["React", "Electronics", "Mobile Phones"],
     desc: "Kenyan mobile phone store with product listings, landing pages, and integrated payment options.",
-    img: "https://images.unsplash.com/photo-1590080877249-7c6f5b68b12b?w=900&h=600&fit=crop&crop=center",
+    img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=900&h=600&fit=crop&crop=center",
     live: "https://phoneplacekenya.com",
     year: "2026",
     stat: "90%", statLabel: "Customer Engagement",
@@ -92,7 +92,7 @@ const PROJECTS = [
     category: "Travel",
     tags: ["React", "Travel", "Booking"],
     desc: "Kenyan travel adventure website with tours booking, clean UI, and online inquiry forms for travelers.",
-    img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&h=600&fit=crop&crop=center",
+    img: "https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=900&h=600&fit=crop&crop=center",
     live: "https://bonfireadventures.co.ke",
     year: "2026",
     stat: "95%", statLabel: "Booking Success",
@@ -104,7 +104,7 @@ const PROJECTS = [
     category: "Travel",
     tags: ["React", "Tours", "Travel Agency"],
     desc: "Small travel agency in Kenya showcasing travel packages, online booking, and visual landing pages.",
-    img: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&h=600&fit=crop&crop=center",
+    img: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=900&h=600&fit=crop&crop=center",
     live: "https://novustelltravel.com",
     year: "2026",
     stat: "90%", statLabel: "Customer Satisfaction",
@@ -116,7 +116,7 @@ const PROJECTS = [
     category: "Cleaning",
     tags: ["React", "Booking", "Service Management"],
     desc: "Cleaning services company in Kenya with online booking and service showcase, modern landing page design.",
-    img: "https://images.unsplash.com/photo-1560185127-6a6b2cfb7f8b?w=900&h=600&fit=crop&crop=center",
+    img: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=900&h=600&fit=crop&crop=center",
     live: "https://safitimecleaning.com",
     year: "2026",
     stat: "99%", statLabel: "Service Satisfaction",
@@ -128,7 +128,7 @@ const PROJECTS = [
     category: "IT",
     tags: ["React", "Web Design", "Automation"],
     desc: "Small IT company providing software solutions, web apps, and automation tools for Kenyan SMEs.",
-    img: "https://images.unsplash.com/photo-1581091012184-6e8d4e74f61c?w=900&h=600&fit=crop&crop=center",
+    img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&h=600&fit=crop&crop=center",
     live: "https://onsidetechsolutions.co.ke",
     year: "2026",
     stat: "24/7", statLabel: "Operational Support",
@@ -140,20 +140,15 @@ const PROJECTS = [
     category: "Supply",
     tags: ["React", "Wholesale", "B2B"],
     desc: "Supplier for small businesses in Kenya, featuring product catalog and easy-to-use online inquiry forms.",
-    img: "https://images.unsplash.com/photo-1590080877249-7c6f5b68b12b?w=900&h=600&fit=crop&crop=center",
+    img: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=900&h=600&fit=crop&crop=center",
     live: "https://favouredksuppliers.co.ke",
     year: "2026",
     stat: "2×", statLabel: "Order Efficiency",
     accent: "#C8A96E", accentRgb: "200,169,110",
-  }];
-const CATS = [
-  "All",
-  "E-commerce",
-  "Travel",
-  "Cleaning",
-  "IT",
-  "Supply"
+  }
 ];
+
+const CATS = ["All", "E-commerce", "Travel", "Cleaning", "IT", "Supply"];
 const TICKER = ["React","Node.js","M-Pesa","PostgreSQL","Vercel","Figma","OpenAI","WhatsApp API","Next.js","MongoDB","TypeScript","Tailwind CSS","Stripe","AWS","Firebase","Supabase"];
 
 /* ─── HOOKS ─── */
@@ -196,8 +191,100 @@ function useCountUp(target, started, duration = 1600) {
   return val;
 }
 
-/* ─── PROJECT CARD ─── */
-function ProjectCard({ p, index, activeCard, setActiveCard, statsStarted, view, mobileMode }) {
+/* ─── MOBILE CARD (vertical stacked) ─── */
+function MobileCard({ p, index, statsStarted }) {
+  const ref = useRef(null);
+  const vis = useInView(ref, 0.1);
+  const display = useCountUp(p.stat, statsStarted);
+  const [imgErr, setImgErr] = useState(false);
+
+  return (
+    <div
+      ref={ref}
+      className="mob-card"
+      style={{
+        "--accent": p.accent,
+        "--accent-rgb": p.accentRgb,
+        opacity: vis ? 1 : 0,
+        transform: vis ? "none" : "translateY(28px)",
+        transition: `opacity .6s ${index * 0.07}s cubic-bezier(0.16,1,0.3,1), transform .6s ${index * 0.07}s cubic-bezier(0.16,1,0.3,1)`,
+      }}
+    >
+      {/* Image */}
+      <div className="mob-card__img-wrap">
+        {!imgErr ? (
+          <img
+            src={p.img}
+            alt={p.title}
+            className="mob-card__img"
+            loading="lazy"
+            onError={() => setImgErr(true)}
+          />
+        ) : (
+          <div className="mob-card__img-fallback">
+            <span>{p.num}</span>
+          </div>
+        )}
+        <div className="mob-card__img-overlay" style={{ background: `linear-gradient(180deg, transparent 30%, rgba(6,8,16,.85) 100%)` }} />
+        <div className="mob-card__img-top-stripe" style={{ background: p.accent }} />
+        <div className="mob-card__img-badge">
+          <span className="mob-card__badge-dot" style={{ background: p.accent }} />
+          <span style={{ color: p.accent }}>{p.num}</span>
+          <span className="mob-card__badge-sep" />
+          <span style={{ color: "rgba(238,242,255,.7)" }}>{p.category}</span>
+        </div>
+        <div className="mob-card__stat-overlay">
+          <span className="mob-card__stat-val" style={{ color: p.accent }}>{display}</span>
+          <span className="mob-card__stat-key">{p.statLabel}</span>
+        </div>
+      </div>
+
+      {/* Body */}
+      <div className="mob-card__body">
+        <div className="mob-card__cat" style={{ color: p.accent }}>{p.category}</div>
+        <h3 className="mob-card__title">{p.title}</h3>
+        <p className="mob-card__desc">{p.desc}</p>
+        <div className="mob-card__tags">
+          {p.tags.map(t => (
+            <span key={t} className="mob-card__tag">{t}</span>
+          ))}
+          <span className="mob-card__year">{p.year}</span>
+        </div>
+        <div className="mob-card__actions">
+          <a
+            href={p.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mob-card__btn-primary"
+            style={{ background: p.accent, boxShadow: `0 8px 28px rgba(${p.accentRgb},.35)` }}
+          >
+            Get a Quote
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </a>
+          <a
+            href={p.live}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mob-card__btn-secondary"
+            style={{ borderColor: `rgba(${p.accentRgb},.3)`, color: p.accent }}
+          >
+            Visit Site
+            <svg viewBox="0 0 10 10" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M1.5 8.5L8.5 1.5M5 1.5h3v3" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div className="mob-card__bottom-accent" style={{ background: `linear-gradient(90deg, transparent, rgba(${p.accentRgb},.5), transparent)` }} />
+    </div>
+  );
+}
+
+/* ─── DESKTOP PROJECT CARD ─── */
+function ProjectCard({ p, index, activeCard, setActiveCard, statsStarted, view }) {
   const cardRef = useRef(null);
   const glowRef = useRef(null);
   const rafRef  = useRef(null);
@@ -206,6 +293,7 @@ function ProjectCard({ p, index, activeCard, setActiveCard, statsStarted, view, 
   const display = useCountUp(p.stat, statsStarted);
   const isActive = activeCard === p.id;
   const isDimmed = activeCard !== null && activeCard !== p.id;
+  const [imgErr, setImgErr] = useState(false);
 
   const onMouseMove = useCallback(e => {
     const card = cardRef.current;
@@ -255,7 +343,11 @@ function ProjectCard({ p, index, activeCard, setActiveCard, statsStarted, view, 
         <div className="wk-row__bg" style={{ opacity: isActive ? 1 : 0, background: `radial-gradient(ellipse at 15% 50%, rgba(${p.accentRgb},.07) 0%, transparent 65%)` }}/>
         <div className="wk-row__num" style={{ color: isActive ? p.accent : "rgba(238,242,255,.18)" }}>{p.num}</div>
         <div className="wk-row__thumb">
-          <img src={p.img} alt={p.title} style={{ transform: isActive ? "scale(1.1)" : "scale(1.02)" }}/>
+          {!imgErr ? (
+            <img src={p.img} alt={p.title} style={{ transform: isActive ? "scale(1.1)" : "scale(1.02)" }} onError={() => setImgErr(true)} />
+          ) : (
+            <div style={{ width:"100%",height:"100%",background:`rgba(${p.accentRgb},.15)`,display:"flex",alignItems:"center",justifyContent:"center",color:p.accent,fontFamily:"'DM Serif Display',serif",fontSize:"28px",fontStyle:"italic" }}>{p.num}</div>
+          )}
           <div className="wk-row__thumb-overlay" style={{ background: `linear-gradient(135deg,rgba(${p.accentRgb},.28) 0%,transparent 55%)`, opacity: isActive ? 1 : 0 }}/>
           <div className="wk-row__thumb-stripe" style={{ background: p.accent }}/>
         </div>
@@ -286,14 +378,12 @@ function ProjectCard({ p, index, activeCard, setActiveCard, statsStarted, view, 
   }
 
   /* GRID CARD */
-  const animStyle = mobileMode ? {} : {
-    opacity: vis ? 1 : 0,
-    transform: vis ? "none" : "translateY(32px) scale(0.96)",
-    transition: `opacity .75s ${index * 0.09}s cubic-bezier(0.16,1,0.3,1), transform .75s ${index * 0.09}s cubic-bezier(0.16,1,0.3,1)`,
-  };
-
   return (
-    <div ref={wrapRef} style={animStyle}>
+    <div ref={wrapRef} style={{
+      opacity: vis ? 1 : 0,
+      transform: vis ? "none" : "translateY(32px) scale(0.96)",
+      transition: `opacity .75s ${index * 0.09}s cubic-bezier(0.16,1,0.3,1), transform .75s ${index * 0.09}s cubic-bezier(0.16,1,0.3,1)`,
+    }}>
       <a
         ref={cardRef}
         href={p.live}
@@ -308,23 +398,23 @@ function ProjectCard({ p, index, activeCard, setActiveCard, statsStarted, view, 
         <div className="wk-card__glow" ref={glowRef}/>
         <span className="wk-card__bg-num">{p.num}</span>
 
-        {/* IMAGE */}
         <div className={`wk-card__media${p.wide ? " wk-card__media--wide" : ""}`}>
-          <img src={p.img} alt={p.title} loading={p.priority ? "eager" : "lazy"}/>
+          {!imgErr ? (
+            <img src={p.img} alt={p.title} loading={p.priority ? "eager" : "lazy"} onError={() => setImgErr(true)} />
+          ) : (
+            <div style={{ width:"100%",height:"100%",background:`rgba(${p.accentRgb},.12)`,display:"flex",alignItems:"center",justifyContent:"center",color:p.accent,fontFamily:"'DM Serif Display',serif",fontSize:"48px",fontStyle:"italic" }}>{p.num}</div>
+          )}
           <div className="wk-card__vignette"/>
           <div className="wk-card__img-accent" style={{ background: `linear-gradient(135deg,rgba(${p.accentRgb},.22) 0%,transparent 55%)` }}/>
           <div className="wk-card__stripe" style={{ background: p.accent }}/>
-
           <div className="wk-card__badge">
             <span className="wk-card__badge-dot" style={{ background: p.accent, boxShadow: `0 0 7px ${p.accent}` }}/>
             <span style={{ color: p.accent }}>{p.num}</span>
           </div>
-
           <div className="wk-card__img-tag" style={{ background: `rgba(${p.accentRgb},.45)` }}>
             <span className="wk-card__tag-pulse" style={{ background: p.accent }}/>
             {p.category.split(" ")[0]}
           </div>
-
           <div className="wk-card__hover-cta">
             <svg viewBox="0 0 10 10" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M1.5 8.5L8.5 1.5M5 1.5h3v3"/>
@@ -333,7 +423,6 @@ function ProjectCard({ p, index, activeCard, setActiveCard, statsStarted, view, 
           </div>
         </div>
 
-        {/* BODY */}
         <div className="wk-card__body">
           <div className="wk-card__meta">
             <div className="wk-card__icon" style={{ background: `rgba(${p.accentRgb},.1)`, borderColor: `rgba(${p.accentRgb},.25)` }}>
@@ -375,18 +464,16 @@ function ProjectCard({ p, index, activeCard, setActiveCard, statsStarted, view, 
 
 /* ─── MAIN PAGE ─── */
 export default function Work() {
-  const [active, setActive]           = useState("All");
-  const [view, setView]               = useState("grid");
-  const [loaded, setLoaded]           = useState(false);
-  const [scrolled, setScrolled]       = useState(false);
-  const [activeCard, setActiveCard]   = useState(null);
-  const [statsStarted, setStats]      = useState(false);
-  const [heroCount, setHeroCount]     = useState(0);
-  const [mobileSlide, setMobileSlide] = useState(0);
-  const [filterOpen, setFilterOpen]   = useState(false);
-  const sectionRef      = useRef(null);
-  const mobileScrollRef = useRef(null);
-  const sectionVis      = useInView(sectionRef, 0.05);
+  const [active, setActive]         = useState("All");
+  const [view, setView]             = useState("grid");
+  const [loaded, setLoaded]         = useState(false);
+  const [scrolled, setScrolled]     = useState(false);
+  const [activeCard, setActiveCard] = useState(null);
+  const [statsStarted, setStats]    = useState(false);
+  const [heroCount, setHeroCount]   = useState(0);
+  const [filterOpen, setFilterOpen] = useState(false);
+  const sectionRef = useRef(null);
+  const sectionVis = useInView(sectionRef, 0.05);
 
   useEffect(() => { const t = setTimeout(() => setLoaded(true), 40); return () => clearTimeout(t); }, []);
   useEffect(() => {
@@ -404,15 +491,6 @@ export default function Work() {
     const t = setTimeout(() => { raf = requestAnimationFrame(step); }, 800);
     return () => { clearTimeout(t); cancelAnimationFrame(raf); };
   }, []);
-  useEffect(() => {
-    const el = mobileScrollRef.current;
-    if (!el) return;
-    const fn = () => setMobileSlide(Math.min(Math.round(el.scrollLeft / (el.offsetWidth * 0.88)), PROJECTS.length - 1));
-    el.addEventListener("scroll", fn, { passive: true });
-    return () => el.removeEventListener("scroll", fn);
-  }, []);
-
-  // Close filter dropdown on outside click
   useEffect(() => {
     if (!filterOpen) return;
     const fn = e => { if (!e.target.closest('.wk__filter-dropdown-wrap')) setFilterOpen(false); };
@@ -446,7 +524,7 @@ export default function Work() {
           --spring:cubic-bezier(0.34,1.56,0.64,1);
         }
 
-        .wk{min-height:100svh;background:var(--bg);font-family:'Cabinet Grotesk',sans-serif;color:var(--ink);overflow-x:hidden;position:relative;isolation:isolate}
+        .wk{min-height:100svh;background:var(--bg);font-family:'Cabinet Grotesk',sans-serif;color:var(--ink);overflow-x:clip;position:relative;isolation:isolate}
 
         .wk__noise{position:fixed;inset:0;z-index:9999;pointer-events:none;
           background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
@@ -471,7 +549,6 @@ export default function Work() {
         @keyframes bannerShim{0%,100%{background-position:100%;opacity:.4}50%{background-position:-60%;opacity:1}}
         @keyframes tickerScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
         @keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
-        @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
         @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
         /* ── NAV ── */
@@ -544,13 +621,12 @@ export default function Work() {
         .wk__filter:hover{color:var(--ink-2);border-color:var(--border-hi);background:rgba(255,255,255,.04)}
         .wk__filter.is-active{color:var(--bg);border-color:var(--blue);background:var(--blue);box-shadow:0 0 18px rgba(79,142,247,.35)}
 
-        /* Mobile filter dropdown */
         .wk__filter-dropdown-wrap{position:relative;display:none}
         .wk__filter-dropdown-btn{display:flex;align-items:center;gap:8px;font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:9px 16px;border-radius:100px;border:1px solid var(--border-hi);background:rgba(255,255,255,.04);color:var(--ink-2);cursor:pointer;transition:all .2s}
         .wk__filter-dropdown-btn.has-active{border-color:var(--blue);color:var(--blue)}
         .wk__filter-dropdown-chevron{transition:transform .25s var(--ease)}
         .wk__filter-dropdown-chevron.is-open{transform:rotate(180deg)}
-        .wk__filter-dropdown-menu{position:absolute;top:calc(100% + 8px);left:0;min-width:220px;background:rgba(11,14,28,.96);border:1px solid var(--border-hi);border-radius:16px;padding:6px;z-index:200;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 20px 60px rgba(0,0,0,.6);animation:fadeIn .2s var(--ease) forwards}
+        .wk__filter-dropdown-menu{position:absolute;top:calc(100% + 8px);left:0;min-width:200px;background:rgba(11,14,28,.98);border:1px solid var(--border-hi);border-radius:16px;padding:6px;z-index:200;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 20px 60px rgba(0,0,0,.7);animation:fadeIn .2s var(--ease) forwards}
         .wk__filter-dropdown-item{display:block;width:100%;text-align:left;font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:10px 14px;border-radius:10px;border:none;background:transparent;color:var(--ink-3);cursor:pointer;transition:background .15s,color .15s}
         .wk__filter-dropdown-item:hover{background:rgba(255,255,255,.06);color:var(--ink-2)}
         .wk__filter-dropdown-item.is-active{background:rgba(79,142,247,.12);color:var(--blue)}
@@ -559,17 +635,42 @@ export default function Work() {
         .wk__toggle-btn{width:32px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:7px;border:none;background:transparent;color:var(--ink-3);transition:background .15s,color .15s}
         .wk__toggle-btn.is-active{background:rgba(255,255,255,.09);color:var(--ink-2);box-shadow:0 1px 4px rgba(0,0,0,.4)}
 
-        /* ── GRID ── */
+        /* ── DESKTOP GRID ── */
         .wk__grid{position:relative;z-index:1;max-width:1380px;margin:0 auto;padding:40px 56px 90px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
         .wk__grid .wk-card--wide{grid-column:span 2}
-        .wk__mobile-wrap{display:none}
-        .wk__scroll{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:4px 20px 20px;margin:0 -20px;scrollbar-width:none}
-        .wk__scroll::-webkit-scrollbar{display:none}
-        .wk__mobile-dots{display:flex;justify-content:center;gap:6px;margin-top:8px;padding-bottom:4px}
-        .wk__mdot{width:6px;height:6px;border-radius:50%;background:var(--border-hi);transition:background .3s,width .4s var(--spring)}
-        .wk__mdot--on{background:var(--blue);width:24px;border-radius:3px}
 
-        /* ── CARD ── */
+        /* ── MOBILE VERTICAL STACK ── */
+        .wk__mobile-stack{display:none;position:relative;z-index:1;padding:20px 20px 60px}
+
+        /* ── MOBILE CARD ── */
+        .mob-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;overflow:hidden;position:relative;margin-bottom:16px;will-change:opacity,transform}
+        .mob-card:last-child{margin-bottom:0}
+        .mob-card__img-wrap{position:relative;height:220px;overflow:hidden}
+        .mob-card__img{width:100%;height:100%;object-fit:cover;display:block}
+        .mob-card__img-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:56px;font-style:italic;color:rgba(var(--accent-rgb),.4);background:rgba(var(--accent-rgb),.06)}
+        .mob-card__img-overlay{position:absolute;inset:0;z-index:1}
+        .mob-card__img-top-stripe{position:absolute;top:0;left:0;right:0;height:3px;z-index:3}
+        .mob-card__img-badge{position:absolute;top:12px;left:12px;z-index:4;display:inline-flex;align-items:center;gap:6px;background:rgba(6,8,16,.7);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:5px 11px;font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.03em}
+        .mob-card__badge-dot{width:5px;height:5px;border-radius:50%;animation:dotPulse 2s ease-in-out infinite;flex-shrink:0}
+        .mob-card__badge-sep{width:1px;height:10px;background:rgba(255,255,255,.15)}
+        .mob-card__stat-overlay{position:absolute;bottom:14px;right:14px;z-index:4;display:flex;flex-direction:column;align-items:flex-end;background:rgba(6,8,16,.72);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:8px 12px}
+        .mob-card__stat-val{font-family:'DM Serif Display',serif;font-size:22px;line-height:1;letter-spacing:-.5px}
+        .mob-card__stat-key{font-family:'Syne',sans-serif;font-size:8px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-3);white-space:nowrap}
+        .mob-card__body{padding:18px 18px 20px;position:relative;z-index:2}
+        .mob-card__cat{font-family:'Syne',sans-serif;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
+        .mob-card__title{font-family:'DM Serif Display',serif;font-size:22px;font-weight:400;letter-spacing:-.02em;color:var(--ink);margin-bottom:10px;line-height:1.2}
+        .mob-card__desc{font-size:13.5px;line-height:1.8;color:var(--ink-2);margin-bottom:14px}
+        .mob-card__tags{display:flex;flex-wrap:wrap;gap:5px;align-items:center;margin-bottom:16px}
+        .mob-card__tag{font-family:'Syne',sans-serif;font-size:9.5px;font-weight:700;padding:3px 9px;border-radius:100px;border:1px solid var(--border);color:var(--ink-3);background:rgba(255,255,255,.03)}
+        .mob-card__year{font-family:'Syne',sans-serif;font-size:10px;color:var(--ink-3);margin-left:auto;letter-spacing:.04em}
+        .mob-card__actions{display:flex;gap:10px;align-items:center}
+        .mob-card__btn-primary{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:'Syne',sans-serif;font-size:13px;font-weight:700;letter-spacing:.03em;color:#fff;border-radius:12px;padding:13px 20px;border:none;text-decoration:none;transition:filter .2s,transform .2s var(--ease)}
+        .mob-card__btn-primary:active{transform:scale(.97);filter:brightness(.9)}
+        .mob-card__btn-secondary{display:inline-flex;align-items:center;justify-content:center;gap:7px;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border:1px solid;border-radius:12px;padding:12px 18px;background:transparent;text-decoration:none;transition:background .2s,transform .2s var(--ease)}
+        .mob-card__btn-secondary:active{transform:scale(.97)}
+        .mob-card__bottom-accent{position:absolute;bottom:0;left:0;right:0;height:1px;z-index:3}
+
+        /* ── CARD (desktop) ── */
         .wk-card{position:relative;display:flex;flex-direction:column;text-decoration:none;background:var(--surface);border:1px solid var(--border);border-radius:22px;overflow:hidden;transition:border-color .35s,box-shadow .45s,filter .4s;will-change:transform,opacity;transform-style:preserve-3d;cursor:pointer}
         .wk-card:focus-visible{outline:2px solid rgba(var(--accent-rgb),.8);outline-offset:3px}
         .wk-card--active{border-color:rgba(var(--accent-rgb),.38);box-shadow:0 0 0 1px rgba(var(--accent-rgb),.1),0 32px 72px rgba(0,0,0,.55),0 0 80px -24px rgba(var(--accent-rgb),.5),inset 0 1px 0 rgba(255,255,255,.08);z-index:4}
@@ -616,10 +717,8 @@ export default function Work() {
         .wk-card--active .wk-card__cta{gap:14px;filter:brightness(1.12)}
         .wk-card__corner{font-size:20px;transition:color .3s,transform .35s var(--ease)}
         .wk-card--active .wk-card__corner{transform:translate(3px,-3px)}
-
         .wk-card__bottom-line{position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent 0%,rgba(var(--accent-rgb),.6) 25%,var(--accent) 50%,rgba(var(--accent-rgb),.6) 75%,transparent 100%);transform:scaleX(0);transform-origin:center;transition:transform .8s var(--ease);z-index:5}
         .wk-card--active .wk-card__bottom-line{transform:scaleX(1)}
-
         .wk-card__svg-border{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:6}
         .wk-card__svg-border rect{fill:none;stroke:var(--accent);stroke-width:1;stroke-dasharray:480;stroke-dashoffset:480;transition:stroke-dashoffset 1s var(--ease);opacity:.5}
         .wk-card--active .wk-card__svg-border rect{stroke-dashoffset:0}
@@ -664,37 +763,10 @@ export default function Work() {
         .wk__ticker-name{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:rgba(238,242,255,.85)}
         .wk__ticker-sep{width:4px;height:4px;border-radius:50%;background:rgba(79,142,247,.4);flex-shrink:0}
 
-        /* ── EMPTY STATE ── */
+        /* ── EMPTY ── */
         .wk__empty{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;padding:100px 0;gap:14px;color:var(--ink-3);font-family:'Syne',sans-serif;font-size:13px;font-weight:600}
         .wk__empty-glyph{font-size:32px;opacity:.18;margin-bottom:4px}
-
-        /* ── CTA BANNER ── */
-        .wk__cta{position:relative;z-index:1;max-width:1380px;margin:80px auto 110px;padding:0 56px}
-        .wk__cta-card{border-radius:28px;border:1px solid rgba(255,255,255,.08);
-          background:linear-gradient(115deg,rgba(4,6,20,.84) 0%,rgba(8,14,40,.62) 50%,rgba(4,6,20,.84) 100%),url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1400&q=85') center 40%/cover no-repeat;
-          overflow:hidden;position:relative;
-          box-shadow:0 0 0 1px rgba(255,255,255,.05),0 60px 120px rgba(0,0,0,.65),0 0 160px -60px rgba(59,130,246,.35)}
-        .wk__cta-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(96,165,250,0) 10%,#60a5fa 35%,#a78bfa 55%,rgba(96,165,250,0) 90%,transparent);background-size:300% 100%;animation:bannerShim 7s ease-in-out infinite;z-index:2}
-        .wk__cta-card::after{content:'';position:absolute;top:0;left:0;width:220px;height:220px;background:radial-gradient(circle at 0% 0%,rgba(37,99,235,.25) 0%,transparent 65%);pointer-events:none}
-        .wk__cta-glow{position:absolute;bottom:-70px;right:-50px;width:500px;height:350px;background:radial-gradient(ellipse,rgba(109,40,217,.2) 0%,transparent 60%);filter:blur(60px);pointer-events:none}
-        .wk__cta-inner{display:flex;align-items:center;justify-content:space-between;padding:68px 64px;gap:52px;flex-wrap:wrap;position:relative;z-index:1}
-        .wk__cta-left{display:flex;flex-direction:column;gap:14px}
-        .wk__cta-kicker{display:flex;align-items:center;gap:14px;font-family:'Syne',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin:0}
-        .wk__cta-kicker-line{display:block;width:24px;height:1px;background:var(--blue)}
-        .wk__cta-hed{font-family:'DM Serif Display',serif;font-size:clamp(32px,4vw,54px);font-weight:400;color:#fff;margin:0;line-height:1.08;letter-spacing:-1px}
-        .wk__cta-hed em{font-style:italic;background:linear-gradient(90deg,#60a5fa,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-        .wk__cta-body{font-size:15px;color:var(--ink-3);margin:0;line-height:1.72;max-width:400px}
-        .wk__trust{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:8px}
-        .wk__trust li{display:flex;align-items:center;gap:9px;font-family:'Syne',sans-serif;font-size:12px;font-weight:600;color:var(--ink-2)}
-        .wk__trust li svg{color:#34d399;flex-shrink:0}
-        .wk__cta-right{display:flex;flex-direction:column;align-items:flex-end;gap:14px;min-width:280px}
-        .wk__cta-btn{display:inline-flex;align-items:center;gap:0;overflow:hidden;text-decoration:none;border-radius:16px;font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:#fff;background:linear-gradient(135deg,#1d4ed8 0%,#3b82f6 60%,#1d4ed8 100%);background-size:200% 100%;border:1px solid rgba(59,130,246,.5);box-shadow:0 10px 36px rgba(37,99,235,.45),inset 0 1px 0 rgba(255,255,255,.15);transition:background-position .4s,transform .4s var(--ease),box-shadow .4s;width:100%}
-        .wk__cta-btn>span:first-child{flex:1;text-align:center;padding:18px 28px;transition:padding .4s var(--ease)}
-        .wk__cta-btn-arr{display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.22);padding:18px 22px;border-left:1px solid rgba(255,255,255,.12);transition:background .3s,padding .4s var(--ease)}
-        .wk__cta-btn:hover{background-position:100% 0;transform:translateY(-3px);box-shadow:0 20px 60px rgba(37,99,235,.55),inset 0 1px 0 rgba(255,255,255,.2)}
-        .wk__cta-btn:hover>span:first-child{padding:18px 38px}
-        .wk__cta-btn:hover .wk__cta-btn-arr{background:rgba(0,0,0,.32);padding:18px 28px}
-        .wk__cta-note{font-family:'Syne',sans-serif;font-size:11px;color:var(--ink-3);margin:0;letter-spacing:.5px;text-align:right}
+        .wk__empty-mobile{display:flex;flex-direction:column;align-items:center;padding:80px 0;gap:14px;color:var(--ink-3);font-family:'Syne',sans-serif;font-size:13px;font-weight:600}
 
         /* ── RESPONSIVE 1200px ── */
         @media(max-width:1200px){
@@ -702,51 +774,32 @@ export default function Work() {
           .wk__grid .wk-card--wide{grid-column:span 2}
         }
 
-        /* ── RESPONSIVE 900px (Tablet) ── */
+        /* ── RESPONSIVE 900px ── */
         @media(max-width:900px){
           .wk__nav{padding:0 24px;height:60px}
-          .wk__nav-logo{font-size:19px}
-          .wk__nav-back>span:first-child{padding:8px 14px;font-size:10px}
-          .wk__nav-back-arr{padding:8px 11px}
-
           .wk__hero{grid-template-columns:1fr;padding:48px 24px 52px;gap:32px}
           .wk__hero::after{left:24px;right:24px}
           .wk__hero-right{display:none}
-
-          .wk__toolbar{padding:16px 24px;gap:10px}
+          .wk__toolbar{padding:16px 24px}
           .wk__toolbar::after{left:24px;right:24px}
-          /* Hide desktop filter pills, show dropdown */
           .wk__filters{display:none}
           .wk__filter-dropdown-wrap{display:block}
-
+          /* Hide desktop grid on tablet, show mobile stack */
           .wk__grid{display:none}
-          .wk__mobile-wrap{display:block;position:relative;z-index:1;padding:16px 0 4px}
-          .wk__scroll{padding:4px 24px 20px;margin:0 -24px}
-          .wk__scroll .wk-card{flex:0 0 82vw;min-width:280px;scroll-snap-align:start;opacity:1 !important;transform:none !important;animation:none !important;filter:none}
-          .wk__scroll .wk-card--wide{flex:0 0 90vw}
-          .wk__scroll .wk-card--dim{opacity:1;transform:none;filter:none}
-
+          .wk__mobile-stack{display:block;padding:20px 24px 60px}
           .wk__list{padding:0 24px 64px}
           .wk-row{grid-template-columns:40px 1fr 140px;gap:14px}
           .wk-row__thumb{display:none}
           .wk-row__end{gap:7px}
           .wk-row__btn{font-size:10px;padding:7px 12px}
-
-          .wk__cta{margin:48px auto 64px;padding:0 24px}
-          .wk__cta-inner{padding:44px 32px;flex-direction:column;align-items:flex-start;gap:32px}
-          .wk__cta-right{align-items:flex-start;width:100%;min-width:unset}
-          .wk__cta-btn{width:100%;border-radius:14px}
-          .wk__cta-note{text-align:left}
         }
 
-        /* ── RESPONSIVE 600px (Mobile) ── */
+        /* ── RESPONSIVE 600px ── */
         @media(max-width:600px){
           .wk__nav{padding:0 16px}
-          .wk__nav-logo{font-size:18px}
           .wk__nav-back>span:first-child{display:none}
           .wk__nav-back-arr{border-left:none;border-radius:100px;padding:10px 13px}
           .wk__nav-back{border-radius:100px}
-
           .wk__hero{padding:40px 16px 44px}
           .wk__hero::after{left:16px;right:16px}
           .wk__hero-hed{font-size:clamp(44px,13vw,64px);margin-bottom:18px}
@@ -755,42 +808,23 @@ export default function Work() {
           .wk__metric{flex:1;padding:11px 10px}
           .wk__metric strong{font-size:18px}
           .wk__metric span{font-size:7.5px;letter-spacing:1.5px}
-
           .wk__toolbar{padding:12px 16px}
           .wk__toolbar::after{left:16px;right:16px}
-
-          .wk__scroll{padding:4px 16px 20px;margin:0 -16px}
-          .wk__scroll .wk-card{flex:0 0 88vw}
-          .wk__scroll .wk-card--wide{flex:0 0 94vw}
-          .wk-card__media{height:200px}
-          .wk-card__media--wide{height:220px}
-          .wk-card__body{padding:14px 16px 18px}
-          .wk-card__title{font-size:18px}
-          .wk-card__desc{font-size:12.5px;-webkit-line-clamp:3}
-
+          .wk__mobile-stack{padding:16px 16px 52px}
+          .mob-card__img-wrap{height:190px}
+          .mob-card__title{font-size:20px}
+          .mob-card__desc{font-size:13px}
           .wk__list{padding:0 16px 52px}
           .wk-row{grid-template-columns:32px 1fr;gap:10px}
           .wk-row__end{display:none}
           .wk-row__num{font-size:22px}
-          .wk-row__title{font-size:18px;white-space:normal}
-          .wk-row__desc{-webkit-line-clamp:2}
-
-          .wk__cta{padding:0 16px;margin:32px auto 52px}
-          .wk__cta-inner{padding:32px 22px;gap:24px}
-          .wk__cta-hed{font-size:clamp(26px,8vw,38px)}
-          .wk__cta-body{font-size:13.5px}
-          .wk__cta-btn>span:first-child{padding:16px 20px;font-size:13px}
-          .wk__cta-btn-arr{padding:16px 18px}
-
           .wk__ticker{padding:28px 0}
           .wk__ticker-label{margin-bottom:18px;font-size:8px}
         }
 
-        /* ── RESPONSIVE 380px (Small phones) ── */
         @media(max-width:380px){
           .wk__hero-hed{font-size:clamp(38px,12vw,52px)}
-          .wk__metric{padding:10px 8px}
-          .wk__metric strong{font-size:16px}
+          .mob-card__img-wrap{height:170px}
         }
       `}</style>
 
@@ -846,7 +880,6 @@ export default function Work() {
             </div>
           </div>
 
-          {/* RIGHT STAT CARD — hidden on mobile via CSS */}
           <div className="wk__hero-right">
             <div className="wk__stat-card">
               <div className="wk__stat-num">{heroCount}</div>
@@ -872,14 +905,11 @@ export default function Work() {
 
         {/* TOOLBAR */}
         <div className="wk__toolbar">
-          {/* Desktop: pill filters */}
           <div className="wk__filters">
             {CATS.map(c => (
               <button key={c} className={`wk__filter${active === c ? " is-active" : ""}`} onClick={() => setActive(c)}>{c}</button>
             ))}
           </div>
-
-          {/* Mobile: dropdown filter */}
           <div className="wk__filter-dropdown-wrap">
             <button
               className={`wk__filter-dropdown-btn${active !== "All" ? " has-active" : ""}`}
@@ -888,7 +918,7 @@ export default function Work() {
               <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="2" y1="4" x2="14" y2="4"/><line x1="4" y1="8" x2="12" y2="8"/><line x1="6" y1="12" x2="10" y2="12"/>
               </svg>
-              {active === "All" ? "Filter" : active.split(" ").slice(0,2).join(" ")}
+              {active === "All" ? "Filter" : active}
               <svg className={`wk__filter-dropdown-chevron${filterOpen ? " is-open" : ""}`} viewBox="0 0 10 10" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M2 3.5L5 6.5L8 3.5"/>
               </svg>
@@ -896,16 +926,12 @@ export default function Work() {
             {filterOpen && (
               <div className="wk__filter-dropdown-menu">
                 {CATS.map(c => (
-                  <button
-                    key={c}
-                    className={`wk__filter-dropdown-item${active === c ? " is-active" : ""}`}
-                    onClick={() => { setActive(c); setFilterOpen(false); }}
-                  >{c}</button>
+                  <button key={c} className={`wk__filter-dropdown-item${active === c ? " is-active" : ""}`}
+                    onClick={() => { setActive(c); setFilterOpen(false); }}>{c}</button>
                 ))}
               </div>
             )}
           </div>
-
           <div className="wk__view-toggle">
             <button className={`wk__toggle-btn${view === "grid" ? " is-active" : ""}`} onClick={() => setView("grid")} title="Grid view">
               <svg viewBox="0 0 16 16" width="13" height="13" fill="currentColor">
@@ -929,7 +955,7 @@ export default function Work() {
         <div ref={sectionRef}>
           {view === "grid" ? (
             <>
-              {/* Desktop grid */}
+              {/* Desktop grid (hidden on mobile via CSS) */}
               <div className="wk__grid">
                 {filtered.length === 0
                   ? <div className="wk__empty"><div className="wk__empty-glyph">◎</div>No projects in this category yet.</div>
@@ -938,17 +964,14 @@ export default function Work() {
                       activeCard={activeCard} setActiveCard={setActiveCard} statsStarted={statsStarted}/>
                   ))}
               </div>
-              {/* Mobile horizontal scroll */}
-              <div className="wk__mobile-wrap">
-                <div className="wk__scroll" ref={mobileScrollRef}>
-                  {filtered.map((p, i) => (
-                    <ProjectCard key={p.id} p={p} index={i} view="grid" mobileMode
-                      activeCard={activeCard} setActiveCard={setActiveCard} statsStarted={statsStarted}/>
+
+              {/* Mobile vertical stack (hidden on desktop via CSS) */}
+              <div className="wk__mobile-stack">
+                {filtered.length === 0
+                  ? <div className="wk__empty-mobile"><div className="wk__empty-glyph">◎</div>No projects in this category yet.</div>
+                  : filtered.map((p, i) => (
+                    <MobileCard key={p.id} p={p} index={i} statsStarted={statsStarted} />
                   ))}
-                </div>
-                <div className="wk__mobile-dots">
-                  {filtered.map((_, i) => <span key={i} className={`wk__mdot${i === mobileSlide ? " wk__mdot--on" : ""}`}/>)}
-                </div>
               </div>
             </>
           ) : (
@@ -979,8 +1002,6 @@ export default function Work() {
             </div>
           </div>
         </div>
-
-
 
       </div>
     </>
