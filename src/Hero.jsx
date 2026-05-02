@@ -1,476 +1,384 @@
 import { useState, useEffect, useRef } from "react";
 
-const SERVICES = [
-  "Websites", "E-Commerce Stores", "Mobile Apps",
-  "AI Chatbots", "Custom Software", "Digital Marketing",
-  "Branding & Logos", "Google SEO"
+const SERVICES_TYPED = [
+  "Websites",
+  "E-Commerce",
+  "Mobile Apps",
+  "AI Chatbots",
+  "Custom Software",
+  "Digital Marketing",
+  "Branding & Logos",
+  "Google SEO"
 ];
 
-const STATS = [
-  { v: "150+", l: "Clients" },
-  { v: "320+", l: "Projects" },
-  { v: "4.9★", l: "Rating" },
-  { v: "98%",  l: "Retention" },
-];
-
-const MARQUEE = [
+const MARQUEE_ITEMS = [
   "Web Development","E-Commerce","Mobile Apps","AI Chatbots",
-  "Business Automation","Web Redesign","Custom Software",
-  "Digital Marketing","Branding","Logo Design","Google SEO",
-  "Web Hosting","Maintenance"
+  "Automation","Web Redesign","Custom Software","Digital Marketing",
+  "Branding","Logo Design","Google SEO","Web Hosting","Maintenance"
 ];
 
-const BG = "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1800&q=80&fit=crop&crop=center";
+const AVATARS = [
+  "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=64&h=64&fit=crop&crop=face",
+  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=64&h=64&fit=crop&crop=face",
+  "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=64&h=64&fit=crop&crop=face",
+  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=face",
+];
 
 export default function MuchyzHero() {
   const [idx, setIdx]     = useState(0);
   const [text, setText]   = useState("");
   const [del, setDel]     = useState(false);
   const [ready, setReady] = useState(false);
-  const ref = useRef(null);
+  const wordRef = useRef(null);
 
   useEffect(() => { setTimeout(() => setReady(true), 80); }, []);
 
   useEffect(() => {
-    const w = SERVICES[idx]; let t;
+    const w = SERVICES_TYPED[idx]; let t;
     if (!del && text.length < w.length)
       t = setTimeout(() => setText(w.slice(0, text.length + 1)), 72);
     else if (!del && text.length === w.length)
       t = setTimeout(() => setDel(true), 2200);
     else if (del && text.length > 0)
       t = setTimeout(() => setText(text.slice(0, -1)), 36);
-    else { setDel(false); setIdx(c => (c + 1) % SERVICES.length); }
+    else { setDel(false); setIdx(c => (c + 1) % SERVICES_TYPED.length); }
     return () => clearTimeout(t);
   }, [text, del, idx]);
+
+  useEffect(() => {
+    const el = wordRef.current;
+    if (!el || !el.parentElement) return;
+    const container = el.parentElement;
+    let size = 26;
+    el.style.fontSize = size + "px";
+    while (el.scrollWidth > container.clientWidth - 20 && size > 14) {
+      size -= 0.5;
+      el.style.fontSize = size + "px";
+    }
+  }, [text]);
 
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Clash+Display:wght@400;500;600;700&family=Cabinet+Grotesk:wght@400;500;700;800&display=swap');
+        @import url('https://api.fontshare.com/v2/css?f[]=clash-display@400,500,600,700&f[]=cabinet-grotesk@400,500,700,800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;0,700;0,900;1,300;1,600&family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
-        .mh * { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
-        .mh a { text-decoration:none; color:inherit; }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { background:#eef0f8; font-family:'Outfit', sans-serif; }
 
-        /* ── ROOT ── */
         .mh {
-          font-family: 'Plus Jakarta Sans', sans-serif;
-          position: relative;
-          overflow: hidden;
-          background: #080810;
-        }
-
-        /* ── BG IMAGE ── */
-        .mh__bg {
-          position: absolute;
-          inset: 0;
-          z-index: 0;
-        }
-        .mh__bg img {
-          width: 100%; height: 100%;
-          object-fit: cover; display: block;
-          filter: brightness(.55) saturate(1.2);
-        }
-        /* gradient: dark top (for contrast), light middle (glass pops), dark bottom */
-        .mh__bg::after {
-          content: '';
-          position: absolute; inset: 0;
+          position:relative; overflow:hidden;
           background:
-            linear-gradient(180deg,
-              rgba(8,8,16,.70) 0%,
-              rgba(8,8,16,.25) 30%,
-              rgba(8,8,16,.15) 55%,
-              rgba(8,8,16,.60) 100%
-            );
+            radial-gradient(ellipse at 20% 50%, rgba(99,102,241,.13) 0%, transparent 60%),
+            radial-gradient(ellipse at 80% 20%, rgba(167,139,250,.12) 0%, transparent 55%),
+            radial-gradient(ellipse at 60% 90%, rgba(249,115,22,.08) 0%, transparent 50%),
+            #eef0f8;
         }
 
-        /* ── CONTENT WRAPPER ── */
-        .mh__inner {
-          position: relative;
-          z-index: 10;
-          padding: 20px 16px 0;
-        }
+        .mh__body { position:relative; z-index:10; padding:18px 14px 8px; }
 
-        /* ── GLASS CARD ── */
         .mh__card {
-          background: rgba(255,255,255,.88);
-          backdrop-filter: blur(40px) saturate(1.8);
-          -webkit-backdrop-filter: blur(40px) saturate(1.8);
-          border: 1px solid rgba(255,255,255,.95);
+          background: rgba(255,255,255,.35);
+          backdrop-filter: blur(48px) saturate(2.2) brightness(1.08);
+          -webkit-backdrop-filter: blur(48px) saturate(2.2) brightness(1.08);
+          border: 1.5px solid rgba(255,255,255,.85);
           border-radius: 20px;
-          padding: 28px 22px 24px;
+          padding: 22px 18px 18px;
           box-shadow:
-            inset 0 1px 0 rgba(255,255,255,1),
-            0 24px 60px rgba(0,0,0,.35),
-            0 4px 16px rgba(0,0,0,.15);
-          opacity: 0;
-          transform: translateY(16px);
-          transition: opacity .6s .1s ease, transform .6s .1s ease;
+            inset 0 1px 0 rgba(255,255,255,.9),
+            inset 0 -1px 0 rgba(255,255,255,.2),
+            0 8px 40px rgba(79,70,229,.10),
+            0 2px 8px rgba(0,0,0,.06);
+          opacity:0; transform:translateY(16px);
+          transition:opacity .55s .08s ease, transform .55s .08s ease;
+          overflow:hidden;
         }
-        .mh--ready .mh__card {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        .mh--ready .mh__card { opacity:1; transform:translateY(0); }
 
-        /* ── EYEBROW TAG ── */
         .mh__tag {
-          display: inline-flex;
-          align-items: center;
-          gap: 7px;
-          font-family: 'Plus Jakarta Sans', sans-serif;
-          font-size: 9px;
-          font-weight: 700;
-          letter-spacing: .18em;
-          text-transform: uppercase;
-          color: #5b5ef4;
-          background: rgba(91,94,244,.09);
-          border: 1px solid rgba(91,94,244,.22);
-          padding: 5px 12px;
-          border-radius: 100px;
-          margin-bottom: 18px;
-          opacity: 0;
-          transform: translateY(10px);
-          transition: opacity .5s .25s ease, transform .5s .25s ease;
+          display:inline-flex; align-items:center; gap:10px;
+          margin-bottom:18px;
+          opacity:0; transition:opacity .45s .22s ease;
         }
-        .mh--ready .mh__tag { opacity:1; transform:translateY(0); }
-        .mh__tag-dot {
-          width: 5px; height: 5px;
-          border-radius: 50%;
-          background: #5b5ef4;
-          flex-shrink: 0;
-          animation: mhPulse 2s ease infinite;
+        .mh--ready .mh__tag { opacity:1; }
+        .mh__tag-rule {
+          width:22px; height:1px;
+          background:linear-gradient(90deg,transparent,#4f46e5);
+          flex-shrink:0;
+        }
+        .mh__tag-rule--r {
+          background:linear-gradient(90deg,#4f46e5,transparent);
+        }
+        .mh__tag-text {
+          font-family:'Outfit', sans-serif;
+          font-size:8px; font-weight:600; letter-spacing:.22em; text-transform:uppercase;
+          color:#4f46e5; white-space:nowrap;
         }
 
-        /* ── HEADLINE ── */
-        .mh__h1 {
-          font-family: 'Syne', sans-serif;
-          font-style: normal;
-          margin-bottom: 6px;
-          opacity: 0;
-          transform: translateY(16px);
-          transition: opacity .6s .32s ease, transform .6s .32s ease;
+        .mh__headline {
+          margin-bottom:2px;
+          opacity:0; transform:translateY(12px);
+          transition:opacity .55s .30s ease, transform .55s .30s ease;
         }
-        .mh--ready .mh__h1 { opacity:1; transform:translateY(0); }
+        .mh--ready .mh__headline { opacity:1; transform:translateY(0); }
 
-        .mh__h1-soft {
-          display: block;
-          font-family: 'Syne', sans-serif;
-          font-weight: 400;
-          font-style: normal;
-          font-size: clamp(26px, 7vw, 52px);
-          line-height: 1.15;
-          color: #5a5a80;
-          letter-spacing: -.02em;
+        .mh__line1 {
+          display:block;
+          font-family:'Fraunces', serif;
+          font-size:19px; font-weight:300; font-style:italic;
+          line-height:1.25; letter-spacing:-.01em;
+          color:#64748b;
         }
-        .mh__h1-bold {
-          display: block;
-          font-family: 'Syne', sans-serif;
-          font-weight: 800;
-          font-style: normal;
-          font-size: clamp(32px, 8.5vw, 64px);
-          line-height: 1.05;
-          color: #0a0a14;
-          letter-spacing: -.03em;
+        .mh__line2 {
+          display:block;
+          font-family:'Fraunces', serif;
+          font-size:26px; font-weight:700;
+          line-height:1.08; letter-spacing:-.03em;
+          color:#0f0f1a;
         }
 
-        /* ── TYPED ROW ── */
         .mh__typed {
-          display: flex;
-          align-items: center;
-          min-height: clamp(36px, 9vw, 70px);
-          margin-bottom: 16px;
-          opacity: 0;
-          transform: translateY(16px);
-          transition: opacity .6s .42s ease, transform .6s .42s ease;
+          display:flex; align-items:center;
+          height:34px; margin-bottom:14px;
+          overflow:hidden;
+          opacity:0; transform:translateY(10px);
+          transition:opacity .5s .40s ease, transform .5s .40s ease;
         }
         .mh--ready .mh__typed { opacity:1; transform:translateY(0); }
-
-        .mh__typed-word {
-          font-family: 'Syne', sans-serif;
-          font-weight: 800;
-          font-style: normal;
-          font-size: clamp(32px, 8.5vw, 64px);
-          line-height: 1.05;
-          letter-spacing: -.03em;
-          background: linear-gradient(135deg, #5b5ef4 0%, #8b5cf6 60%, #a78bfa 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
+        .mh__word {
+          font-family:'Fraunces', serif;
+          font-size:26px; font-weight:700;
+          line-height:1; letter-spacing:-.03em;
+          background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 55%,#a78bfa 100%);
+          -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+          white-space:nowrap; flex:0 0 auto;
         }
         .mh__caret {
-          display: inline-block;
-          width: 3px;
-          height: clamp(28px, 7vw, 54px);
-          background: #5b5ef4;
-          border-radius: 2px;
-          margin-left: 4px;
-          vertical-align: middle;
-          animation: mhBlink .9s step-end infinite;
-          flex-shrink: 0;
+          display:inline-block; width:2.5px; height:22px;
+          background:#4f46e5; border-radius:2px; margin-left:3px; flex-shrink:0;
+          animation:mhBlink .85s step-end infinite;
         }
 
-        /* ── DESCRIPTION ── */
         .mh__desc {
-          font-family: 'Plus Jakarta Sans', sans-serif;
-          font-size: 13.5px;
-          font-weight: 400;
-          line-height: 1.75;
-          color: #5a5a80;
-          margin-bottom: 22px;
-          opacity: 0;
-          transform: translateY(12px);
-          transition: opacity .5s .52s ease, transform .5s .52s ease;
+          font-family:'Outfit', sans-serif;
+          font-size:13px; font-weight:400; line-height:1.75; color:#5e6e82;
+          margin-bottom:16px;
+          opacity:0; transition:opacity .5s .50s ease;
         }
-        .mh--ready .mh__desc { opacity:1; transform:translateY(0); }
-        .mh__desc strong {
-          color: #1e1e30;
-          font-weight: 600;
-        }
+        .mh--ready .mh__desc { opacity:1; }
+        .mh__desc strong { color:#1e293b; font-weight:600; }
 
-        /* ── BUTTONS ── */
         .mh__btns {
-          display: flex;
-          gap: 10px;
-          margin-bottom: 24px;
-          opacity: 0;
-          transform: translateY(12px);
-          transition: opacity .5s .60s ease, transform .5s .60s ease;
+          display:flex; gap:8px; margin-bottom:18px;
+          opacity:0; transition:opacity .5s .57s ease;
         }
-        .mh--ready .mh__btns { opacity:1; transform:translateY(0); }
+        .mh--ready .mh__btns { opacity:1; }
 
-        .mh__btn-primary {
-          flex: 1;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 8px;
-          padding: 14px 16px;
-          font-family: 'Plus Jakarta Sans', sans-serif;
-          font-size: 13px;
-          font-weight: 700;
-          color: #fff;
-          white-space: nowrap;
-          background: linear-gradient(135deg, #5b5ef4, #7c3aed);
-          border-radius: 12px;
-          border: none;
-          box-shadow: 0 4px 18px rgba(91,94,244,.45);
-          transition: transform .15s, box-shadow .15s;
+        .mh__btn-cta {
+          flex:1; display:flex; align-items:center; justify-content:center; gap:7px;
+          padding:12px 10px;
+          font-family:'Outfit', sans-serif;
+          font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+          color:#fff; white-space:nowrap;
+          background:linear-gradient(135deg,#4f46e5,#7c3aed);
+          border-radius:10px; border:none;
+          box-shadow:0 4px 18px rgba(79,70,229,.42);
+          cursor:pointer; transition:transform .14s, box-shadow .14s;
+          text-decoration:none;
         }
-        .mh__btn-primary:active { transform: scale(.96); }
+        .mh__btn-cta:hover { box-shadow:0 6px 26px rgba(79,70,229,.52); transform:translateY(-1px); }
+        .mh__btn-cta:active { transform:scale(.96); }
 
-        .mh__btn-secondary {
-          flex: 1;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 7px;
-          padding: 13px 14px;
-          font-family: 'Plus Jakarta Sans', sans-serif;
-          font-size: 13px;
-          font-weight: 600;
-          color: #1e1e30;
-          white-space: nowrap;
-          background: rgba(255,255,255,.7);
-          border: 1.5px solid rgba(10,10,20,.14);
-          border-radius: 12px;
-          transition: background .15s, transform .15s;
+        .mh__btn-ghost {
+          flex:1; display:flex; align-items:center; justify-content:center; gap:7px;
+          padding:11px 10px;
+          font-family:'Outfit', sans-serif;
+          font-size:12px; font-weight:600; letter-spacing:.05em; text-transform:uppercase;
+          color:#1e293b; white-space:nowrap;
+          background:rgba(255,255,255,.8);
+          border:1.5px solid rgba(15,15,26,.13);
+          border-radius:10px; cursor:pointer; transition:transform .14s, border-color .2s;
+          text-decoration:none;
         }
-        .mh__btn-secondary:active { transform: scale(.96); }
+        .mh__btn-ghost:hover { border-color:rgba(79,70,229,.35); transform:translateY(-1px); }
+        .mh__btn-ghost:active { transform:scale(.96); }
 
-        .mh__arrow {
-          display: flex;
-          flex-shrink: 0;
-          transition: transform .2s;
-        }
-        .mh__btn-primary:hover .mh__arrow,
-        .mh__btn-secondary:hover .mh__arrow { transform: translateX(3px); }
+        .mh__arr { display:flex; flex-shrink:0; transition:transform .18s; }
+        .mh__btn-cta:hover .mh__arr,
+        .mh__btn-ghost:hover .mh__arr { transform:translateX(3px); }
 
-        /* ── STATS ── */
-        .mh__stats {
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          border-top: 1px solid rgba(91,94,244,.10);
-          padding-top: 18px;
-          opacity: 0;
-          transform: translateY(10px);
-          transition: opacity .5s .68s ease, transform .5s .68s ease;
+        .mh__proof {
+          display:flex; align-items:center; gap:8px;
+          border-top:1px solid rgba(15,15,26,.08); padding-top:14px;
+          opacity:0; transition:opacity .5s .64s ease;
         }
-        .mh--ready .mh__stats { opacity:1; transform:translateY(0); }
+        .mh--ready .mh__proof { opacity:1; }
 
-        .mh__stat {
-          display: flex;
-          flex-direction: column;
-          gap: 2px;
-          padding: 0 10px;
-          position: relative;
-          min-width: 0;
+        .mh__proof-left { display:flex; align-items:center; gap:7px; flex:1 1 0; min-width:0; overflow:hidden; }
+
+        .mh__avatars { display:flex; align-items:center; flex-shrink:0; }
+        .mh__av {
+          width:28px; height:28px; border-radius:50%;
+          border:2px solid #fff; margin-left:-7px;
+          overflow:hidden; flex-shrink:0;
+          box-shadow:0 2px 5px rgba(0,0,0,.14); background:#e2e8f0;
         }
-        .mh__stat:first-child { padding-left: 0; }
-        .mh__stat:last-child  { padding-right: 0; }
-        .mh__stat + .mh__stat::before {
-          content: '';
-          position: absolute;
-          left: 0; top: 10%; bottom: 10%;
-          width: 1px;
-          background: rgba(91,94,244,.12);
+        .mh__av:first-child { margin-left:0; }
+        .mh__av:nth-child(4) { display:none; }
+        .mh__av img { width:100%; height:100%; object-fit:cover; display:block; }
+
+        .mh__proof-text { display:flex; flex-direction:column; gap:1px; min-width:0; }
+        .mh__stars { font-size:10px; color:#f59e0b; white-space:nowrap; line-height:1; margin-bottom:2px; }
+        .mh__proof-strong {
+          font-family:'Fraunces', serif;
+          font-size:12px; font-weight:600; color:#0f0f1a; white-space:nowrap;
+          letter-spacing:-.01em;
         }
-        .mh__stat-val {
-          font-family: 'Syne', sans-serif;
-          font-weight: 700;
-          font-style: normal;
-          font-size: 17px;
-          line-height: 1;
-          letter-spacing: -.03em;
-          white-space: nowrap;
-          background: linear-gradient(135deg, #0a0a14 0%, #5b5ef4 100%);
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-        }
-        .mh__stat-label {
-          font-family: 'Plus Jakarta Sans', sans-serif;
-          font-size: 8px;
-          font-weight: 600;
-          color: #8888a8;
-          letter-spacing: .06em;
-          text-transform: uppercase;
-          white-space: nowrap;
+        .mh__proof-sub {
+          font-family:'Outfit', sans-serif;
+          font-size:10px; color:#94a3b8; white-space:nowrap;
         }
 
-        /* ── MARQUEE ── */
+        .mh__proof-right {
+          display:flex; align-items:stretch; flex-shrink:0;
+          border:1px solid rgba(15,15,26,.10); border-radius:10px; overflow:hidden;
+        }
+        .mh__metric {
+          display:flex; flex-direction:column; align-items:center; justify-content:center;
+          gap:1px; padding:7px 11px;
+        }
+        .mh__metric + .mh__metric { border-left:1px solid rgba(15,15,26,.09); }
+        .mh__metric-val {
+          font-family:'Fraunces', serif;
+          font-weight:700; font-size:17px; line-height:1; letter-spacing:-.03em;
+          color:#0f0f1a; white-space:nowrap;
+        }
+        .mh__metric-lbl {
+          font-family:'Outfit', sans-serif;
+          font-size:6.5px; font-weight:600; color:#94a3b8;
+          letter-spacing:.12em; text-transform:uppercase; white-space:nowrap;
+        }
+
         .mh__marq {
-          position: relative;
-          z-index: 10;
-          background: rgba(6,6,14,.82);
-          border-top: 1px solid rgba(255,255,255,.06);
-          overflow: hidden;
-          padding: 13px 0;
-          -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
-          mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
-          opacity: 0;
-          transition: opacity .5s .8s ease;
+          position:relative; z-index:10;
+          background:#f97316;
+          overflow:hidden; padding:11px 0;
         }
-        .mh--ready .mh__marq { opacity: 1; }
-
-        .mh__marq-track {
-          display: flex;
-          width: max-content;
-          animation: mhMarq 24s linear infinite;
-        }
+        .mh__marq-track { display:flex; width:max-content; animation:mhMarq 22s linear infinite; }
         .mh__marq-item {
-          display: inline-flex;
-          align-items: center;
-          gap: 14px;
-          font-family: 'Plus Jakarta Sans', sans-serif;
-          font-size: 9.5px;
-          font-weight: 700;
-          letter-spacing: .22em;
-          text-transform: uppercase;
-          color: rgba(255,255,255,.38);
-          padding: 0 6px;
-          white-space: nowrap;
+          display:inline-flex; align-items:center; gap:12px;
+          font-family:'Outfit', sans-serif;
+          font-size:8px; font-weight:600; letter-spacing:.22em; text-transform:uppercase;
+          color:rgba(255,255,255,.9); padding:0 4px; white-space:nowrap;
         }
-        .mh__marq-dot {
-          color: #5b5ef4;
-          font-size: 4px;
-          flex-shrink: 0;
+        .mh__marq-dot { color:rgba(255,255,255,.6); font-size:6px; }
+
+        @keyframes mhBlink { 0%,100%{opacity:1} 50%{opacity:0} }
+        @keyframes mhPulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.4;transform:scale(.6)} }
+        @keyframes mhMarq  { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+        @media (min-width:480px) {
+          .mh__body { padding:22px 18px 8px; }
+          .mh__av:nth-child(4) { display:flex; }
+          .mh__line1 { font-size:21px; }
+          .mh__line2 { font-size:29px; }
+          .mh__word  { font-size:29px; }
         }
-
-        /* ── KEYFRAMES ── */
-        @keyframes mhBlink  { 0%,100%{opacity:1} 50%{opacity:0} }
-        @keyframes mhPulse  { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.7)} }
-        @keyframes mhMarq   { from{transform:translateX(0)} to{transform:translateX(-50%)} }
-
-        /* ── TABLET / DESKTOP ── */
-        @media (min-width: 640px) {
-          .mh__inner { padding: 28px 28px 0; }
-          .mh__card  { padding: 36px 32px 30px; }
-          .mh__h1-soft { font-size: clamp(28px, 4vw, 48px); }
-          .mh__h1-bold { font-size: clamp(36px, 5vw, 60px); }
-          .mh__typed-word { font-size: clamp(36px, 5vw, 60px); }
-          .mh__stat-val { font-size: 20px; }
-        }
-
-        @media (min-width: 1024px) {
-          .mh__inner { padding: 48px 48px 0; max-width: 900px; margin: 0 auto; }
+        @media (min-width:768px) {
+          .mh__body { padding:32px 32px 8px; }
+          .mh__card  { padding:36px 36px 30px; border-radius:22px; }
+          .mh__line1 { font-size:26px; }
+          .mh__line2 { font-size:36px; }
+          .mh__word  { font-size:36px; }
+          .mh__typed { height:44px; }
+          .mh__metric-val { font-size:20px; }
+          .mh__metric { padding:9px 16px; }
         }
       `}</style>
 
-      <div className={`mh${ready ? " mh--ready" : ""}`} ref={ref}>
-
-        {/* Background */}
-        <div className="mh__bg">
-          <img src={BG} alt="" aria-hidden="true" />
-        </div>
-
-        {/* Content */}
-        <div className="mh__inner">
+      <div className={`mh${ready ? " mh--ready" : ""}`}>
+        <div className="mh__body">
           <div className="mh__card">
 
-            {/* Tag */}
             <div className="mh__tag">
-              <span className="mh__tag-dot" />
-              Full-Service Digital Studio · Kenya
+              <span className="mh__tag-rule" />
+              <span className="mh__tag-text">Full-Service Digital Studio · Kenya</span>
+              <span className="mh__tag-rule mh__tag-rule--r" />
             </div>
 
-            {/* Headline */}
-            <h1 className="mh__h1">
-              <span className="mh__h1-soft">We design &amp; build</span>
-              <span className="mh__h1-bold">exceptional</span>
+            <h1 className="mh__headline">
+              <span className="mh__line1">We design &amp; build</span>
+              <span className="mh__line2">exceptional</span>
             </h1>
 
-            {/* Typed */}
             <div className="mh__typed">
-              <span className="mh__typed-word">{text}</span>
+              <span ref={wordRef} className="mh__word">{text}</span>
               <span className="mh__caret" />
             </div>
 
-            {/* Description */}
             <p className="mh__desc">
-              From <strong>websites &amp; e-commerce</strong> to <strong>AI chatbots, apps,
-              branding &amp; SEO</strong> — everything your business needs to grow, under one roof.
+              From <strong>websites &amp; e-commerce</strong> to{" "}
+              <strong>AI chatbots, apps, branding &amp; SEO</strong> — everything
+              your business needs to grow online, under one roof.
             </p>
 
-            {/* Buttons */}
             <div className="mh__btns">
               <a
                 href="https://wa.me/254705427449?text=Hi%20Muchyz%2C%20I%20want%20to%20start%20a%20project"
                 target="_blank" rel="noopener noreferrer"
-                className="mh__btn-primary"
-              >
+                className="mh__btn-cta">
                 Start a Project
-                <span className="mh__arrow">
-                  <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <span className="mh__arr">
+                  <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M3 8h10M9 4l4 4-4 4"/>
                   </svg>
                 </span>
               </a>
-              <a href="/work" className="mh__btn-secondary">
-                View Work
-                <span className="mh__arrow">
-                  <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M3 8h10M9 4l4 4-4 4"/>
+              <a href="/work" className="mh__btn-ghost">
+                See Our Work
+                <span className="mh__arr">
+                  <svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M8 3v10M4 9l4 4 4-4"/>
                   </svg>
                 </span>
               </a>
             </div>
 
-            {/* Stats */}
-            <div className="mh__stats">
-              {STATS.map((s, i) => (
-                <div className="mh__stat" key={i}>
-                  <div className="mh__stat-val">{s.v}</div>
-                  <div className="mh__stat-label">{s.l}</div>
+            <div className="mh__proof">
+              <div className="mh__proof-left">
+                <div className="mh__avatars">
+                  {AVATARS.map((src, i) => (
+                    <div className="mh__av" key={i}>
+                      <img src={src} alt={`Client ${i + 1}`} />
+                    </div>
+                  ))}
                 </div>
-              ))}
+                <div className="mh__proof-text">
+                  <div className="mh__stars">★★★★<span style={{ opacity:.35 }}>★</span></div>
+                  <div className="mh__proof-strong">150+ clients</div>
+                  <div className="mh__proof-sub">trust Muchyz</div>
+                </div>
+              </div>
+
+              <div className="mh__proof-right">
+                <div className="mh__metric">
+                  <div className="mh__metric-val">320+</div>
+                  <div className="mh__metric-lbl">Projects</div>
+                </div>
+                <div className="mh__metric">
+                  <div className="mh__metric-val">4.9</div>
+                  <div className="mh__metric-lbl">Rating</div>
+                </div>
+              </div>
             </div>
 
           </div>
         </div>
 
-        {/* Marquee */}
         <div className="mh__marq">
           <div className="mh__marq-track">
-            {[...MARQUEE, ...MARQUEE, ...MARQUEE, ...MARQUEE].map((item, i) => (
+            {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS, ...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
               <span className="mh__marq-item" key={i}>
                 {item}<span className="mh__marq-dot">◆</span>
               </span>
