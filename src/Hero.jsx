@@ -1,571 +1,483 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
-const WORDS = ["Websites", "AI Chatbots", "Software", "Mobile Apps", "Automation"];
-
-const FEED = [
-  { icon: "🤖", title: "AI Chatbot deployed",  sub: "TechCorp Inc.",  time: "just now", color: "#1A56DB" },
-  { icon: "🚀", title: "Website launched",      sub: "Bloom Studio",  time: "2m ago",   color: "#16A34A" },
-  { icon: "📱", title: "App submitted",         sub: "NovaPay Ltd.",  time: "5m ago",   color: "#D97706" },
-  { icon: "✨", title: "Design approved",       sub: "Arkflow SaaS",  time: "12m ago",  color: "#9333EA" },
+const SERVICES = [
+  "Websites", "E-Commerce Stores", "Mobile Apps",
+  "AI Chatbots", "Custom Software", "Digital Marketing",
+  "Branding & Logos", "Google SEO"
 ];
 
-const SPARK = [28,42,38,55,48,62,58,74,68,82,78,92];
+const STATS = [
+  { v: "150+", l: "Clients" },
+  { v: "320+", l: "Projects" },
+  { v: "4.9★", l: "Rating" },
+  { v: "98%",  l: "Retention" },
+];
 
-function useCounter(target, delay, duration, active) {
-  const [val, setVal] = useState(0);
-  useEffect(() => {
-    if (!active) return;
-    let raf, start = null;
-    const t = setTimeout(() => {
-      raf = requestAnimationFrame(function step(ts) {
-        if (!start) start = ts;
-        const p = Math.min((ts - start) / duration, 1);
-        setVal(Math.round((1 - Math.pow(1 - p, 3)) * target));
-        if (p < 1) raf = requestAnimationFrame(step);
-      });
-    }, delay);
-    return () => { clearTimeout(t); cancelAnimationFrame(raf); };
-  }, [active]);
-  return val;
-}
+const MARQUEE = [
+  "Web Development","E-Commerce","Mobile Apps","AI Chatbots",
+  "Business Automation","Web Redesign","Custom Software",
+  "Digital Marketing","Branding","Logo Design","Google SEO",
+  "Web Hosting","Maintenance"
+];
+
+const BG = "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1800&q=80&fit=crop&crop=center";
 
 export default function MuchyzHero() {
-  const [wordIdx,   setWordIdx]   = useState(0);
-  const [displayed, setDisplayed] = useState("");
-  const [deleting,  setDeleting]  = useState(false);
-  const [scrollY,   setScrollY]   = useState(0);
-  const [loaded,    setLoaded]    = useState(false);
-  const [feedIdx,   setFeedIdx]   = useState(0);
-  const [feedVis,   setFeedVis]   = useState(true);
+  const [idx, setIdx]     = useState(0);
+  const [text, setText]   = useState("");
+  const [del, setDel]     = useState(false);
+  const [ready, setReady] = useState(false);
+  const ref = useRef(null);
 
-  const clients  = useCounter(150, 900,  1400, loaded);
-  const projects = useCounter(320, 1100, 1600, loaded);
-  const rating   = useCounter(49,  1300, 1200, loaded);
-
-  useEffect(() => { const t = setTimeout(() => setLoaded(true), 100); return () => clearTimeout(t); }, []);
+  useEffect(() => { setTimeout(() => setReady(true), 80); }, []);
 
   useEffect(() => {
-    const fn = () => setScrollY(window.scrollY);
-    window.addEventListener("scroll", fn, { passive: true });
-    return () => window.removeEventListener("scroll", fn);
-  }, []);
-
-  useEffect(() => {
-    const w = WORDS[wordIdx];
-    let t;
-    if (!deleting && displayed.length < w.length)
-      t = setTimeout(() => setDisplayed(w.slice(0, displayed.length + 1)), 72);
-    else if (!deleting && displayed.length === w.length)
-      t = setTimeout(() => setDeleting(true), 2600);
-    else if (deleting && displayed.length > 0)
-      t = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 34);
-    else { setDeleting(false); setWordIdx(c => (c + 1) % WORDS.length); }
+    const w = SERVICES[idx]; let t;
+    if (!del && text.length < w.length)
+      t = setTimeout(() => setText(w.slice(0, text.length + 1)), 72);
+    else if (!del && text.length === w.length)
+      t = setTimeout(() => setDel(true), 2200);
+    else if (del && text.length > 0)
+      t = setTimeout(() => setText(text.slice(0, -1)), 36);
+    else { setDel(false); setIdx(c => (c + 1) % SERVICES.length); }
     return () => clearTimeout(t);
-  }, [displayed, deleting, wordIdx]);
-
-  useEffect(() => {
-    const t = setInterval(() => {
-      setFeedVis(false);
-      setTimeout(() => { setFeedIdx(i => (i + 1) % FEED.length); setFeedVis(true); }, 400);
-    }, 3800);
-    return () => clearInterval(t);
-  }, []);
-
-  const s = (i, extra = {}) => ({
-    opacity: loaded ? 1 : 0,
-    transform: `translateY(${loaded ? 0 : 18}px)`,
-    transition: `opacity .6s ${.1 + i * .11}s ease, transform .6s ${.1 + i * .11}s ease`,
-    ...extra,
-  });
-
-  const feed = FEED[feedIdx];
-  const logos = ["Accenture","Shopify","Notion","Figma","Vercel","Linear","Stripe","Loom","Intercom","Raycast"];
-
-  const spkMin = Math.min(...SPARK), spkMax = Math.max(...SPARK);
-  const spkX = i => (i / (SPARK.length - 1)) * 160;
-  const spkY = v => 32 - ((v - spkMin) / (spkMax - spkMin)) * 28;
-  const spkPath = SPARK.map((v,i) => `${i===0?'M':'L'}${spkX(i)},${spkY(v)}`).join(' ');
-  const spkArea = spkPath + ` L160,36 L0,36 Z`;
-
-  const donutOffset = loaded ? 14 : 133;
+  }, [text, del, idx]);
 
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,500;1,9..144,600;1,9..144,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap');
-        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-        :root{
-          --bg:#F7F6F2;--bg2:#EEECEA;--bg3:#E4E1D9;
-          --ink:#0D0D0B;--ink2:#38352F;--ink3:#6A6760;--muted:#9C9890;
-          --accent:#1A56DB;--aclt:#EEF3FF;--acmd:#BFCFFF;
-          --green:#16A34A;--glt:#F0FDF4;--gbd:#BBF7D0;
-          --amber:#D97706;--purple:#9333EA;
-          --bd:#E0DDD6;--bd2:#CECBC2;
-          --serif:'Fraunces',Georgia,serif;
-          --sans:'DM Sans',sans-serif;
-          --mono:'DM Mono',monospace;
-          --sfloat:0 20px 60px rgba(0,0,0,.1),0 4px 16px rgba(0,0,0,.06);
-          --sheavy:0 40px 100px rgba(0,0,0,.14),0 8px 28px rgba(0,0,0,.08);
+        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+        .mh * { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
+        .mh a { text-decoration:none; color:inherit; }
+
+        /* ── ROOT ── */
+        .mh {
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          position: relative;
+          overflow: hidden;
+          background: #080810;
         }
 
-        .M{font-family:var(--sans);color:var(--ink);background:var(--bg);overflow:hidden;position:relative}
-        .M::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;
-          background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-          opacity:.026}
-
-        .Mblob{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none;z-index:0}
-        .Mb1{width:700px;height:700px;top:-200px;right:-150px;background:radial-gradient(circle,rgba(26,86,219,.08) 0%,transparent 65%)}
-        .Mb2{width:500px;height:500px;bottom:0;left:-100px;background:radial-gradient(circle,rgba(22,163,74,.06) 0%,transparent 65%)}
-        .Mb3{width:300px;height:300px;top:45%;left:42%;background:radial-gradient(circle,rgba(217,119,6,.04) 0%,transparent 65%)}
-
-        .Mdiag{position:absolute;top:0;right:0;width:50%;height:100%;pointer-events:none;z-index:0;overflow:hidden}
-        .Mdiag::before{content:'';position:absolute;top:-10%;left:-15%;width:1px;height:130%;
-          background:linear-gradient(to bottom,transparent 0%,var(--bd) 30%,var(--bd) 70%,transparent 100%);
-          transform:rotate(8deg);transform-origin:top left}
-
-        .Mbody{display:grid;grid-template-columns:1fr 1fr;align-items:center;
-          max-width:1360px;margin:0 auto;width:100%;padding:88px 56px 80px;
-          position:relative;z-index:1}
-
-        .Mleft{padding-right:80px}
-
-        .Mtag{display:inline-flex;align-items:center;gap:8px;
-          font-family:var(--mono);font-size:10px;letter-spacing:.08em;font-weight:500;
-          color:var(--green);background:var(--glt);border:1px solid var(--gbd);
-          padding:5px 14px;border-radius:100px;margin-bottom:30px;cursor:default;transition:background .15s}
-        .Mtag:hover{background:#DCFCE7}
-        .Mtdot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:gpulse 2.2s infinite}
-
-        .Mhlight{font-family:var(--serif);font-size:clamp(44px,4.6vw,70px);
-          font-weight:300;line-height:1.07;letter-spacing:-.035em;color:var(--ink)}
-        .Mhlight em{font-style:italic;font-weight:500}
-        .Mhtyped{display:flex;align-items:baseline;min-height:clamp(50px,5.2vw,78px);margin-bottom:30px}
-        .Mhword{font-family:var(--serif);font-size:clamp(44px,4.6vw,70px);
-          font-weight:700;font-style:italic;line-height:1.07;letter-spacing:-.035em;
-          background:linear-gradient(130deg,#1A56DB 0%,#3B82F6 50%,#60A5FA 100%);
-          -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-        .Mcursor{display:inline-block;width:3px;margin-left:3px;
-          height:clamp(36px,3.8vw,56px);vertical-align:middle;
-          background:var(--accent);border-radius:2px;animation:blink .85s step-end infinite}
-
-        .Mdesc{font-size:15px;line-height:1.82;color:var(--ink3);max-width:420px;
-          margin-bottom:36px;font-weight:400}
-        .Mdesc b{color:var(--ink2);font-weight:500}
-
-        .Mctarow{display:flex;align-items:center;gap:10px;margin-bottom:44px;flex-wrap:wrap}
-        .Mctarow-sub{display:contents}
-
-        .Mbtn1{display:inline-flex;align-items:center;gap:9px;
-          font-family:var(--sans);font-size:13.5px;font-weight:600;letter-spacing:-.01em;
-          color:#fff;background:var(--ink);border:none;border-radius:12px;padding:13px 26px;cursor:pointer;
-          position:relative;overflow:hidden;transition:transform .15s,box-shadow .15s;text-decoration:none}
-        .Mbtn1::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.08) 0%,transparent 55%)}
-        .Mbtn1:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(13,13,11,.25)}
-        .Mbtn1:active{transform:translateY(0)}
-        .Mbtn1 .arr,.Mbtn2 .arr,.Mbtn3 .arr{transition:transform .2s}
-        .Mbtn1:hover .arr,.Mbtn2:hover .arr{transform:translateX(4px)}
-
-        .Mbtn2{display:inline-flex;align-items:center;gap:8px;
-          font-family:var(--sans);font-size:13.5px;font-weight:600;letter-spacing:-.01em;
-          color:var(--accent);background:var(--aclt);border:1px solid var(--acmd);
-          border-radius:12px;padding:12px 22px;cursor:pointer;text-decoration:none;
-          transition:background .15s,transform .15s,box-shadow .15s}
-        .Mbtn2:hover{background:#E5ECFF;transform:translateY(-2px);box-shadow:0 8px 24px rgba(26,86,219,.15)}
-
-        .Mbtn3{display:inline-flex;align-items:center;gap:7px;
-          font-family:var(--sans);font-size:13.5px;font-weight:500;letter-spacing:-.01em;
-          color:var(--ink3);background:transparent;border:1px solid var(--bd2);
-          border-radius:12px;padding:12px 20px;cursor:pointer;text-decoration:none;
-          transition:background .15s,color .15s,border-color .15s}
-        .Mbtn3:hover{background:var(--bg2);color:var(--ink2);border-color:var(--bd)}
-
-        .Mproof{display:flex;align-items:center;flex-wrap:wrap;
-          padding:16px 20px;background:#fff;border:1px solid var(--bd);border-radius:16px;
-          width:fit-content;box-shadow:0 2px 8px rgba(0,0,0,.04)}
-        .Mpsec{display:flex;align-items:center;gap:10px;padding:0 16px}
-        .Mpsec:not(:last-child){border-right:1px solid var(--bd)}
-        .Mavs{display:flex}
-        .Mav{width:30px;height:30px;border-radius:50%;border:2px solid #fff;margin-left:-8px;
-          overflow:hidden;background:var(--bg2);transition:transform .2s}
-        .Mav:first-child{margin-left:0}
-        .Mav:hover{transform:translateY(-3px) scale(1.12);z-index:10}
-        .Mav img{width:100%;height:100%;object-fit:cover}
-        .Mplabel{font-size:12px;color:var(--ink3);line-height:1.4}
-        .Mplabel strong{color:var(--ink2);font-weight:600;display:block}
-        .Mstars{display:flex;gap:1px;margin-bottom:2px}
-        .Mstar{color:#F59E0B;font-size:10px}
-        .Msval{font-family:var(--serif);font-size:22px;font-weight:600;
-          color:var(--ink);letter-spacing:-.04em;line-height:1}
-        .Mskey{font-size:10.5px;color:var(--muted);margin-top:2px;font-family:var(--mono);letter-spacing:.04em}
-
-        .Mright{position:relative;height:600px}
-
-        .Mimgmain{position:absolute;top:0;left:0;right:64px;bottom:64px;
-          border-radius:28px;overflow:hidden;box-shadow:var(--sheavy)}
-        .Mimgmain img{width:100%;height:100%;object-fit:cover;display:block;
-          transition:transform .08s linear;will-change:transform}
-        .Mimgmain::after{content:'';position:absolute;inset:0;
-          background:linear-gradient(160deg,rgba(26,86,219,.04) 0%,transparent 40%,rgba(13,13,11,.18) 100%)}
-        .Mimgcap{position:absolute;bottom:76px;left:16px;z-index:2;
-          display:flex;align-items:center;gap:6px;
-          background:rgba(13,13,11,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-          border:1px solid rgba(255,255,255,.1);color:#fff;border-radius:100px;
-          padding:6px 13px;font-size:11px;font-weight:500;letter-spacing:.01em}
-        .Mimgcap-dot{width:6px;height:6px;border-radius:50%;background:#4ADE80;flex-shrink:0;animation:gpulse 2s infinite}
-
-        .Mimgsec{position:absolute;bottom:0;right:0;width:220px;height:178px;
-          border-radius:20px;overflow:hidden;box-shadow:var(--sfloat);border:4px solid var(--bg)}
-        .Mimgsec img{width:100%;height:100%;object-fit:cover;display:block}
-
-        .Mcmetric{position:absolute;top:24px;right:-4px;
-          background:#fff;border:1px solid var(--bd);border-radius:20px;padding:18px 22px;
-          min-width:196px;box-shadow:var(--sfloat);animation:floatA 5.5s ease-in-out infinite}
-        .Mcmetric::before{content:'';position:absolute;inset:0;border-radius:20px;
-          background:linear-gradient(140deg,rgba(255,255,255,.9) 0%,rgba(247,246,242,.6) 100%);
-          backdrop-filter:blur(20px);z-index:0}
-        .Mcmetric>*{position:relative;z-index:1}
-
-        .Mctop{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
-        .Mclbl{font-family:var(--mono);font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
-        .Mcbadge{font-family:var(--mono);font-size:9px;font-weight:500;padding:2px 8px;border-radius:100px;
-          color:var(--green);background:var(--glt);border:1px solid var(--gbd)}
-        .Mcnum{font-family:var(--serif);font-size:46px;font-weight:700;
-          letter-spacing:-.05em;color:var(--ink);line-height:1;margin-bottom:12px}
-        .Mcnum sup{font-size:18px;opacity:.35;font-family:var(--sans);vertical-align:super}
-
-        .Mspk{width:100%;height:36px}
-
-        .Mdrow{display:flex;align-items:center;gap:14px;margin-top:10px}
-        .Mdwrap{position:relative;width:52px;height:52px;flex-shrink:0}
-        .Mdwrap svg{width:52px;height:52px;transform:rotate(-90deg)}
-        .Mdtrack{fill:none;stroke:var(--bg3);stroke-width:6}
-        .Mdfill{fill:none;stroke:var(--accent);stroke-width:6;stroke-linecap:round;
-          stroke-dasharray:133;transition:stroke-dashoffset 1.4s 1.2s ease}
-        .Mdlabel{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-          font-family:var(--mono);font-size:10px;font-weight:500;color:var(--ink2)}
-        .Mdleg{display:flex;flex-direction:column;gap:4px}
-        .Mdlegrow{display:flex;align-items:center;gap:6px;font-size:10.5px;color:var(--ink3)}
-        .Mddot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-
-        .Mcfeed{position:absolute;bottom:72px;left:-44px;
-          background:var(--ink);color:#fff;border-radius:16px;padding:14px 16px;
-          display:flex;align-items:center;gap:12px;
-          box-shadow:0 24px 64px rgba(0,0,0,.28);
-          border:1px solid rgba(255,255,255,.07);
-          white-space:nowrap;min-width:248px;
-          animation:floatB 6s .6s ease-in-out infinite;overflow:hidden}
-        .Mcfeed::before{content:'';position:absolute;inset:0;
-          background:linear-gradient(135deg,rgba(255,255,255,.05) 0%,transparent 50%)}
-        .Mcfeed>*{position:relative;z-index:1}
-        .Mfinner{display:flex;align-items:center;gap:12px;width:100%;transition:opacity .35s,transform .35s}
-        .Mficon{width:38px;height:38px;border-radius:10px;display:flex;align-items:center;
-          justify-content:center;font-size:18px;flex-shrink:0;border:1px solid rgba(255,255,255,.1);transition:background .4s}
-        .Mftitle{font-size:12.5px;font-weight:600;letter-spacing:-.01em}
-        .Mfmeta{font-size:10.5px;color:rgba(255,255,255,.45);margin-top:2px}
-        .Mftime{margin-left:auto;font-family:var(--mono);font-size:9.5px;color:rgba(255,255,255,.3)}
-        .Mflive{position:absolute;top:12px;right:14px;width:7px;height:7px;border-radius:50%;
-          background:#4ADE80;animation:gpulse 2s infinite}
-
-        .Mpill{position:absolute;top:48%;right:-6px;transform:translateY(-50%);
-          background:var(--aclt);border:1px solid var(--acmd);color:var(--accent);
-          border-radius:100px;padding:7px 14px;
-          display:flex;align-items:center;gap:7px;
-          font-size:11.5px;font-weight:600;letter-spacing:-.01em;
-          animation:floatC 4.8s .2s ease-in-out infinite;
-          box-shadow:0 4px 20px rgba(26,86,219,.14);white-space:nowrap}
-        .Mpill svg{width:13px;height:13px}
-
-        .Mlogos{border-top:1px solid var(--bd);background:var(--bg2);position:relative;z-index:1}
-        .Mloghdr{display:flex;align-items:center;gap:16px;padding:18px 56px 0}
-        .Mloglbl{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);white-space:nowrap;flex-shrink:0}
-        .Mlogrule{flex:1;height:1px;background:var(--bd2)}
-        .Mlogscroll{padding:16px 0 20px;overflow:hidden;
-          -webkit-mask-image:linear-gradient(90deg,transparent 0%,black 7%,black 93%,transparent 100%);
-          mask-image:linear-gradient(90deg,transparent 0%,black 7%,black 93%,transparent 100%)}
-        .Mlogtrack{display:flex;width:max-content;animation:marquee 32s linear infinite}
-        .Mlogtrack:hover{animation-play-state:paused}
-        .Mlogitem{padding:0 40px;font-family:var(--serif);font-size:15.5px;font-weight:600;
-          color:var(--ink3);letter-spacing:-.025em;border-right:1px solid var(--bd);
-          white-space:nowrap;cursor:default;transition:color .2s}
-        .Mlogitem:hover{color:var(--ink)}
-
-        @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-        @keyframes gpulse{0%,100%{box-shadow:0 0 0 0 rgba(22,163,74,.45)}60%{box-shadow:0 0 0 6px rgba(22,163,74,0)}}
-        @keyframes floatA{0%,100%{transform:translateY(0) rotate(0)}33%{transform:translateY(-9px) rotate(.5deg)}66%{transform:translateY(-5px) rotate(-.4deg)}}
-        @keyframes floatB{0%,100%{transform:translateY(0)}50%{transform:translateY(-13px)}}
-        @keyframes floatC{0%,100%{transform:translateY(-50%) translateX(0)}50%{transform:translateY(-50%) translateX(-7px)}}
-        @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-        @media(max-width:1060px) and (min-width:641px){
-          .Mbody{grid-template-columns:1fr;padding:52px 32px 48px}
-          .Mleft{padding-right:0;margin-bottom:44px}
-          .Mright{height:420px}
-          .Mcfeed{left:-8px;bottom:12px;min-width:220px}
-          .Mpill{right:8px}
-          .Mloghdr{padding:18px 32px 0}
+        /* ── BG IMAGE ── */
+        .mh__bg {
+          position: absolute;
+          inset: 0;
+          z-index: 0;
+        }
+        .mh__bg img {
+          width: 100%; height: 100%;
+          object-fit: cover; display: block;
+          filter: brightness(.55) saturate(1.2);
+        }
+        /* gradient: dark top (for contrast), light middle (glass pops), dark bottom */
+        .mh__bg::after {
+          content: '';
+          position: absolute; inset: 0;
+          background:
+            linear-gradient(180deg,
+              rgba(8,8,16,.70) 0%,
+              rgba(8,8,16,.25) 30%,
+              rgba(8,8,16,.15) 55%,
+              rgba(8,8,16,.60) 100%
+            );
         }
 
-        @media(max-width:640px){
-          .M{height:100svh;overflow:hidden;display:flex;flex-direction:column;padding-top:88px}
-          .Mlogos{flex-shrink:0}
-          .Mbody{display:flex !important;flex-direction:column !important;
-            grid-template-columns:unset !important;padding:12px 18px 0 !important;
-            gap:0;max-width:100%;align-items:stretch;flex:1;min-height:0;overflow:hidden}
-          .Mleft{padding-right:0 !important;margin-bottom:10px !important;flex-shrink:0}
-          .Mtag{display:none}
-          .Mhlight{font-size:28px;line-height:1.1;letter-spacing:-.025em}
-          .Mhword{font-size:28px;line-height:1.1;letter-spacing:-.025em}
-          .Mcursor{height:24px;width:2px}
-          .Mhtyped{min-height:32px;margin-bottom:6px}
-          .Mdesc{font-size:13px;line-height:1.55;margin-bottom:10px;
-            display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;max-width:100%}
-          .Mctarow{display:flex;flex-direction:row;gap:8px;margin-bottom:8px;flex-wrap:nowrap;align-items:stretch}
-          .Mctarow-sub{display:contents}
-          .Mbtn1{flex:1;justify-content:center;padding:11px 10px;font-size:12.5px;border-radius:10px}
-          .Mbtn2{flex:1;justify-content:center;padding:10px 10px;font-size:12px;border-radius:10px}
-          .Mbtn3{display:none}
-          .Mproof{width:100%;padding:9px 12px;display:flex;flex-direction:row;
-            align-items:center;gap:0;border-radius:12px;margin-bottom:0}
-          .Mpsec{padding:0 9px;flex-direction:column;align-items:center;text-align:center;gap:2px}
-          .Mpsec:first-child{flex-direction:row;text-align:left;gap:7px;flex:1;
-            border-right:1px solid var(--bd)!important;padding:0 10px 0 0}
-          .Mpsec:nth-child(2){border-right:1px solid var(--bd)!important}
-          .Mpsec:last-child{border-right:none!important}
-          .Msval{font-size:16px}
-          .Mskey{font-size:8.5px}
-          .Mplabel{font-size:10.5px}
-          .Mav{width:24px;height:24px}
-          .Mstar{font-size:9px}
-          .Mright{flex:1;min-height:0;display:flex !important;flex-direction:column;
-            position:relative;height:auto !important;gap:6px;padding-top:10px}
-          .Mimgmain{flex:1;min-height:0;position:relative !important;
-            top:auto !important;left:auto !important;right:auto !important;bottom:auto !important;
-            border-radius:16px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,.13)}
-          .Mimgmain img{transform:none !important}
-          .Mimgcap{bottom:10px;left:10px;font-size:10px;padding:5px 11px}
-          .Mimgsec{position:absolute;bottom:8px;right:8px;width:82px;height:68px;border-radius:10px;border-width:3px}
-          .Mcmetric{display:none !important}
-          .Mpill{display:none !important}
-          .Mcfeed{position:relative !important;bottom:auto !important;left:auto !important;
-            animation:none !important;width:100%;min-width:0;border-radius:12px;
-            padding:8px 12px;white-space:normal;flex-shrink:0}
-          .Mfinner{gap:10px}
-          .Mficon{width:28px;height:28px;font-size:13px;border-radius:7px;flex-shrink:0}
-          .Mftitle{font-size:11.5px}
-          .Mfmeta{font-size:9.5px;margin-top:1px}
-          .Mftime{display:none}
-          .Mflive{top:9px;right:11px;width:6px;height:6px}
-          .Mloghdr{padding:8px 18px 0}
-          .Mloglbl{font-size:8.5px}
-          .Mlogscroll{padding:5px 0 8px}
-          .Mlogitem{padding:0 20px;font-size:12.5px}
+        /* ── CONTENT WRAPPER ── */
+        .mh__inner {
+          position: relative;
+          z-index: 10;
+          padding: 20px 16px 0;
         }
 
-        @media(max-width:375px){
-          .M{padding-top:84px}
-          .Mbody{padding:10px 16px 0 !important}
-          .Mhlight{font-size:25px}
-          .Mhword{font-size:25px}
-          .Mcursor{height:21px}
-          .Mhtyped{min-height:28px}
+        /* ── GLASS CARD ── */
+        .mh__card {
+          background: rgba(255,255,255,.88);
+          backdrop-filter: blur(40px) saturate(1.8);
+          -webkit-backdrop-filter: blur(40px) saturate(1.8);
+          border: 1px solid rgba(255,255,255,.95);
+          border-radius: 20px;
+          padding: 28px 22px 24px;
+          box-shadow:
+            inset 0 1px 0 rgba(255,255,255,1),
+            0 24px 60px rgba(0,0,0,.35),
+            0 4px 16px rgba(0,0,0,.15);
+          opacity: 0;
+          transform: translateY(16px);
+          transition: opacity .6s .1s ease, transform .6s .1s ease;
+        }
+        .mh--ready .mh__card {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        /* ── EYEBROW TAG ── */
+        .mh__tag {
+          display: inline-flex;
+          align-items: center;
+          gap: 7px;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: 9px;
+          font-weight: 700;
+          letter-spacing: .18em;
+          text-transform: uppercase;
+          color: #5b5ef4;
+          background: rgba(91,94,244,.09);
+          border: 1px solid rgba(91,94,244,.22);
+          padding: 5px 12px;
+          border-radius: 100px;
+          margin-bottom: 18px;
+          opacity: 0;
+          transform: translateY(10px);
+          transition: opacity .5s .25s ease, transform .5s .25s ease;
+        }
+        .mh--ready .mh__tag { opacity:1; transform:translateY(0); }
+        .mh__tag-dot {
+          width: 5px; height: 5px;
+          border-radius: 50%;
+          background: #5b5ef4;
+          flex-shrink: 0;
+          animation: mhPulse 2s ease infinite;
+        }
+
+        /* ── HEADLINE ── */
+        .mh__h1 {
+          font-family: 'Syne', sans-serif;
+          font-style: normal;
+          margin-bottom: 6px;
+          opacity: 0;
+          transform: translateY(16px);
+          transition: opacity .6s .32s ease, transform .6s .32s ease;
+        }
+        .mh--ready .mh__h1 { opacity:1; transform:translateY(0); }
+
+        .mh__h1-soft {
+          display: block;
+          font-family: 'Syne', sans-serif;
+          font-weight: 400;
+          font-style: normal;
+          font-size: clamp(26px, 7vw, 52px);
+          line-height: 1.15;
+          color: #5a5a80;
+          letter-spacing: -.02em;
+        }
+        .mh__h1-bold {
+          display: block;
+          font-family: 'Syne', sans-serif;
+          font-weight: 800;
+          font-style: normal;
+          font-size: clamp(32px, 8.5vw, 64px);
+          line-height: 1.05;
+          color: #0a0a14;
+          letter-spacing: -.03em;
+        }
+
+        /* ── TYPED ROW ── */
+        .mh__typed {
+          display: flex;
+          align-items: center;
+          min-height: clamp(36px, 9vw, 70px);
+          margin-bottom: 16px;
+          opacity: 0;
+          transform: translateY(16px);
+          transition: opacity .6s .42s ease, transform .6s .42s ease;
+        }
+        .mh--ready .mh__typed { opacity:1; transform:translateY(0); }
+
+        .mh__typed-word {
+          font-family: 'Syne', sans-serif;
+          font-weight: 800;
+          font-style: normal;
+          font-size: clamp(32px, 8.5vw, 64px);
+          line-height: 1.05;
+          letter-spacing: -.03em;
+          background: linear-gradient(135deg, #5b5ef4 0%, #8b5cf6 60%, #a78bfa 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+        .mh__caret {
+          display: inline-block;
+          width: 3px;
+          height: clamp(28px, 7vw, 54px);
+          background: #5b5ef4;
+          border-radius: 2px;
+          margin-left: 4px;
+          vertical-align: middle;
+          animation: mhBlink .9s step-end infinite;
+          flex-shrink: 0;
+        }
+
+        /* ── DESCRIPTION ── */
+        .mh__desc {
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: 13.5px;
+          font-weight: 400;
+          line-height: 1.75;
+          color: #5a5a80;
+          margin-bottom: 22px;
+          opacity: 0;
+          transform: translateY(12px);
+          transition: opacity .5s .52s ease, transform .5s .52s ease;
+        }
+        .mh--ready .mh__desc { opacity:1; transform:translateY(0); }
+        .mh__desc strong {
+          color: #1e1e30;
+          font-weight: 600;
+        }
+
+        /* ── BUTTONS ── */
+        .mh__btns {
+          display: flex;
+          gap: 10px;
+          margin-bottom: 24px;
+          opacity: 0;
+          transform: translateY(12px);
+          transition: opacity .5s .60s ease, transform .5s .60s ease;
+        }
+        .mh--ready .mh__btns { opacity:1; transform:translateY(0); }
+
+        .mh__btn-primary {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          padding: 14px 16px;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: 13px;
+          font-weight: 700;
+          color: #fff;
+          white-space: nowrap;
+          background: linear-gradient(135deg, #5b5ef4, #7c3aed);
+          border-radius: 12px;
+          border: none;
+          box-shadow: 0 4px 18px rgba(91,94,244,.45);
+          transition: transform .15s, box-shadow .15s;
+        }
+        .mh__btn-primary:active { transform: scale(.96); }
+
+        .mh__btn-secondary {
+          flex: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 7px;
+          padding: 13px 14px;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: 13px;
+          font-weight: 600;
+          color: #1e1e30;
+          white-space: nowrap;
+          background: rgba(255,255,255,.7);
+          border: 1.5px solid rgba(10,10,20,.14);
+          border-radius: 12px;
+          transition: background .15s, transform .15s;
+        }
+        .mh__btn-secondary:active { transform: scale(.96); }
+
+        .mh__arrow {
+          display: flex;
+          flex-shrink: 0;
+          transition: transform .2s;
+        }
+        .mh__btn-primary:hover .mh__arrow,
+        .mh__btn-secondary:hover .mh__arrow { transform: translateX(3px); }
+
+        /* ── STATS ── */
+        .mh__stats {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          border-top: 1px solid rgba(91,94,244,.10);
+          padding-top: 18px;
+          opacity: 0;
+          transform: translateY(10px);
+          transition: opacity .5s .68s ease, transform .5s .68s ease;
+        }
+        .mh--ready .mh__stats { opacity:1; transform:translateY(0); }
+
+        .mh__stat {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+          padding: 0 10px;
+          position: relative;
+          min-width: 0;
+        }
+        .mh__stat:first-child { padding-left: 0; }
+        .mh__stat:last-child  { padding-right: 0; }
+        .mh__stat + .mh__stat::before {
+          content: '';
+          position: absolute;
+          left: 0; top: 10%; bottom: 10%;
+          width: 1px;
+          background: rgba(91,94,244,.12);
+        }
+        .mh__stat-val {
+          font-family: 'Syne', sans-serif;
+          font-weight: 700;
+          font-style: normal;
+          font-size: 17px;
+          line-height: 1;
+          letter-spacing: -.03em;
+          white-space: nowrap;
+          background: linear-gradient(135deg, #0a0a14 0%, #5b5ef4 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+        .mh__stat-label {
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: 8px;
+          font-weight: 600;
+          color: #8888a8;
+          letter-spacing: .06em;
+          text-transform: uppercase;
+          white-space: nowrap;
+        }
+
+        /* ── MARQUEE ── */
+        .mh__marq {
+          position: relative;
+          z-index: 10;
+          background: rgba(6,6,14,.82);
+          border-top: 1px solid rgba(255,255,255,.06);
+          overflow: hidden;
+          padding: 13px 0;
+          -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+          mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+          opacity: 0;
+          transition: opacity .5s .8s ease;
+        }
+        .mh--ready .mh__marq { opacity: 1; }
+
+        .mh__marq-track {
+          display: flex;
+          width: max-content;
+          animation: mhMarq 24s linear infinite;
+        }
+        .mh__marq-item {
+          display: inline-flex;
+          align-items: center;
+          gap: 14px;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: 9.5px;
+          font-weight: 700;
+          letter-spacing: .22em;
+          text-transform: uppercase;
+          color: rgba(255,255,255,.38);
+          padding: 0 6px;
+          white-space: nowrap;
+        }
+        .mh__marq-dot {
+          color: #5b5ef4;
+          font-size: 4px;
+          flex-shrink: 0;
+        }
+
+        /* ── KEYFRAMES ── */
+        @keyframes mhBlink  { 0%,100%{opacity:1} 50%{opacity:0} }
+        @keyframes mhPulse  { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.7)} }
+        @keyframes mhMarq   { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+
+        /* ── TABLET / DESKTOP ── */
+        @media (min-width: 640px) {
+          .mh__inner { padding: 28px 28px 0; }
+          .mh__card  { padding: 36px 32px 30px; }
+          .mh__h1-soft { font-size: clamp(28px, 4vw, 48px); }
+          .mh__h1-bold { font-size: clamp(36px, 5vw, 60px); }
+          .mh__typed-word { font-size: clamp(36px, 5vw, 60px); }
+          .mh__stat-val { font-size: 20px; }
+        }
+
+        @media (min-width: 1024px) {
+          .mh__inner { padding: 48px 48px 0; max-width: 900px; margin: 0 auto; }
         }
       `}</style>
 
-      <div className="M">
-        <div className="Mblob Mb1"/><div className="Mblob Mb2"/><div className="Mblob Mb3"/>
-        <div className="Mdiag"/>
+      <div className={`mh${ready ? " mh--ready" : ""}`} ref={ref}>
 
-        <div className="Mbody">
+        {/* Background */}
+        <div className="mh__bg">
+          <img src={BG} alt="" aria-hidden="true" />
+        </div>
 
-          {/* ── LEFT ── */}
-          <div className="Mleft">
+        {/* Content */}
+        <div className="mh__inner">
+          <div className="mh__card">
 
-            <div className="Mtag" style={s(0)}>
-              <span className="Mtdot"/>
-              Accepting new projects — 2025
+            {/* Tag */}
+            <div className="mh__tag">
+              <span className="mh__tag-dot" />
+              Full-Service Digital Studio · Kenya
             </div>
 
-            <div style={s(1)}>
-              <div className="Mhlight">
-                We design &amp; build<br/><em>exceptional</em>
-              </div>
-              <div className="Mhtyped">
-                <span className="Mhword">{displayed}</span>
-                <span className="Mcursor"/>
-              </div>
+            {/* Headline */}
+            <h1 className="mh__h1">
+              <span className="mh__h1-soft">We design &amp; build</span>
+              <span className="mh__h1-bold">exceptional</span>
+            </h1>
+
+            {/* Typed */}
+            <div className="mh__typed">
+              <span className="mh__typed-word">{text}</span>
+              <span className="mh__caret" />
             </div>
 
-            <p className="Mdesc" style={s(3)}>
-              Muchyz is a full-service digital agency crafting <b>websites, AI chatbots,
-              and custom software</b> that help ambitious businesses grow faster —
-              strategy, design, and engineering all under one roof.
+            {/* Description */}
+            <p className="mh__desc">
+              From <strong>websites &amp; e-commerce</strong> to <strong>AI chatbots, apps,
+              branding &amp; SEO</strong> — everything your business needs to grow, under one roof.
             </p>
 
-            <div className="Mctarow" style={s(4)}>
+            {/* Buttons */}
+            <div className="mh__btns">
               <a
-                href="https://wa.me/254104272476?text=Hi%20Muchyz,%20I%20want%20to%20start%20a%20project"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="Mbtn1"
+                href="https://wa.me/254705427449?text=Hi%20Muchyz%2C%20I%20want%20to%20start%20a%20project"
+                target="_blank" rel="noopener noreferrer"
+                className="mh__btn-primary"
               >
                 Start a Project
-                <svg className="arr" viewBox="0 0 15 15" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M3 7.5h9M9 3.5l4 4-4 4"/>
-                </svg>
+                <span className="mh__arrow">
+                  <svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 8h10M9 4l4 4-4 4"/>
+                  </svg>
+                </span>
               </a>
-
-              <div className="Mctarow-sub">
-                {/* ── VIEW OUR WORK BUTTON — links to /work── */}
-                <a href="/work" className="Mbtn2">
-                  <svg viewBox="0 0 15 15" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="1.5" y="3" width="12" height="9" rx="2"/>
-                    <path d="M5 3V2M10 3V2M1.5 7h12"/>
+              <a href="/work" className="mh__btn-secondary">
+                View Work
+                <span className="mh__arrow">
+                  <svg viewBox="0 0 16 16" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 8h10M9 4l4 4-4 4"/>
                   </svg>
-                  View Our Work
-                  <svg className="arr" viewBox="0 0 15 15" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M3 7.5h9M9 3.5l4 4-4 4"/>
-                  </svg>
-                </a>
-
-
-                <a href="#" className="Mbtn3">
-                  <svg viewBox="0 0 14 14" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round">
-                    <polygon points="2,2 12,7 2,12"/>
-                  </svg>
-                  Watch demo
-                </a>
-              </div>
+                </span>
+              </a>
             </div>
 
-            <div className="Mproof" style={s(5)}>
-              <div className="Mpsec">
-                <div className="Mavs">
-                  {[
-                    "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=64&h=64&fit=crop&crop=face",
-                    "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=64&h=64&fit=crop&crop=face",
-                    "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=64&h=64&fit=crop&crop=face",
-                    "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=64&h=64&fit=crop&crop=face",
-                  ].map((src,i) => (
-                    <div className="Mav" key={i} style={{zIndex:5-i}}>
-                      <img src={src} alt=""/>
-                    </div>
-                  ))}
+            {/* Stats */}
+            <div className="mh__stats">
+              {STATS.map((s, i) => (
+                <div className="mh__stat" key={i}>
+                  <div className="mh__stat-val">{s.v}</div>
+                  <div className="mh__stat-label">{s.l}</div>
                 </div>
-                <div className="Mplabel">
-                  <div className="Mstars">{[...Array(5)].map((_,i)=><span key={i} className="Mstar">★</span>)}</div>
-                  <strong>{clients}+ clients</strong>trust Muchyz
-                </div>
-              </div>
-              <div className="Mpsec">
-                <div><div className="Msval">{projects}+</div><div className="Mskey">PROJECTS</div></div>
-              </div>
-              <div className="Mpsec">
-                <div><div className="Msval">{(rating/10).toFixed(1)}</div><div className="Mskey">RATING</div></div>
-              </div>
-            </div>
-
-          </div>
-
-          {/* ── RIGHT ── */}
-          <div className="Mright" style={s(2, { transitionDelay: '.4s' })}>
-
-            <div className="Mimgmain">
-              <img
-                src="/Img2.jpeg"
-                alt="Muchyz — Websites, AI Chatbots & Custom Software"
-                style={{ transform: `translateY(${-scrollY * 0.032}px) scale(1.05)` }}
-              />
-              <div className="Mimgcap">
-                <span className="Mimgcap-dot"/>
-                Live team workspace
-              </div>
-            </div>
-
-            <div className="Mimgsec">
-              <img
-                src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?w=440&h=360&fit=crop&crop=center"
-                alt="workspace detail"
-              />
-            </div>
-
-            {/* metric card */}
-            <div className="Mcmetric">
-              <div className="Mctop">
-                <span className="Mclbl">Clients served</span>
-                <span className="Mcbadge">↑ 24% YoY</span>
-              </div>
-              <div className="Mcnum">{clients}<sup>+</sup></div>
-
-              <svg className="Mspk" viewBox="0 0 160 36" preserveAspectRatio="none">
-                <defs>
-                  <linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#1A56DB" stopOpacity=".18"/>
-                    <stop offset="100%" stopColor="#1A56DB" stopOpacity="0"/>
-                  </linearGradient>
-                </defs>
-                <path d={spkArea} fill="url(#sg)"/>
-                <path d={spkPath} fill="none" stroke="#1A56DB" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-                <circle cx={spkX(SPARK.length-1)} cy={spkY(SPARK[SPARK.length-1])} r="3" fill="#1A56DB"/>
-              </svg>
-
-              <div className="Mdrow">
-                <div className="Mdwrap">
-                  <svg viewBox="0 0 52 52">
-                    <circle className="Mdtrack" cx="26" cy="26" r="21"/>
-                    <circle className="Mdfill"  cx="26" cy="26" r="21"
-                      style={{ strokeDashoffset: donutOffset }}
-                    />
-                  </svg>
-                  <div className="Mdlabel">98%</div>
-                </div>
-                <div className="Mdleg">
-                  {[{c:"#1A56DB",l:"Satisfied"},{c:"#E4E1D9",l:"Other"}].map(d=>(
-                    <div className="Mdlegrow" key={d.l}>
-                      <div className="Mddot" style={{background:d.c}}/>{d.l}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* activity feed */}
-            <div className="Mcfeed">
-              <div className="Mflive"/>
-              <div className="Mfinner" style={{ opacity: feedVis ? 1 : 0, transform: `translateY(${feedVis ? 0 : 8}px)` }}>
-                <div className="Mficon" style={{ background: feed.color + "28" }}>{feed.icon}</div>
-                <div>
-                  <div className="Mftitle">{feed.title}</div>
-                  <div className="Mfmeta">{feed.sub}</div>
-                </div>
-                <div className="Mftime">{feed.time}</div>
-              </div>
-            </div>
-
-            {/* pill */}
-            <div className="Mpill">
-              <svg viewBox="0 0 13 13" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="1,7 4,10 12,2"/>
-              </svg>
-              On-time delivery
-            </div>
-
-          </div>
-        </div>
-
-        {/* logos */}
-        <div className="Mlogos" style={{ opacity: loaded ? 1 : 0, transition: 'opacity .6s 1s ease' }}>
-          <div className="Mloghdr">
-            <span className="Mloglbl">Trusted by teams at</span>
-            <div className="Mlogrule"/>
-          </div>
-          <div className="Mlogscroll">
-            <div className="Mlogtrack">
-              {[...logos,...logos].map((n,i)=>(
-                <span className="Mlogitem" key={i}>{n}</span>
               ))}
             </div>
+
           </div>
         </div>
+
+        {/* Marquee */}
+        <div className="mh__marq">
+          <div className="mh__marq-track">
+            {[...MARQUEE, ...MARQUEE, ...MARQUEE, ...MARQUEE].map((item, i) => (
+              <span className="mh__marq-item" key={i}>
+                {item}<span className="mh__marq-dot">◆</span>
+              </span>
+            ))}
+          </div>
+        </div>
+
       </div>
     </>
   );

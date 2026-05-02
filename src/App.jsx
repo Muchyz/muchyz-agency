@@ -28,7 +28,10 @@ function HomePage() {
         <meta property="og:type" content="website" />
         <link rel="canonical" href="https://muchyz.com" />
       </Helmet>
-      <Navbar /><Hero />
+      <Navbar />
+      <div style={{ marginTop: "96px" }}>
+        <Hero />
+      </div>
       <Services /><Process /><Pricing />
       <WhyUs /><Testimonials /><FAQ /><ContactForm />
       <CTA /><Footer /><WAFab />
