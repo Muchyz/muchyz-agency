@@ -139,7 +139,7 @@ const PROJECTS = [
 const CATS = ["All", "E-commerce", "Health", "Education", "Travel", "Cleaning", "IT", "Supply"];
 const TICKER = ["React","Node.js","M-Pesa","PostgreSQL","Vercel","Figma","OpenAI","WhatsApp API","Next.js","MongoDB","TypeScript","Tailwind CSS","Stripe","AWS","Firebase","Supabase"];
 
-const WA_NUMBER = "254706427449";
+const WA_NUMBER = "254705427449";
 const waLink = (title) =>
   `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(`Hi Muchyz! I'd like a website similar to *${title}*. Please send me a quote.`)}`;
 
