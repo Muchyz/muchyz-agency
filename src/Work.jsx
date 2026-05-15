@@ -52,18 +52,6 @@ const PROJECTS = [
   },
   {
     id: 5, num: "05",
-    title: "Baki",
-    category: "E-commerce",
-    tags: ["React", "Retail", "Online Store"],
-    desc: "Kenyan online store selling electronics and gadgets with modern landing pages and easy navigation.",
-    img: "https://images.unsplash.com/photo-1468495244123-6c6c332eeece?w=900&h=600&fit=crop&crop=center",
-    live: "https://baki.co.ke",
-    year: "2026",
-    stat: "88%", statLabel: "Customer Engagement",
-    accent: "#4F8EF7", accentRgb: "79,142,247",
-  },
-  {
-    id: 6, num: "06",
     title: "Green Spoon",
     category: "E-commerce",
     tags: ["React", "Food Delivery", "Online Store"],
@@ -75,7 +63,7 @@ const PROJECTS = [
     accent: "#9B6FE8", accentRgb: "155,111,232",
   },
   {
-    id: 7, num: "07",
+    id: 6, num: "06",
     title: "Phone Place Kenya",
     category: "E-commerce",
     tags: ["React", "Electronics", "Mobile Phones"],
@@ -87,7 +75,31 @@ const PROJECTS = [
     accent: "#FF6F61", accentRgb: "255,111,97",
   },
   {
+    id: 7, num: "07",
+    title: "Naturally Good Health",
+    category: "Health",
+    tags: ["React", "Pharmaceuticals", "Health Products"],
+    desc: "Health enriching products platform for Naturally Good Health by Raypharm, showcasing JointGuard, Immuwell, OsteoVite and more wellness supplements.",
+    img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=900&h=600&fit=crop&crop=center",
+    live: "https://naturallygoodhealth.co",
+    year: "2026",
+    stat: "2.4K", statLabel: "Happy Followers",
+    accent: "#34C789", accentRgb: "52,199,137",
+  },
+  {
     id: 8, num: "08",
+    title: "Barista Lab Centre",
+    category: "Education",
+    tags: ["React", "Training", "Hospitality"],
+    desc: "Modern school for baristas and mixologists in Kenya, training students to master coffee and craft beverages through hands-on courses.",
+    img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&h=600&fit=crop&crop=center",
+    live: "https://baristalab.co.ke",
+    year: "2026",
+    stat: "100%", statLabel: "Course Completion",
+    accent: "#C8813A", accentRgb: "200,129,58",
+  },
+  {
+    id: 9, num: "09",
     title: "Novustell Travel",
     category: "Travel",
     tags: ["React", "Tours", "Travel Agency"],
@@ -99,7 +111,7 @@ const PROJECTS = [
     accent: "#4F8EF7", accentRgb: "79,142,247",
   },
   {
-    id: 9, num: "09",
+    id: 10, num: "10",
     title: "Safitime Cleaning",
     category: "Cleaning",
     tags: ["React", "Booking", "Service Management"],
@@ -111,7 +123,7 @@ const PROJECTS = [
     accent: "#9B6FE8", accentRgb: "155,111,232",
   },
   {
-    id: 10, num: "10",
+    id: 11, num: "11",
     title: "Onside Tech Solutions",
     category: "IT",
     tags: ["React", "Web Design", "Automation"],
@@ -123,7 +135,7 @@ const PROJECTS = [
     accent: "#2E9CEB", accentRgb: "46,156,235",
   },
   {
-    id: 11, num: "11",
+    id: 12, num: "12",
     title: "Favoured K Suppliers",
     category: "Supply",
     tags: ["React", "Wholesale", "B2B"],
@@ -136,7 +148,7 @@ const PROJECTS = [
   }
 ];
 
-const CATS = ["All", "E-commerce", "Travel", "Cleaning", "IT", "Supply"];
+const CATS = ["All", "E-commerce", "Health", "Education", "Travel", "Cleaning", "IT", "Supply"];
 const TICKER = ["React","Node.js","M-Pesa","PostgreSQL","Vercel","Figma","OpenAI","WhatsApp API","Next.js","MongoDB","TypeScript","Tailwind CSS","Stripe","AWS","Firebase","Supabase"];
 
 /* ─── HOOKS ─── */
