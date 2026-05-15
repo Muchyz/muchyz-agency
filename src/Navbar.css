@@ -2,7 +2,7 @@
    MUCHYZ · NAVBAR v9.2 · LEFT DRAWER · BRANDED SOCIALS
    ══════════════════════════════════════════════════════════ */
 
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
 :root {
   --fg:      #0a0a0f;
@@ -40,8 +40,6 @@
 
 /* ══════════════════════════════════════
    MUCHYZ BURN / EMBER ANIMATION
-   Letters ignite, dissolve in heat, then
-   re-materialise from the ash — staggered
    ══════════════════════════════════════ */
 @keyframes burnChar {
   0%   { opacity:1; filter:blur(0px) brightness(1);
@@ -138,20 +136,32 @@
 .nav--s .nav__bar { height: 58px; }
 
 /* ══════════════════════════════════════
-   WORDMARK
+   WORDMARK  ·  Cormorant Garamond italic
+   High-contrast editorial serif — lavish,
+   refined, unmistakably premium.
    ══════════════════════════════════════ */
 .nav__wordmark {
-  font-family: 'Syne', sans-serif;
-  font-size: 22px; font-weight: 800;
-  color: var(--fg); text-decoration: none;
-  letter-spacing: -0.04em;
-  display: flex; align-items: baseline; gap: 0;
-  flex-shrink: 0; transition: opacity .2s;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--fg);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  flex-shrink: 0;
+  transition: opacity .2s;
 }
 .nav__wordmark:hover { opacity: .65; }
 .nav__accent-dot {
-  color: var(--blue); font-size: 32px; line-height: 0;
-  position: relative; top: 5px;
+  color: var(--blue);
+  font-size: 34px;
+  line-height: 0;
+  position: relative;
+  top: 5px;
+  font-style: normal;   /* keep the dot upright */
 }
 
 /* ══════════════════════════════════════
@@ -314,12 +324,27 @@
 }
 .drawer--open .drawer__header{animation:fadeUp .36s .12s var(--e-out) forwards;}
 
+/* Drawer wordmark — Cormorant Garamond italic */
 .drawer__wordmark{
-  font-family:'Syne',sans-serif;font-size:22px;font-weight:800;
-  color:var(--fg);text-decoration:none;letter-spacing:-0.04em;
-  display:flex;align-items:baseline;gap:0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 26px;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--fg);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  display: flex;
+  align-items: baseline;
+  gap: 0;
 }
-.drawer__dot{color:var(--blue);font-size:28px;line-height:0;position:relative;top:4px;}
+.drawer__dot {
+  color: var(--blue);
+  font-size: 30px;
+  line-height: 0;
+  position: relative;
+  top: 4px;
+  font-style: normal;   /* keep the dot upright */
+}
 
 .drawer__close{
   width:36px;height:36px;border-radius:10px;
@@ -461,11 +486,10 @@
 
 /* ══════════════════════════════════════
    SOCIAL ICONS — 3 HORIZONTAL TILES
-   Sits directly above "Start a Project"
    ══════════════════════════════════════ */
 .drawer__socials {
   display: flex;
-  flex-direction: row;       /* ← ALL 3 SIDE BY SIDE */
+  flex-direction: row;
   align-items: stretch;
   justify-content: center;
   gap: 10px;
@@ -477,14 +501,13 @@
 }
 .drawer--open .drawer__socials { animation: fadeUp .36s .64s var(--e-out) forwards; }
 
-/* Each social = a square card tile */
 .drawer__social {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 5px;
-  flex: 1;                   /* equal thirds */
+  flex: 1;
   padding: 10px 6px 9px;
   border-radius: 14px;
   text-decoration: none;
@@ -506,7 +529,6 @@
 }
 .drawer__social:active { transform: scale(.93); }
 
-/* Icon container — no background, SVG carries brand colour */
 .drawer__social-icon {
   width: 34px; height: 34px;
   display: flex; align-items: center; justify-content: center;
@@ -516,7 +538,6 @@
 .drawer__social-icon svg { width: 28px; height: 28px; }
 .drawer__social:hover .drawer__social-icon { transform: scale(1.14) rotate(-6deg); }
 
-/* Tiny label beneath icon */
 .drawer__social-label {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 9.5px; font-weight: 700;
@@ -577,7 +598,7 @@
 @media (max-width: 480px) {
   .nav{top:10px;left:10px;right:10px;border-radius:16px;}
   .nav__bar{height:60px;padding:0 12px;}
-  .nav__wordmark{font-size:20px;}
+  .nav__wordmark{font-size:22px;}
   .nav__accent-dot{font-size:28px;}
   .nav__chip{padding:8px 14px;font-size:12.5px;}
   .burger{width:40px;height:40px;}
@@ -587,7 +608,7 @@
   .drawer__tagline{padding:0 16px 12px;}
   .drawer__link{padding:11px 16px 11px 16px;}
   .drawer__label{font-size:14px;}
-  .drawer__wordmark{font-size:20px;}
+  .drawer__wordmark{font-size:22px;}
   .drawer__contact{padding:8px 16px;}
   .drawer__socials{padding:10px 14px 8px; gap:8px;}
   .drawer__social{padding:9px 4px 8px;}
