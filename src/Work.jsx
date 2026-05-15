@@ -8,7 +8,6 @@ const PROJECTS = [
     category: "E-commerce",
     tags: ["React", "E-commerce", "Online Store"],
     desc: "Online store for baby products in Kenya, featuring a clean product showcase and smooth checkout experience.",
-    img: "https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=900&h=600&fit=crop&crop=center",
     live: "https://peekaboo.ke",
     year: "2026",
     stat: "95%", statLabel: "Customer Satisfaction",
@@ -20,7 +19,6 @@ const PROJECTS = [
     category: "E-commerce",
     tags: ["React", "Beauty Store", "Online Shopping"],
     desc: "Beauty and personal care e-commerce store with clean UI and smooth checkout, optimized for mobile users.",
-    img: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=900&h=600&fit=crop&crop=center",
     live: "https://purpink.co.ke",
     year: "2026",
     stat: "90%", statLabel: "Conversion Rate",
@@ -32,7 +30,6 @@ const PROJECTS = [
     category: "E-commerce",
     tags: ["React", "Cosmetics", "Online Store"],
     desc: "Kenyan beauty products online store with landing pages, product catalog, and smooth payment flow.",
-    img: "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=900&h=600&fit=crop&crop=center",
     live: "https://beautyhub.co.ke",
     year: "2026",
     stat: "85%", statLabel: "Repeat Customers",
@@ -44,7 +41,6 @@ const PROJECTS = [
     category: "E-commerce",
     tags: ["React", "Online Shopping", "Marketplace"],
     desc: "Online marketplace for Kenyan shoppers featuring multiple categories, clean UI, and smooth checkout.",
-    img: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=900&h=600&fit=crop&crop=center",
     live: "https://zuricart.co.ke",
     year: "2026",
     stat: "80%", statLabel: "Customer Engagement",
@@ -56,7 +52,6 @@ const PROJECTS = [
     category: "E-commerce",
     tags: ["React", "Food Delivery", "Online Store"],
     desc: "Online store for healthy meals and groceries in Kenya, featuring product categories and smooth checkout.",
-    img: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?w=900&h=600&fit=crop&crop=center",
     live: "https://greenspoon.co.ke",
     year: "2026",
     stat: "92%", statLabel: "On-Time Delivery",
@@ -68,7 +63,6 @@ const PROJECTS = [
     category: "E-commerce",
     tags: ["React", "Electronics", "Mobile Phones"],
     desc: "Kenyan mobile phone store with product listings, landing pages, and integrated payment options.",
-    img: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=900&h=600&fit=crop&crop=center",
     live: "https://phoneplacekenya.com",
     year: "2026",
     stat: "90%", statLabel: "Customer Engagement",
@@ -80,7 +74,6 @@ const PROJECTS = [
     category: "Health",
     tags: ["React", "Pharmaceuticals", "Health Products"],
     desc: "Health enriching products platform for Naturally Good Health by Raypharm, showcasing JointGuard, Immuwell, OsteoVite and more wellness supplements.",
-    img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=900&h=600&fit=crop&crop=center",
     live: "https://naturallygoodhealth.co",
     year: "2026",
     stat: "2.4K", statLabel: "Happy Followers",
@@ -92,7 +85,6 @@ const PROJECTS = [
     category: "Education",
     tags: ["React", "Training", "Hospitality"],
     desc: "Modern school for baristas and mixologists in Kenya, training students to master coffee and craft beverages through hands-on courses.",
-    img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&h=600&fit=crop&crop=center",
     live: "https://baristalab.co.ke",
     year: "2026",
     stat: "100%", statLabel: "Course Completion",
@@ -104,7 +96,6 @@ const PROJECTS = [
     category: "Travel",
     tags: ["React", "Tours", "Travel Agency"],
     desc: "Small travel agency in Kenya showcasing travel packages, online booking, and visual landing pages.",
-    img: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=900&h=600&fit=crop&crop=center",
     live: "https://novustelltravel.com",
     year: "2026",
     stat: "90%", statLabel: "Customer Satisfaction",
@@ -116,7 +107,6 @@ const PROJECTS = [
     category: "Cleaning",
     tags: ["React", "Booking", "Service Management"],
     desc: "Cleaning services company in Kenya with online booking and service showcase, modern landing page design.",
-    img: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=900&h=600&fit=crop&crop=center",
     live: "https://safitimecleaning.com",
     year: "2026",
     stat: "99%", statLabel: "Service Satisfaction",
@@ -128,7 +118,6 @@ const PROJECTS = [
     category: "IT",
     tags: ["React", "Web Design", "Automation"],
     desc: "Small IT company providing software solutions, web apps, and automation tools for Kenyan SMEs.",
-    img: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=900&h=600&fit=crop&crop=center",
     live: "https://onsidetechsolutions.co.ke",
     year: "2026",
     stat: "24/7", statLabel: "Operational Support",
@@ -140,7 +129,6 @@ const PROJECTS = [
     category: "Supply",
     tags: ["React", "Wholesale", "B2B"],
     desc: "Building materials supplier in Kenya stocking sand, ballast, machine cut stones, aggregates and all types of building stones, with an online product catalogue and inquiry forms.",
-    img: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=900&h=600&fit=crop&crop=center",
     live: "https://favouredksuppliers.co.ke",
     year: "2026",
     stat: "2×", statLabel: "Order Efficiency",
@@ -196,8 +184,6 @@ function MobileCard({ p, index, statsStarted }) {
   const ref = useRef(null);
   const vis = useInView(ref, 0.1);
   const display = useCountUp(p.stat, statsStarted);
-  const [imgErr, setImgErr] = useState(false);
-
   return (
     <div
       ref={ref}
@@ -210,21 +196,11 @@ function MobileCard({ p, index, statsStarted }) {
         transition: `opacity .6s ${index * 0.07}s cubic-bezier(0.16,1,0.3,1), transform .6s ${index * 0.07}s cubic-bezier(0.16,1,0.3,1)`,
       }}
     >
-      {/* Image */}
+      {/* Number display */}
       <div className="mob-card__img-wrap">
-        {!imgErr ? (
-          <img
-            src={p.img}
-            alt={p.title}
-            className="mob-card__img"
-            loading="lazy"
-            onError={() => setImgErr(true)}
-          />
-        ) : (
-          <div className="mob-card__img-fallback">
-            <span>{p.num}</span>
-          </div>
-        )}
+        <div className="mob-card__img-fallback">
+          <span>{p.num}</span>
+        </div>
         <div className="mob-card__img-overlay" style={{ background: `linear-gradient(180deg, transparent 30%, rgba(6,8,16,.85) 100%)` }} />
         <div className="mob-card__img-top-stripe" style={{ background: p.accent }} />
         <div className="mob-card__img-badge">
@@ -293,7 +269,6 @@ function ProjectCard({ p, index, activeCard, setActiveCard, statsStarted, view }
   const display = useCountUp(p.stat, statsStarted);
   const isActive = activeCard === p.id;
   const isDimmed = activeCard !== null && activeCard !== p.id;
-  const [imgErr, setImgErr] = useState(false);
 
   const onMouseMove = useCallback(e => {
     const card = cardRef.current;
@@ -343,11 +318,7 @@ function ProjectCard({ p, index, activeCard, setActiveCard, statsStarted, view }
         <div className="wk-row__bg" style={{ opacity: isActive ? 1 : 0, background: `radial-gradient(ellipse at 15% 50%, rgba(${p.accentRgb},.07) 0%, transparent 65%)` }}/>
         <div className="wk-row__num" style={{ color: isActive ? p.accent : "rgba(238,242,255,.18)" }}>{p.num}</div>
         <div className="wk-row__thumb">
-          {!imgErr ? (
-            <img src={p.img} alt={p.title} style={{ transform: isActive ? "scale(1.1)" : "scale(1.02)" }} onError={() => setImgErr(true)} />
-          ) : (
-            <div style={{ width:"100%",height:"100%",background:`rgba(${p.accentRgb},.15)`,display:"flex",alignItems:"center",justifyContent:"center",color:p.accent,fontFamily:"'DM Serif Display',serif",fontSize:"28px",fontStyle:"italic" }}>{p.num}</div>
-          )}
+          <div style={{ width:"100%",height:"100%",background:`rgba(${p.accentRgb},.15)`,display:"flex",alignItems:"center",justifyContent:"center",color:p.accent,fontFamily:"'DM Serif Display',serif",fontSize:"28px",fontStyle:"italic" }}>{p.num}</div>
           <div className="wk-row__thumb-overlay" style={{ background: `linear-gradient(135deg,rgba(${p.accentRgb},.28) 0%,transparent 55%)`, opacity: isActive ? 1 : 0 }}/>
           <div className="wk-row__thumb-stripe" style={{ background: p.accent }}/>
         </div>
@@ -399,11 +370,7 @@ function ProjectCard({ p, index, activeCard, setActiveCard, statsStarted, view }
         <span className="wk-card__bg-num">{p.num}</span>
 
         <div className={`wk-card__media${p.wide ? " wk-card__media--wide" : ""}`}>
-          {!imgErr ? (
-            <img src={p.img} alt={p.title} loading={p.priority ? "eager" : "lazy"} onError={() => setImgErr(true)} />
-          ) : (
-            <div style={{ width:"100%",height:"100%",background:`rgba(${p.accentRgb},.12)`,display:"flex",alignItems:"center",justifyContent:"center",color:p.accent,fontFamily:"'DM Serif Display',serif",fontSize:"48px",fontStyle:"italic" }}>{p.num}</div>
-          )}
+          <div style={{ width:"100%",height:"100%",background:`rgba(${p.accentRgb},.12)`,display:"flex",alignItems:"center",justifyContent:"center",color:p.accent,fontFamily:"'DM Serif Display',serif",fontSize:"48px",fontStyle:"italic" }}>{p.num}</div>
           <div className="wk-card__vignette"/>
           <div className="wk-card__img-accent" style={{ background: `linear-gradient(135deg,rgba(${p.accentRgb},.22) 0%,transparent 55%)` }}/>
           <div className="wk-card__stripe" style={{ background: p.accent }}/>
@@ -647,7 +614,7 @@ export default function Work() {
         .mob-card:last-child{margin-bottom:0}
         .mob-card__img-wrap{position:relative;height:220px;overflow:hidden}
         .mob-card__img{width:100%;height:100%;object-fit:cover;display:block}
-        .mob-card__img-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:56px;font-style:italic;color:rgba(var(--accent-rgb),.4);background:rgba(var(--accent-rgb),.06)}
+        .mob-card__img-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:80px;font-style:italic;color:rgba(var(--accent-rgb),.55);background:linear-gradient(135deg,rgba(var(--accent-rgb),.1) 0%,rgba(var(--accent-rgb),.04) 100%);letter-spacing:-.04em;text-shadow:0 2px 40px rgba(var(--accent-rgb),.3)}
         .mob-card__img-overlay{position:absolute;inset:0;z-index:1}
         .mob-card__img-top-stripe{position:absolute;top:0;left:0;right:0;height:3px;z-index:3}
         .mob-card__img-badge{position:absolute;top:12px;left:12px;z-index:4;display:inline-flex;align-items:center;gap:6px;background:rgba(6,8,16,.7);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:5px 11px;font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.03em}
