@@ -139,6 +139,10 @@ const PROJECTS = [
 const CATS = ["All", "E-commerce", "Health", "Education", "Travel", "Cleaning", "IT", "Supply"];
 const TICKER = ["React","Node.js","M-Pesa","PostgreSQL","Vercel","Figma","OpenAI","WhatsApp API","Next.js","MongoDB","TypeScript","Tailwind CSS","Stripe","AWS","Firebase","Supabase"];
 
+const WA_NUMBER = "254706427449";
+const waLink = (title) =>
+  `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(`Hi Muchyz! I'd like a website similar to *${title}*. Please send me a quote.`)}`;
+
 /* ─── HOOKS ─── */
 function useInView(ref, threshold = 0.08) {
   const [vis, setVis] = useState(false);
@@ -228,15 +232,16 @@ function MobileCard({ p, index, statsStarted }) {
         </div>
         <div className="mob-card__actions">
           <a
-            href={p.live}
+            href={waLink(p.title)}
             target="_blank"
             rel="noopener noreferrer"
             className="mob-card__btn-primary"
             style={{ background: p.accent, boxShadow: `0 8px 28px rgba(${p.accentRgb},.35)` }}
           >
             Get a Quote
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M5 12h14M12 5l7 7-7 7" />
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.531 5.847L.057 23.882l6.198-1.448A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.878 9.878 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374A9.855 9.855 0 012.106 12C2.106 6.58 6.58 2.106 12 2.106c5.42 0 9.894 4.474 9.894 9.894 0 5.42-4.474 9.894-9.894 9.894z"/>
             </svg>
           </a>
           <a
@@ -334,12 +339,12 @@ function ProjectCard({ p, index, activeCard, setActiveCard, statsStarted, view }
             <span className="wk-row__stat-key">{p.statLabel}</span>
           </div>
           <span className="wk-row__year">{p.year}</span>
-          <a href={p.live} target="_blank" rel="noopener noreferrer"
-            className="wk-row__btn"
+          <a href={waLink(p.title)} target="_blank" rel="noopener noreferrer"
+            className="wk-row__btn wk-row__btn--wa"
             style={isActive ? { borderColor: p.accent, color: "#fff", background: p.accent, boxShadow: `0 8px 28px rgba(${p.accentRgb},.4)` } : {}}>
-            Visit Site
-            <svg viewBox="0 0 10 10" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M1.5 8.5L8.5 1.5M5 1.5h3v3"/>
+            Get a Quote
+            <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.531 5.847L.057 23.882l6.198-1.448A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.878 9.878 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374A9.855 9.855 0 012.106 12C2.106 6.58 6.58 2.106 12 2.106c5.42 0 9.894 4.474 9.894 9.894 0 5.42-4.474 9.894-9.894 9.894z"/>
             </svg>
           </a>
         </div>
@@ -410,12 +415,19 @@ function ProjectCard({ p, index, activeCard, setActiveCard, statsStarted, view }
             <span className="wk-card__year">{p.year}</span>
           </div>
           <div className="wk-card__cta-row">
-            <span className="wk-card__cta" style={{ background: `rgba(${p.accentRgb},.8)`, borderColor: `rgba(${p.accentRgb},.45)`, boxShadow: `0 4px 20px rgba(${p.accentRgb},.28)` }}>
+            <a
+              href={waLink(p.title)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="wk-card__cta"
+              style={{ background: `rgba(${p.accentRgb},.8)`, borderColor: `rgba(${p.accentRgb},.45)`, boxShadow: `0 4px 20px rgba(${p.accentRgb},.28)` }}
+              onClick={e => e.stopPropagation()}
+            >
               Get a Quote
-              <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M5 12h14M12 5l7 7-7 7"/>
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.531 5.847L.057 23.882l6.198-1.448A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.878 9.878 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374A9.855 9.855 0 012.106 12C2.106 6.58 6.58 2.106 12 2.106c5.42 0 9.894 4.474 9.894 9.894 0 5.42-4.474 9.894-9.894 9.894z"/>
               </svg>
-            </span>
+            </a>
             <span className="wk-card__corner" style={{ color: `rgba(${p.accentRgb},.35)` }}>↗</span>
           </div>
         </div>
