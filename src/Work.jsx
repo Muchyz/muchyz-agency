@@ -59,17 +59,6 @@ const PROJECTS = [
   },
   {
     id: 6, num: "06",
-    title: "Phone Place Kenya",
-    category: "E-commerce",
-    tags: ["React", "Electronics", "Mobile Phones"],
-    desc: "Kenyan mobile phone store with product listings, landing pages, and integrated payment options.",
-    live: "https://phoneplacekenya.com",
-    year: "2026",
-    stat: "90%", statLabel: "Customer Engagement",
-    accent: "#FF6F61", accentRgb: "255,111,97",
-  },
-  {
-    id: 7, num: "07",
     title: "Naturally Good Health",
     category: "Health",
     tags: ["React", "Pharmaceuticals", "Health Products"],
@@ -80,7 +69,7 @@ const PROJECTS = [
     accent: "#34C789", accentRgb: "52,199,137",
   },
   {
-    id: 8, num: "08",
+    id: 7, num: "07",
     title: "Barista Lab Centre",
     category: "Education",
     tags: ["React", "Training", "Hospitality"],
@@ -91,7 +80,7 @@ const PROJECTS = [
     accent: "#C8813A", accentRgb: "200,129,58",
   },
   {
-    id: 9, num: "09",
+    id: 8, num: "08",
     title: "Novustell Travel",
     category: "Travel",
     tags: ["React", "Tours", "Travel Agency"],
@@ -102,7 +91,7 @@ const PROJECTS = [
     accent: "#4F8EF7", accentRgb: "79,142,247",
   },
   {
-    id: 10, num: "10",
+    id: 9, num: "09",
     title: "Safitime Cleaning",
     category: "Cleaning",
     tags: ["React", "Booking", "Service Management"],
@@ -113,18 +102,18 @@ const PROJECTS = [
     accent: "#9B6FE8", accentRgb: "155,111,232",
   },
   {
-    id: 11, num: "11",
+    id: 10, num: "10",
     title: "Onside Tech Solutions",
     category: "IT",
-    tags: ["React", "Web Design", "Automation"],
-    desc: "Small IT company providing software solutions, web apps, and automation tools for Kenyan SMEs.",
+    tags: ["React", "Electronics", "Computers & Gadgets"],
+    desc: "Kenyan electronics and IT company selling computers, laptops, accessories and gadgets — built with a modern product showcase, service pages, and seamless customer inquiry flow.",
     live: "https://onsidetechsolutions.co.ke",
     year: "2026",
     stat: "24/7", statLabel: "Operational Support",
     accent: "#2E9CEB", accentRgb: "46,156,235",
   },
   {
-    id: 12, num: "12",
+    id: 11, num: "11",
     title: "Favoured K Suppliers",
     category: "Supply",
     tags: ["React", "Wholesale", "B2B"],
@@ -133,7 +122,29 @@ const PROJECTS = [
     year: "2026",
     stat: "2×", statLabel: "Order Efficiency",
     accent: "#C8A96E", accentRgb: "200,169,110",
-  }
+  },
+  {
+    id: 12, num: "12",
+    title: "Takacare Solutions",
+    category: "Cleaning",
+    tags: ["React", "Waste Management", "Sanitation"],
+    desc: "Professional waste management, sanitation and environmental services company in Kenya — built with a modern landing page, service showcases, and seamless client inquiry flow.",
+    live: "https://takacare.com",
+    year: "2026",
+    stat: "98%", statLabel: "Client Satisfaction",
+    accent: "#2DBF6E", accentRgb: "45,191,110",
+  },
+  {
+    id: 13, num: "13",
+    title: "Nanny Cameras Kenya",
+    category: "E-commerce",
+    tags: ["React", "Security Cameras", "Online Store"],
+    desc: "Kenya's leading nanny and security camera store — featuring the smallest security cameras in Kenya, 50-Day cameras and more, with a clean product catalogue and easy online ordering.",
+    live: "https://nannycameraskenya.com",
+    year: "2026",
+    stat: "32K", statLabel: "Facebook Followers",
+    accent: "#4A90D9", accentRgb: "74,144,217",
+  },
 ];
 
 const CATS = ["All", "E-commerce", "Health", "Education", "Travel", "Cleaning", "IT", "Supply"];
@@ -183,7 +194,7 @@ function useCountUp(target, started, duration = 1600) {
   return val;
 }
 
-/* ─── MOBILE CARD (vertical stacked) ─── */
+/* ─── MOBILE CARD ─── */
 function MobileCard({ p, index, statsStarted }) {
   const ref = useRef(null);
   const vis = useInView(ref, 0.1);
@@ -200,11 +211,8 @@ function MobileCard({ p, index, statsStarted }) {
         transition: `opacity .6s ${index * 0.07}s cubic-bezier(0.16,1,0.3,1), transform .6s ${index * 0.07}s cubic-bezier(0.16,1,0.3,1)`,
       }}
     >
-      {/* Number display */}
       <div className="mob-card__img-wrap">
-        <div className="mob-card__img-fallback">
-          <span>{p.num}</span>
-        </div>
+        <div className="mob-card__img-fallback"><span>{p.num}</span></div>
         <div className="mob-card__img-overlay" style={{ background: `linear-gradient(180deg, transparent 30%, rgba(6,8,16,.85) 100%)` }} />
         <div className="mob-card__img-top-stripe" style={{ background: p.accent }} />
         <div className="mob-card__img-badge">
@@ -218,39 +226,25 @@ function MobileCard({ p, index, statsStarted }) {
           <span className="mob-card__stat-key">{p.statLabel}</span>
         </div>
       </div>
-
-      {/* Body */}
       <div className="mob-card__body">
         <div className="mob-card__cat" style={{ color: p.accent }}>{p.category}</div>
         <h3 className="mob-card__title">{p.title}</h3>
         <p className="mob-card__desc">{p.desc}</p>
         <div className="mob-card__tags">
-          {p.tags.map(t => (
-            <span key={t} className="mob-card__tag">{t}</span>
-          ))}
+          {p.tags.map(t => <span key={t} className="mob-card__tag">{t}</span>)}
           <span className="mob-card__year">{p.year}</span>
         </div>
         <div className="mob-card__actions">
-          <a
-            href={waLink(p.title)}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mob-card__btn-primary"
-            style={{ background: p.accent, boxShadow: `0 8px 28px rgba(${p.accentRgb},.35)` }}
-          >
+          <a href={waLink(p.title)} target="_blank" rel="noopener noreferrer" className="mob-card__btn-primary"
+            style={{ background: p.accent, boxShadow: `0 8px 28px rgba(${p.accentRgb},.35)` }}>
             Get a Quote
             <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor">
               <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
               <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.531 5.847L.057 23.882l6.198-1.448A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.878 9.878 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374A9.855 9.855 0 012.106 12C2.106 6.58 6.58 2.106 12 2.106c5.42 0 9.894 4.474 9.894 9.894 0 5.42-4.474 9.894-9.894 9.894z"/>
             </svg>
           </a>
-          <a
-            href={p.live}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mob-card__btn-secondary"
-            style={{ borderColor: `rgba(${p.accentRgb},.3)`, color: p.accent }}
-          >
+          <a href={p.live} target="_blank" rel="noopener noreferrer" className="mob-card__btn-secondary"
+            style={{ borderColor: `rgba(${p.accentRgb},.3)`, color: p.accent }}>
             Visit Site
             <svg viewBox="0 0 10 10" width="10" height="10" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M1.5 8.5L8.5 1.5M5 1.5h3v3" />
@@ -258,7 +252,6 @@ function MobileCard({ p, index, statsStarted }) {
           </a>
         </div>
       </div>
-
       <div className="mob-card__bottom-accent" style={{ background: `linear-gradient(90deg, transparent, rgba(${p.accentRgb},.5), transparent)` }} />
     </div>
   );
@@ -344,7 +337,8 @@ function ProjectCard({ p, index, activeCard, setActiveCard, statsStarted, view }
             style={isActive ? { borderColor: p.accent, color: "#fff", background: p.accent, boxShadow: `0 8px 28px rgba(${p.accentRgb},.4)` } : {}}>
             Get a Quote
             <svg viewBox="0 0 24 24" width="11" height="11" fill="currentColor">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.531 5.847L.057 23.882l6.198-1.448A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.878 9.878 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374A9.855 9.855 0 012.106 12C2.106 6.58 6.58 2.106 12 2.106c5.42 0 9.894 4.474 9.894 9.894 0 5.42-4.474 9.894-9.894 9.894z"/>
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+              <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.531 5.847L.057 23.882l6.198-1.448A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.878 9.878 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374A9.855 9.855 0 012.106 12C2.106 6.58 6.58 2.106 12 2.106c5.42 0 9.894 4.474 9.894 9.894 0 5.42-4.474 9.894-9.894 9.894z"/>
             </svg>
           </a>
         </div>
@@ -373,7 +367,6 @@ function ProjectCard({ p, index, activeCard, setActiveCard, statsStarted, view }
       >
         <div className="wk-card__glow" ref={glowRef}/>
         <span className="wk-card__bg-num">{p.num}</span>
-
         <div className={`wk-card__media${p.wide ? " wk-card__media--wide" : ""}`}>
           <div style={{ width:"100%",height:"100%",background:`rgba(${p.accentRgb},.12)`,display:"flex",alignItems:"center",justifyContent:"center",color:p.accent,fontFamily:"'DM Serif Display',serif",fontSize:"48px",fontStyle:"italic" }}>{p.num}</div>
           <div className="wk-card__vignette"/>
@@ -394,7 +387,6 @@ function ProjectCard({ p, index, activeCard, setActiveCard, statsStarted, view }
             View Live Site
           </div>
         </div>
-
         <div className="wk-card__body">
           <div className="wk-card__meta">
             <div className="wk-card__icon" style={{ background: `rgba(${p.accentRgb},.1)`, borderColor: `rgba(${p.accentRgb},.25)` }}>
@@ -415,23 +407,18 @@ function ProjectCard({ p, index, activeCard, setActiveCard, statsStarted, view }
             <span className="wk-card__year">{p.year}</span>
           </div>
           <div className="wk-card__cta-row">
-            <a
-              href={waLink(p.title)}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="wk-card__cta"
+            <a href={waLink(p.title)} target="_blank" rel="noopener noreferrer" className="wk-card__cta"
               style={{ background: `rgba(${p.accentRgb},.8)`, borderColor: `rgba(${p.accentRgb},.45)`, boxShadow: `0 4px 20px rgba(${p.accentRgb},.28)` }}
-              onClick={e => e.stopPropagation()}
-            >
+              onClick={e => e.stopPropagation()}>
               Get a Quote
               <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.531 5.847L.057 23.882l6.198-1.448A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.878 9.878 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374A9.855 9.855 0 012.106 12C2.106 6.58 6.58 2.106 12 2.106c5.42 0 9.894 4.474 9.894 9.894 0 5.42-4.474 9.894-9.894 9.894z"/>
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.121 1.531 5.847L.057 23.882l6.198-1.448A11.934 11.934 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.894a9.878 9.878 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374A9.855 9.855 0 012.106 12C2.106 6.58 6.58 2.106 12 2.106c5.42 0 9.894 4.474 9.894 9.894 0 5.42-4.474 9.894-9.894 9.894z"/>
               </svg>
             </a>
             <span className="wk-card__corner" style={{ color: `rgba(${p.accentRgb},.35)` }}>↗</span>
           </div>
         </div>
-
         <div className="wk-card__bottom-line"/>
         <svg className="wk-card__svg-border" viewBox="0 0 100 100" preserveAspectRatio="none">
           <rect x=".5" y=".5" width="99" height="99" rx="5" ry="5"/>
@@ -504,16 +491,8 @@ export default function Work() {
         }
 
         .wk{min-height:100svh;background:var(--bg);font-family:'Cabinet Grotesk',sans-serif;color:var(--ink);overflow-x:clip;position:relative;isolation:isolate}
-
-        .wk__noise{position:fixed;inset:0;z-index:9999;pointer-events:none;
-          background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
-          background-size:256px;mix-blend-mode:overlay;opacity:.55}
-
-        .wk::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
-          background-image:linear-gradient(rgba(255,255,255,.017) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.017) 1px,transparent 1px);
-          background-size:64px 64px;
-          mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,black 0%,transparent 80%);
-          -webkit-mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,black 0%,transparent 80%)}
+        .wk__noise{position:fixed;inset:0;z-index:9999;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");background-size:256px;mix-blend-mode:overlay;opacity:.55}
+        .wk::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.017) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.017) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,black 0%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse 80% 50% at 50% 0%,black 0%,transparent 80%)}
 
         .wk__orb{position:fixed;border-radius:50%;filter:blur(100px);pointer-events:none;z-index:0}
         .wk__orb--a{width:700px;height:700px;top:-280px;left:-180px;background:radial-gradient(circle,rgba(37,99,235,.16) 0%,transparent 65%);animation:orbA 22s ease-in-out infinite alternate}
@@ -522,7 +501,6 @@ export default function Work() {
         @keyframes orbA{to{transform:translate(60px,80px) scale(1.1)}}
         @keyframes orbB{to{transform:translate(-60px,-80px) scale(1.06)}}
         @keyframes orbC{to{transform:translate(-30px,50px) scale(1.14)}}
-
         @keyframes wkRise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
         @keyframes gradShift{0%{background-position:0%}100%{background-position:100%}}
         @keyframes bannerShim{0%,100%{background-position:100%;opacity:.4}50%{background-position:-60%;opacity:1}}
@@ -530,7 +508,6 @@ export default function Work() {
         @keyframes dotPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.6)}}
         @keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 
-        /* ── NAV ── */
         .wk__nav{position:sticky;top:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:68px;transition:background .35s,border-color .35s,box-shadow .35s}
         .wk__nav.is-scrolled{background:rgba(6,8,16,.88);border-bottom:1px solid rgba(255,255,255,.07);backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px);box-shadow:0 1px 0 rgba(79,142,247,.1)}
         .wk__nav-logo{font-family:'DM Serif Display',serif;font-size:22px;color:var(--ink);display:flex;align-items:baseline}
@@ -541,24 +518,19 @@ export default function Work() {
         .wk__nav-back:hover{border-color:rgba(79,142,247,.4);background:rgba(79,142,247,.06);transform:translateY(-1px);box-shadow:0 8px 32px rgba(79,142,247,.15)}
         .wk__nav-back:hover .wk__nav-back-arr{background:var(--blue)}
 
-        /* ── HERO ── */
         .wk__hero{position:relative;z-index:1;max-width:1380px;margin:0 auto;padding:88px 56px 72px;display:grid;grid-template-columns:1fr 340px;align-items:start;gap:72px}
         .wk__hero::after{content:'';position:absolute;bottom:0;left:56px;right:56px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.13) 20%,rgba(255,255,255,.13) 80%,transparent)}
-
         .wk__eyebrow{display:inline-flex;align-items:center;gap:12px;font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:32px;opacity:0}
         .is-loaded .wk__eyebrow{animation:wkRise .8s .05s var(--ease) forwards}
         .wk__eyebrow-rule{display:block;width:32px;height:1px;background:var(--blue)}
         .wk__eyebrow-badge{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(79,142,247,.12);border:1px solid rgba(79,142,247,.3);font-size:9px;letter-spacing:0;color:var(--blue)}
-
         .wk__hero-hed{font-family:'DM Serif Display',serif;font-size:clamp(56px,7.5vw,110px);line-height:.93;letter-spacing:-.028em;opacity:0;margin:0 0 28px}
         .is-loaded .wk__hero-hed{animation:wkRise .9s .12s var(--ease) forwards}
         .wk__hero-hed .pre{display:block;font-family:'Syne',sans-serif;font-size:clamp(11px,1.2vw,14px);font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px}
         .wk__hero-hed .line-a{display:block;font-weight:400;color:var(--ink-2)}
         .wk__hero-hed .line-b{display:block;font-weight:400;font-style:italic;background:linear-gradient(135deg,#60a5fa 0%,#a78bfa 50%,#38bdf8 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;background-size:200%;animation:gradShift 6s ease infinite alternate}
-
         .wk__hero-sub{font-size:15.5px;line-height:1.88;color:var(--ink-2);max-width:46ch;opacity:0}
         .is-loaded .wk__hero-sub{animation:wkRise .7s .22s var(--ease) forwards}
-
         .wk__hero-metrics{display:flex;gap:0;border:1px solid var(--border);border-radius:14px;overflow:hidden;width:fit-content;background:rgba(255,255,255,.025);backdrop-filter:blur(12px);margin-top:32px;opacity:0;flex-wrap:wrap}
         .is-loaded .wk__hero-metrics{animation:wkRise .7s .32s var(--ease) forwards}
         .wk__metric{display:flex;flex-direction:column;align-items:center;gap:4px;padding:14px 22px;border-right:1px solid var(--border);transition:background .2s;cursor:default}
@@ -566,7 +538,6 @@ export default function Work() {
         .wk__metric:hover{background:rgba(255,255,255,.04)}
         .wk__metric strong{font-family:'DM Serif Display',serif;font-size:22px;font-weight:400;color:var(--ink);line-height:1;letter-spacing:-.5px}
         .wk__metric span{font-family:'Syne',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink-3)}
-
         .wk__hero-right{opacity:0}
         .is-loaded .wk__hero-right{animation:wkRise .7s .36s var(--ease) forwards}
         .wk__stat-card{background:var(--surface);border:1px solid var(--border);border-radius:24px;padding:32px 28px 26px;position:relative;overflow:hidden}
@@ -580,7 +551,6 @@ export default function Work() {
         .dot-green{background:#34d399;box-shadow:0 0 8px rgba(52,211,153,.7);animation:dotPulse 2s ease-in-out infinite}
         .dot-blue{background:var(--blue);box-shadow:0 0 8px rgba(79,142,247,.6);animation:dotPulse 2s .4s ease-in-out infinite}
         .dot-purple{background:#a78bfa;box-shadow:0 0 8px rgba(167,139,250,.6);animation:dotPulse 2s .8s ease-in-out infinite}
-
         .wk__testimonial{margin:20px 0 0;padding:18px 20px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-left:3px solid rgba(79,142,247,.55);border-radius:14px;position:relative;overflow:hidden}
         .wk__testimonial::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,rgba(79,142,247,.5),rgba(167,139,250,.3),transparent)}
         .wk__t-quote{font-family:'DM Serif Display',serif;font-size:60px;line-height:0.4;color:var(--blue);opacity:.18;position:absolute;top:14px;left:14px;pointer-events:none;user-select:none}
@@ -590,16 +560,13 @@ export default function Work() {
         .wk__testimonial figcaption strong{display:block;font-size:12px;font-weight:700;color:var(--ink);font-family:'Syne',sans-serif}
         .wk__testimonial figcaption span{display:block;font-size:10px;color:var(--ink-3);margin-top:1px}
 
-        /* ── TOOLBAR ── */
         .wk__toolbar{position:relative;z-index:10;max-width:1380px;margin:0 auto;padding:22px 56px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;opacity:0}
         .wk__toolbar::after{content:'';position:absolute;bottom:0;left:56px;right:56px;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.1) 20%,rgba(255,255,255,.1) 80%,transparent)}
         .is-loaded .wk__toolbar{animation:wkRise .6s .44s var(--ease) forwards}
-
         .wk__filters{display:flex;align-items:center;gap:5px;flex-wrap:wrap}
         .wk__filter{font-family:'Syne',sans-serif;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:7px 15px;border-radius:100px;border:1px solid var(--border);background:transparent;color:var(--ink-3);transition:all .18s}
         .wk__filter:hover{color:var(--ink-2);border-color:var(--border-hi);background:rgba(255,255,255,.04)}
         .wk__filter.is-active{color:var(--bg);border-color:var(--blue);background:var(--blue);box-shadow:0 0 18px rgba(79,142,247,.35)}
-
         .wk__filter-dropdown-wrap{position:relative;display:none}
         .wk__filter-dropdown-btn{display:flex;align-items:center;gap:8px;font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:9px 16px;border-radius:100px;border:1px solid var(--border-hi);background:rgba(255,255,255,.04);color:var(--ink-2);cursor:pointer;transition:all .2s}
         .wk__filter-dropdown-btn.has-active{border-color:var(--blue);color:var(--blue)}
@@ -609,23 +576,17 @@ export default function Work() {
         .wk__filter-dropdown-item{display:block;width:100%;text-align:left;font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:10px 14px;border-radius:10px;border:none;background:transparent;color:var(--ink-3);cursor:pointer;transition:background .15s,color .15s}
         .wk__filter-dropdown-item:hover{background:rgba(255,255,255,.06);color:var(--ink-2)}
         .wk__filter-dropdown-item.is-active{background:rgba(79,142,247,.12);color:var(--blue)}
-
         .wk__view-toggle{display:flex;align-items:center;gap:3px;border:1px solid var(--border);border-radius:10px;padding:3px;background:var(--surface)}
         .wk__toggle-btn{width:32px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:7px;border:none;background:transparent;color:var(--ink-3);transition:background .15s,color .15s}
         .wk__toggle-btn.is-active{background:rgba(255,255,255,.09);color:var(--ink-2);box-shadow:0 1px 4px rgba(0,0,0,.4)}
 
-        /* ── DESKTOP GRID ── */
         .wk__grid{position:relative;z-index:1;max-width:1380px;margin:0 auto;padding:40px 56px 90px;display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
         .wk__grid .wk-card--wide{grid-column:span 2}
-
-        /* ── MOBILE VERTICAL STACK ── */
         .wk__mobile-stack{display:none;position:relative;z-index:1;padding:20px 20px 60px}
 
-        /* ── MOBILE CARD ── */
         .mob-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;overflow:hidden;position:relative;margin-bottom:16px;will-change:opacity,transform}
         .mob-card:last-child{margin-bottom:0}
         .mob-card__img-wrap{position:relative;height:220px;overflow:hidden}
-        .mob-card__img{width:100%;height:100%;object-fit:cover;display:block}
         .mob-card__img-fallback{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-family:'DM Serif Display',serif;font-size:80px;font-style:italic;color:rgba(var(--accent-rgb),.55);background:linear-gradient(135deg,rgba(var(--accent-rgb),.1) 0%,rgba(var(--accent-rgb),.04) 100%);letter-spacing:-.04em;text-shadow:0 2px 40px rgba(var(--accent-rgb),.3)}
         .mob-card__img-overlay{position:absolute;inset:0;z-index:1}
         .mob-card__img-top-stripe{position:absolute;top:0;left:0;right:0;height:3px;z-index:3}
@@ -649,21 +610,16 @@ export default function Work() {
         .mob-card__btn-secondary:active{transform:scale(.97)}
         .mob-card__bottom-accent{position:absolute;bottom:0;left:0;right:0;height:1px;z-index:3}
 
-        /* ── CARD (desktop) ── */
         .wk-card{position:relative;display:flex;flex-direction:column;text-decoration:none;background:var(--surface);border:1px solid var(--border);border-radius:22px;overflow:hidden;transition:border-color .35s,box-shadow .45s,filter .4s;will-change:transform,opacity;transform-style:preserve-3d;cursor:pointer}
         .wk-card:focus-visible{outline:2px solid rgba(var(--accent-rgb),.8);outline-offset:3px}
         .wk-card--active{border-color:rgba(var(--accent-rgb),.38);box-shadow:0 0 0 1px rgba(var(--accent-rgb),.1),0 32px 72px rgba(0,0,0,.55),0 0 80px -24px rgba(var(--accent-rgb),.5),inset 0 1px 0 rgba(255,255,255,.08);z-index:4}
         .wk-card--active::before{content:'';position:absolute;top:-1px;left:15%;right:15%;height:1px;background:linear-gradient(90deg,transparent,rgba(var(--accent-rgb),.85),transparent);filter:blur(.5px);z-index:8;pointer-events:none}
         .wk-card--dim{opacity:.2;filter:saturate(.25) brightness(.5);transform:scale(.976)}
-
         .wk-card__glow{position:absolute;inset:0;pointer-events:none;z-index:1;opacity:0;transition:opacity .25s}
         .wk-card__bg-num{position:absolute;bottom:6px;right:12px;font-family:'DM Serif Display',serif;font-size:120px;font-style:italic;color:rgba(var(--accent-rgb),.055);line-height:1;letter-spacing:-4px;pointer-events:none;z-index:1;user-select:none;transition:color .4s}
         .wk-card--active .wk-card__bg-num{color:rgba(var(--accent-rgb),.14)}
-
         .wk-card__media{position:relative;height:240px;overflow:hidden;flex-shrink:0}
         .wk-card__media--wide{height:310px}
-        .wk-card__media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1s var(--ease),filter .5s;filter:brightness(.92) saturate(1.05)}
-        .wk-card--active .wk-card__media img{transform:scale(1.08);filter:brightness(1) saturate(1.1)}
         .wk-card__vignette{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(6,8,16,0) 0%,rgba(6,8,16,.55) 100%)}
         .wk-card__img-accent{position:absolute;inset:0;z-index:3;pointer-events:none;transition:opacity .3s}
         .wk-card__stripe{position:absolute;top:0;left:0;right:0;height:2px;z-index:5}
@@ -673,7 +629,6 @@ export default function Work() {
         .wk-card__tag-pulse{width:5px;height:5px;border-radius:50%;animation:dotPulse 2s ease-in-out infinite}
         .wk-card__hover-cta{position:absolute;inset:0;z-index:7;display:flex;align-items:center;justify-content:center;gap:8px;font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#fff;background:rgba(6,8,16,.5);backdrop-filter:blur(4px);opacity:0;transition:opacity .28s}
         .wk-card--active .wk-card__hover-cta{opacity:1}
-
         .wk-card__body{display:flex;flex-direction:column;flex:1;padding:18px 22px 22px;position:relative;z-index:2}
         .wk-card__meta{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:12px}
         .wk-card__icon{width:42px;height:42px;border-radius:12px;flex-shrink:0;display:flex;align-items:center;justify-content:center;border:1px solid;transition:transform .45s var(--spring),box-shadow .4s}
@@ -702,7 +657,6 @@ export default function Work() {
         .wk-card__svg-border rect{fill:none;stroke:var(--accent);stroke-width:1;stroke-dasharray:480;stroke-dashoffset:480;transition:stroke-dashoffset 1s var(--ease);opacity:.5}
         .wk-card--active .wk-card__svg-border rect{stroke-dashoffset:0}
 
-        /* ── LIST VIEW ── */
         .wk__list{position:relative;z-index:1;max-width:1380px;margin:0 auto;padding:0 56px 90px}
         .wk-row{position:relative;display:grid;grid-template-columns:52px 148px 1fr 190px;align-items:center;gap:30px;padding:26px 0;will-change:opacity,transform;transition:filter .3s}
         .wk-row--dim{opacity:.2;filter:saturate(.25) brightness(.5)}
@@ -710,8 +664,6 @@ export default function Work() {
         .wk-row__line{position:absolute;bottom:0;left:0;right:0;height:1px;transition:background .35s}
         .wk-row__num{font-family:'DM Serif Display',serif;font-style:italic;font-size:30px;letter-spacing:-.03em;transition:color .25s}
         .wk-row__thumb{position:relative;width:148px;height:96px;border-radius:14px;overflow:hidden;flex-shrink:0;box-shadow:0 4px 24px rgba(0,0,0,.48);border:1px solid var(--border)}
-        .wk-row__thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s var(--ease);filter:brightness(.9) saturate(1.05)}
-        .wk-row--active .wk-row__thumb img{filter:brightness(1) saturate(1.1)}
         .wk-row__thumb-overlay{position:absolute;inset:0;border-radius:14px;transition:opacity .35s}
         .wk-row__thumb-stripe{position:absolute;top:0;left:0;right:0;height:2px;z-index:3}
         .wk-row__body{min-width:0}
@@ -729,7 +681,6 @@ export default function Work() {
         .wk-row__btn{display:inline-flex;align-items:center;gap:6px;font-family:'Syne',sans-serif;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--border);border-radius:8px;padding:9px 16px;background:transparent;color:var(--ink-3);transition:all .25s;white-space:nowrap;text-decoration:none}
         .wk-row__btn:hover{transform:translateY(-1px)}
 
-        /* ── TICKER ── */
         .wk__ticker{position:relative;z-index:1;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:40px 0}
         .wk__ticker::before{content:'';position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:240px;height:1px;background:linear-gradient(90deg,transparent,rgba(79,142,247,.7),transparent)}
         .wk__ticker-label{display:flex;align-items:center;gap:18px;justify-content:center;margin-bottom:26px;font-family:'Syne',sans-serif;font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--ink-3)}
@@ -742,18 +693,11 @@ export default function Work() {
         .wk__ticker-name{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:rgba(238,242,255,.85)}
         .wk__ticker-sep{width:4px;height:4px;border-radius:50%;background:rgba(79,142,247,.4);flex-shrink:0}
 
-        /* ── EMPTY ── */
         .wk__empty{grid-column:1/-1;display:flex;flex-direction:column;align-items:center;padding:100px 0;gap:14px;color:var(--ink-3);font-family:'Syne',sans-serif;font-size:13px;font-weight:600}
         .wk__empty-glyph{font-size:32px;opacity:.18;margin-bottom:4px}
         .wk__empty-mobile{display:flex;flex-direction:column;align-items:center;padding:80px 0;gap:14px;color:var(--ink-3);font-family:'Syne',sans-serif;font-size:13px;font-weight:600}
 
-        /* ── RESPONSIVE 1200px ── */
-        @media(max-width:1200px){
-          .wk__grid{grid-template-columns:repeat(2,1fr)}
-          .wk__grid .wk-card--wide{grid-column:span 2}
-        }
-
-        /* ── RESPONSIVE 900px ── */
+        @media(max-width:1200px){.wk__grid{grid-template-columns:repeat(2,1fr)}.wk__grid .wk-card--wide{grid-column:span 2}}
         @media(max-width:900px){
           .wk__nav{padding:0 24px;height:60px}
           .wk__hero{grid-template-columns:1fr;padding:48px 24px 52px;gap:32px}
@@ -763,7 +707,6 @@ export default function Work() {
           .wk__toolbar::after{left:24px;right:24px}
           .wk__filters{display:none}
           .wk__filter-dropdown-wrap{display:block}
-          /* Hide desktop grid on tablet, show mobile stack */
           .wk__grid{display:none}
           .wk__mobile-stack{display:block;padding:20px 24px 60px}
           .wk__list{padding:0 24px 64px}
@@ -772,8 +715,6 @@ export default function Work() {
           .wk-row__end{gap:7px}
           .wk-row__btn{font-size:10px;padding:7px 12px}
         }
-
-        /* ── RESPONSIVE 600px ── */
         @media(max-width:600px){
           .wk__nav{padding:0 16px}
           .wk__nav-back>span:first-child{display:none}
@@ -800,11 +741,7 @@ export default function Work() {
           .wk__ticker{padding:28px 0}
           .wk__ticker-label{margin-bottom:18px;font-size:8px}
         }
-
-        @media(max-width:380px){
-          .wk__hero-hed{font-size:clamp(38px,12vw,52px)}
-          .mob-card__img-wrap{height:170px}
-        }
+        @media(max-width:380px){.wk__hero-hed{font-size:clamp(38px,12vw,52px)}.mob-card__img-wrap{height:170px}}
       `}</style>
 
       <div className={`wk${loaded ? " is-loaded" : ""}`}>
@@ -813,7 +750,6 @@ export default function Work() {
         <div className="wk__orb wk__orb--b"/>
         <div className="wk__orb wk__orb--c"/>
 
-        {/* NAV */}
         <nav className={`wk__nav${scrolled ? " is-scrolled" : ""}`}>
           <div className="wk__nav-logo">Muchyz<em>.</em></div>
           <a href="/" className="wk__nav-back">
@@ -826,12 +762,11 @@ export default function Work() {
           </a>
         </nav>
 
-        {/* HERO */}
         <header className="wk__hero">
           <div>
             <div className="wk__eyebrow">
               <span className="wk__eyebrow-rule"/>
-              Selected Work — 2024 / 2025
+              Selected Work — 2024 / 2026
               <span className="wk__eyebrow-badge">{PROJECTS.length}</span>
             </div>
             <h1 className="wk__hero-hed">
@@ -882,7 +817,6 @@ export default function Work() {
           </div>
         </header>
 
-        {/* TOOLBAR */}
         <div className="wk__toolbar">
           <div className="wk__filters">
             {CATS.map(c => (
@@ -930,11 +864,9 @@ export default function Work() {
           </div>
         </div>
 
-        {/* CONTENT */}
         <div ref={sectionRef}>
           {view === "grid" ? (
             <>
-              {/* Desktop grid (hidden on mobile via CSS) */}
               <div className="wk__grid">
                 {filtered.length === 0
                   ? <div className="wk__empty"><div className="wk__empty-glyph">◎</div>No projects in this category yet.</div>
@@ -943,8 +875,6 @@ export default function Work() {
                       activeCard={activeCard} setActiveCard={setActiveCard} statsStarted={statsStarted}/>
                   ))}
               </div>
-
-              {/* Mobile vertical stack (hidden on desktop via CSS) */}
               <div className="wk__mobile-stack">
                 {filtered.length === 0
                   ? <div className="wk__empty-mobile"><div className="wk__empty-glyph">◎</div>No projects in this category yet.</div>
@@ -965,7 +895,6 @@ export default function Work() {
           )}
         </div>
 
-        {/* TICKER */}
         <div className="wk__ticker">
           <p className="wk__ticker-label">
             <span className="wk__ticker-rule"/>Technologies we build with<span className="wk__ticker-rule"/>

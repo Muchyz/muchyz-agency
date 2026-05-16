@@ -69,7 +69,6 @@ const LINKS = [
   },
 ];
 
-/* ── Instagram · TikTok · WhatsApp — real brand SVGs ── */
 const SOCIALS = [
   {
     label: "Instagram",
@@ -124,7 +123,6 @@ const SOCIALS = [
   },
 ];
 
-/* Splits "Muchyz" into individual burn-letter spans */
 const BurnWord = ({ word }) => (
   <>
     {word.split("").map((ch, i) => (
@@ -194,11 +192,9 @@ export default function Navbar() {
 
   return (
     <>
-      {/* ══════════ NAV BAR ══════════ */}
       <nav className={`nav${scrolled ? " nav--s" : ""}`} aria-label="Main navigation">
         <div className="nav__bar">
 
-          {/* Wordmark with per-letter burn animation */}
           <a href="#top" className="nav__wordmark" aria-label="Muchyz home">
             <BurnWord word="Muchyz" />
             <span className="nav__accent-dot">.</span>
@@ -230,7 +226,6 @@ export default function Navbar() {
                 <span className="nav__chip-pulse" aria-hidden="true" />
                 Let's Talk
               </a>
-
               <button
                 className={`burger${menuOpen ? " burger--open" : ""}`}
                 onClick={() => setMenuOpen((o) => !o)}
@@ -245,14 +240,12 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* ══════════ BACKDROP ══════════ */}
       <div
         className={`nav__backdrop${menuOpen ? " open" : ""}`}
         onClick={closeMenu}
         aria-hidden="true"
       />
 
-      {/* ══════════ LEFT SIDE DRAWER ══════════ */}
       <aside
         id="nav-drawer"
         className={`drawer${menuOpen ? " drawer--open" : ""}`}
@@ -262,7 +255,6 @@ export default function Navbar() {
       >
         <div className="drawer__strip" aria-hidden="true" />
 
-        {/* ── Header with burn wordmark ── */}
         <div className="drawer__header">
           <a href="#top" className="drawer__wordmark" onClick={closeMenu}>
             <BurnWord word="Muchyz" />
@@ -279,7 +271,6 @@ export default function Navbar() {
         <p className="drawer__tagline">Digital Agency · Nairobi</p>
         <div className="drawer__rule" aria-hidden="true" />
 
-        {/* ── Nav links ── */}
         <nav className="drawer__nav" aria-label="Drawer navigation">
           <ul role="list">
             {LINKS.map(({ label, href, icon, color }, i) => (
@@ -307,7 +298,6 @@ export default function Navbar() {
 
         <div className="drawer__rule drawer__rule--soft" aria-hidden="true" />
 
-        {/* ── Contact info ── */}
         <div className="drawer__contact">
           <a href="tel:+254705427449" className="drawer__contact-row">
             <span className="drawer__contact-icon drawer__contact-icon--blue">
@@ -340,7 +330,6 @@ export default function Navbar() {
 
         <div className="drawer__rule drawer__rule--soft" aria-hidden="true" />
 
-        {/* ── Socials — 3 horizontal icon tiles above CTA ── */}
         <div className="drawer__socials">
           {SOCIALS.map(({ label, href, icon }) => (
             <a
@@ -357,7 +346,6 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* ── CTA ── */}
         <div className="drawer__cta-wrap">
           <a
             href="https://wa.me/254705427449"
